@@ -67,7 +67,7 @@ function OverviewView() {
     setBusy(lead.lead_id);
     try {
       await unwrap(
-        api.PATCH("/leads/{lead_id}/status", { params: { path: { lead_id: lead.lead_id } }, body: { status: "contacted" } }),
+        api.POST("/leads/{lead_id}/status", { params: { path: { lead_id: lead.lead_id } }, body: { status: "contacted" } }),
         "The status could not be saved. Try again.",
       );
       setMsg({ text: `${lead.name} marked as contacted.`, ok: true });

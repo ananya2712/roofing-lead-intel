@@ -24,102 +24,129 @@
     "slide": 4,
     "title": "Architecture and data flow",
     "htmlSections": [
-      "flow"
+      "flow",
+      "control"
     ]
   },
   {
     "slide": 5,
-    "title": "Opening the app: file control",
-    "htmlSections": [
-      "control"
-    ]
+    "title": "Scraping pipeline: how it was done",
+    "htmlSections": []
   },
   {
     "slide": 6,
-    "title": "Saving from Prospects: file control",
-    "htmlSections": [
-      "control"
-    ]
+    "title": "Scraping parameters",
+    "htmlSections": []
   },
   {
     "slide": 7,
+    "title": "Running the pipeline in production",
+    "htmlSections": []
+  },
+  {
+    "slide": 8,
+    "title": "Handling traffic changes",
+    "htmlSections": []
+  },
+  {
+    "slide": 9,
+    "title": "Data storage policies",
+    "htmlSections": []
+  },
+  {
+    "slide": 10,
+    "title": "All prospects or only high scores?",
+    "htmlSections": []
+  },
+  {
+    "slide": 11,
     "title": "Database model",
     "htmlSections": [
       "database"
     ]
   },
   {
-    "slide": 8,
+    "slide": 12,
     "title": "Scoring and business rules",
     "htmlSections": [
       "rules"
     ]
   },
   {
-    "slide": 9,
+    "slide": 13,
+    "title": "Ideal customer profile and scoring rationale",
+    "htmlSections": []
+  },
+  {
+    "slide": 14,
     "title": "API contract: reads",
     "htmlSections": [
       "api"
     ]
   },
   {
-    "slide": 10,
+    "slide": 15,
     "title": "API contract: mutations",
     "htmlSections": [
       "api"
     ]
   },
   {
-    "slide": 11,
+    "slide": 16,
     "title": "Frontend behavior",
     "htmlSections": [
       "frontend"
     ]
   },
   {
-    "slide": 12,
+    "slide": 17,
     "title": "Dashboard KPI semantics",
     "htmlSections": [
       "frontend"
     ]
   },
   {
-    "slide": 13,
+    "slide": 18,
     "title": "Reliability and trade-offs",
     "htmlSections": [
       "reliability"
     ]
   },
   {
-    "slide": 14,
+    "slide": 19,
     "title": "Production extensibility: data",
     "htmlSections": [
       "extensibility"
     ]
   },
   {
-    "slide": 15,
+    "slide": 20,
     "title": "Production extensibility: workflow",
     "htmlSections": [
       "extensibility"
     ]
   },
   {
-    "slide": 16,
+    "slide": 21,
     "title": "Future work and rollout priorities",
     "htmlSections": [
       "future"
     ]
   },
   {
-    "slide": 17,
-    "title": "Testing: 106 recorded passes",
+    "slide": 22,
+    "title": "Testing: 107 passing tests",
     "htmlSections": [
       "verification"
     ]
   },
   {
-    "slide": 18,
+    "slide": 23,
+    "title": "Testing: failures found and fixed",
+    "htmlSections": []
+  },
+  {
+    "slide": 24,
     "title": "Evidence boundaries and next checks",
     "htmlSections": [
       "verification"

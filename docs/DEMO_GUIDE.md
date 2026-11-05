@@ -1,6 +1,6 @@
 # Demo Guide
 
-Status: **Verified on 2026-11-05.** 106 automated tests pass against the local Docker Compose app with the real GAF snapshot (409 prospects). See [TEST_RESULTS.md](TEST_RESULTS.md).
+Status: **Verified on 2026-11-05.** 107 automated tests pass against the local Docker Compose app with the real GAF snapshot (409 prospects). See [TEST_RESULTS.md](TEST_RESULTS.md).
 
 ## 1. Setup (before the demo)
 
@@ -72,4 +72,8 @@ Tests create only `ZZTEST` rows and delete them at the end. The demo data does n
 
 ## Presentation
 
-[PROJECT_DEMO.pptx](PROJECT_DEMO.pptx) is a two-slide draft. It is out of date (it shows 176 prospects). The user asked to leave it as it is for now.
+[PROJECT_DEMO.pptx](PROJECT_DEMO.pptx) contains 24 editable slides. Slides 5–10 explain the scraping pipeline: how it was done, its parameters, production changes, traffic changes, storage policies, and why all prospects are kept. Slide 13 explains the ideal customer profile and the scoring weights. Slides 22–23 show the 107 tests and the 7 failures found and fixed. The two file-control flow slides were removed; slide 4 keeps the architecture and data flow. It includes all eight endpoints, trade-offs, production extensions, future work and evidence boundaries. Detailed explanations are in speaker notes. There is no demo-sequence slide.
+
+The deck uses the current 409-listing snapshot. The 107-test suite ran on 5 November 2026 before this deck version was built. Slides were rendered and inspected, with package/layout checks. Native PowerPoint behavior remains unverified. The compact handoff is [PRESENTATION_CONTEXT.md](PRESENTATION_CONTEXT.md).
+
+Slide 4 now shows 12 runtime steps and six separate import/scoring steps. It distinguishes commit, save-only ORM expiration, response serialization, error handling and parallel post-save refreshes. The offline version is [request-flow.svg](architecture/request-flow.svg), also embedded in the HTML. The API table uses the current POST status-update route.

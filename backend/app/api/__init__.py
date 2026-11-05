@@ -59,7 +59,7 @@ def list_leads():
     return _json(services.list_leads(get_session(), q))
 
 
-@api_bp.patch("/leads/<int:lead_id>/status")
+@api_bp.post("/leads/<int:lead_id>/status")
 def update_status(lead_id: int):
     body = StatusUpdate.model_validate(_body())
     return _json(services.update_status(get_session(), lead_id, body.status))

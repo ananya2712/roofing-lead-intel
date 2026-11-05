@@ -126,11 +126,11 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        post?: never;
+        post: operations["updateLeadStatus"];
         delete?: never;
         options?: never;
         head?: never;
-        patch: operations["updateLeadStatus"];
+        patch?: never;
         trace?: never;
     };
 }

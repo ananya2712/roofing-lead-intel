@@ -68,7 +68,7 @@ export default function ProspectPage() {
     setMarking(true);
     try {
       update(await unwrap(
-        api.PATCH("/leads/{lead_id}/status", { params: { path: { lead_id: leadId } }, body: { status: "contacted" } }),
+        api.POST("/leads/{lead_id}/status", { params: { path: { lead_id: leadId } }, body: { status: "contacted" } }),
         "The status could not be saved. Try again.",
       ));
       setMsg({ text: "Marked as contacted.", ok: true });

@@ -29,8 +29,8 @@ def test_detail_and_mutations_match_contract(client, test_prospects):
     s = client.post(f"/api/v1/prospects/{pid}/save")
     assert s.status_code == 201
     assert check_schema(s.get_json(), response_schema("/prospects/{prospect_id}/save", "post", 201)) == []
-    p = client.patch(f"/api/v1/leads/{s.get_json()['lead']['id']}/status", json={"status": "qualified"})
-    assert check_schema(p.get_json(), response_schema("/leads/{lead_id}/status", "patch", 200)) == []
+    p = client.post(f"/api/v1/leads/{s.get_json()['lead']['id']}/status", json={"status": "qualified"})
+    assert check_schema(p.get_json(), response_schema("/leads/{lead_id}/status", "post", 200)) == []
 
 
 BAD = [
@@ -65,7 +65,7 @@ def test_empty_query_values_mean_no_filter(client):
 def test_invalid_status_bodies_return_422_and_change_nothing(client, engine, test_prospects, body, ctype):
     lead_id = client.post(f"/api/v1/prospects/{test_prospects['SAVE5']}/save").get_json()["lead"]["id"]
     before = sql(engine, "SELECT status, status_changed_at FROM leads WHERE id = :i", i=lead_id)
-    r = client.patch(f"/api/v1/leads/{lead_id}/status", data=body, content_type=ctype)
+    r = client.post(f"/api/v1/leads/{lead_id}/status", data=body, content_type=ctype)
     assert r.status_code == 422
     assert r.get_json()["error"]["code"] == "validation_error"
     assert sql(engine, "SELECT status, status_changed_at FROM leads WHERE id = :i", i=lead_id) == before
@@ -73,10 +73,10 @@ def test_invalid_status_bodies_return_422_and_change_nothing(client, engine, tes
 
 @pytest.mark.parametrize("method,url", [
     ("get", "/api/v1/prospects/999999999"), ("post", "/api/v1/prospects/999999999/save"),
-    ("patch", "/api/v1/leads/999999999/status"),
+    ("post", "/api/v1/leads/999999999/status"),
 ])
 def test_missing_ids_return_404(client, method, url):
-    r = getattr(client, method)(url, json={"status": "new"} if method == "patch" else None)
+    r = getattr(client, method)(url, json={"status": "new"} if url.endswith("/status") else None)
     assert r.status_code == 404
     assert r.get_json()["error"]["code"] == "not_found"
 
@@ -84,3 +84,15 @@ def test_missing_ids_return_404(client, method, url):
 def test_unknown_route_uses_error_shape(client):
     r = client.get("/api/v1/nothing-here")
     assert r.status_code == 404 and "error" in r.get_json()
+
+
+def test_patch_status_endpoint_is_removed(client, engine, test_prospects):
+    """Status changes use POST only (decision D25). PATCH returns 405 and changes nothing."""
+    from conftest import OPENAPI
+
+    lead_id = client.post(f"/api/v1/prospects/{test_prospects['SAVE5']}/save").get_json()["lead"]["id"]
+    r = client.patch(f"/api/v1/leads/{lead_id}/status", json={"status": "qualified"})
+    assert r.status_code == 405
+    assert r.get_json()["error"]["code"] == "method_not_allowed"
+    assert sql(engine, "SELECT status FROM leads WHERE id = :i", i=lead_id)[0][0] == "new"
+    assert all("patch" not in ops for ops in OPENAPI["paths"].values())

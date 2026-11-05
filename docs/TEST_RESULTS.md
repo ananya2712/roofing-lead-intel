@@ -1,6 +1,6 @@
 # Test Results
 
-**Final run on 2026-11-05: 106 passed, 0 failed, 0 skipped (about 21 seconds).**
+**Final run on 2026-11-05: 107 passed, 0 failed, 0 skipped (about 21 seconds).** The suite ran again after the status route changed from PATCH to POST (D25); one test was added to prove that PATCH now returns 405.
 
 The tests found 4 application bugs and 2 test bugs, and hit 1 environment problem. Each one is fixed and rerun below.
 
@@ -30,7 +30,7 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements-test.txt
 | # | Category | File | Tests | What the tests prove | Result |
 | --- | --- | --- | --- | --- | --- |
 | 1 | Scoring | `test_scoring.py` | 36 | Total and tier match hand calculations for 25 records. Distance cutoffs at 10.0 / 10.1 / 25.0 / 25.1 / 50.0 mi and unknown. Tiers at 70 / 69 / 45 / 44. Freshness: 5 points at exactly 30 days, 0 points one second later. Unknown is separate from zero (rating 0 vs no rating). Commercial needs technologies for roof-system points. Saving and status changes never change the score. | Pass |
-| 2 | API validation and contract | `test_api_validation.py` | 31 | 8 valid GET requests and 3 mutations match `openapi.yaml`. 13 invalid query values return 422 with the standard error shape. Invalid, malformed or non-JSON bodies return 422 and change nothing. Missing IDs return 404. Empty query values mean "no filter". | Pass |
+| 2 | API validation and contract | `test_api_validation.py` | 32 | 8 valid GET requests and 3 mutations match `openapi.yaml`. 13 invalid query values return 422 with the standard error shape. Invalid, malformed or non-JSON bodies return 422 and change nothing. Missing IDs return 404. Empty query values mean "no filter". | Pass |
 | 3 | Filters and pagination | `test_filters.py` | 11 | 5 filter combinations on the real 409 prospects: every row matches, pages never repeat, the total equals the database count. Default order (score, distance, name), distance sort and name sort. Page beyond the end is empty, not an error. Certification filter. Hide saved also hides the other listing of a saved company. | Pass |
 | 4 | Saving and duplicates | `test_saving.py` | 5 | First save: 201 and one lead with status New. Repeat save: 200 and no new row. 8 parallel saves of one prospect: one 201, one row. Same company in both directories: 409 `company_already_saved` with the existing lead. 8 parallel saves across both listings: one lead. | Pass |
 | 5 | Snapshot import | `test_import.py` | 4 | CLI import twice: "2 new", then "0 new, 2 updated". Re-import with changed facts updates the facts and the score but keeps the lead, its status and its status time. 3 invalid records are named in the output and the valid record imports ("partial"). Import does not touch the scores of real prospects. | Pass |
@@ -52,7 +52,7 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements-test.txt
 | F6 | Browser late response | `test_late_response_does_not_replace_newer_results` | Playwright "strict mode violation": `get_by_label("Search")` found 2 elements. | The filter chip button "Remove filter Search: …" also matches the label "Search". | Test now uses `get_by_role("searchbox", name="Search")`. | Test bug | Pass |
 | F7 | Browser narrow screen | `test_narrow_screen_has_no_page_level_horizontal_scroll` (3 pages) | At 390 px: Sales dashboard and Saved leads were 11–12 px too wide; Prospects was 522 px too wide. | (a) The three sidebar links stayed in one row. (b) The directory toggle did not wrap. (c) The hidden "Actions" table header label (`sr-only`, absolutely positioned) escaped the table's scroll area, so the whole page became 912 px wide. | `Sidebar.tsx`: links wrap. `DirectoryToggle.tsx`: buttons wrap. `app/prospects/page.tsx`: the table scroll area is `relative`, so the hidden label stays inside it. | App bug | Pass |
 
-**Change after the run (not a failure):** the user moved Mark contacted out of the Saved-leads table and onto the lead page, and renamed Overview to Sales dashboard. Two browser tests were updated and one test was added for this. The full suite then passed again (106).
+**Change after the run (not a failure):** the user moved Mark contacted out of the Saved-leads table and onto the lead page, and renamed Overview to Sales dashboard. Two browser tests were updated and one test was added for this. The full suite then passed again (106). After the PATCH-to-POST change (D25) it passed with 107 tests.
 
 ## 4. Not covered
 

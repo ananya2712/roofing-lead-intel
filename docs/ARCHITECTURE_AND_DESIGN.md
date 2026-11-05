@@ -117,7 +117,7 @@ flowchart LR
 | `GET /api/v1/prospects/{id}` | Prospect detail | path `id` | `ProspectDetail` | 404 | `app/prospects/[id]/page.tsx` |
 | `POST /api/v1/prospects/{id}/save` | Save as lead | path `id` | `ProspectDetail` (201 new, 200 already saved) | 404, 409 `company_already_saved` | `components/leads/SaveButton.tsx` |
 | `GET /api/v1/leads` | Saved leads, status counts and call-list counts | `q, scope (active/all/dismissed), status (new/contacted/qualified), queue (first_contact/follow_up_due), directory, tier, sort (priority/recently_saved/oldest_status_change), page, page_size` | `LeadList` | 422 | `app/leads/page.tsx` |
-| `PATCH /api/v1/leads/{id}/status` | Change status | body `{status}` | `ProspectDetail` | 404, 422 | `components/leads/StatusSelect.tsx`; Mark contacted in `app/page.tsx` (Call next) and `app/prospects/[id]/page.tsx` |
+| `POST /api/v1/leads/{id}/status` | Change status (PATCH returns 405, D25) | body `{status}` | `ProspectDetail` | 404, 405 for PATCH, 422 | `components/leads/StatusSelect.tsx`; Mark contacted in `app/page.tsx` (Call next) and `app/prospects/[id]/page.tsx` |
 
 Every error uses one shape, made in `backend/app/errors.py`:
 
@@ -169,7 +169,7 @@ The unique indexes decide a race between two saves. One request inserts. The oth
 
 ### Flow: change status
 
-`StatusSelect.tsx` sets the new value at once, sends `PATCH /leads/{id}/status`, and returns to the old value if the request fails. `services.update_status` changes `status_changed_at` only when the status really changes. The Overview "Mark contacted" button uses the same endpoint.
+`StatusSelect.tsx` sets the new value at once, sends `POST /leads/{id}/status`, and returns to the old value if the request fails. `services.update_status` changes `status_changed_at` only when the status really changes. The Overview "Mark contacted" button uses the same endpoint.
 
 ### Flow: saved leads
 
@@ -274,7 +274,7 @@ Redline Enterprises LLC, residential, 38.0 mi, phone listed, no website, full ad
 
 - One lead for each prospect, and one for each company by phone digits (D8).
 - Any status can change to any other status (D13). Dismissed hides a lead from the working list.
-- Follow-up due (`is_follow_up_due`): status Contacted and `now - status_changed_at >= 14 days` (`FOLLOW_UP_DAYS`). A PATCH with the same status does not change `status_changed_at`, so it does not reset the 14 days.
+- Follow-up due (`is_follow_up_due`): status Contacted and `now - status_changed_at >= 14 days` (`FOLLOW_UP_DAYS`). A status POST with the same status does not change `status_changed_at`, so it does not reset the 14 days.
 - Scope: `active` (default) hides Dismissed; `all` shows every lead; `dismissed` shows only Dismissed.
 - Lead sorts end with `lead_id`, so pages do not repeat or skip a lead: priority (score, name, id), recently saved (`saved_at` newest first), oldest status change (`status_changed_at` oldest first).
 - "Contacted" on the Sales dashboard counts Contacted plus Qualified. The share uses saved leads that are not dismissed.
@@ -302,7 +302,7 @@ Redline Enterprises LLC, residential, 38.0 mi, phone listed, no website, full ad
 - Frontend: late responses are ignored; buttons are disabled while a request runs; a failed status change returns to the old value.
 - Secrets: `.env` is in `.gitignore`. `.env.example` has placeholders only. The current app reads only database settings.
 
-**Tests.** 106 automated tests pass (pytest API and database tests, Playwright browser tests): see `docs/TEST_RESULTS.md`. They run against the demo database and create and delete only `TEST-` / `ZZTEST` rows. The run found and fixed 4 application bugs (distance filter 422, save response without the lead, raw network error text, phone-width overflow).
+**Tests.** 107 automated tests pass (pytest API and database tests, Playwright browser tests): see `docs/TEST_RESULTS.md`. They run against the demo database and create and delete only `TEST-` / `ZZTEST` rows. The run found and fixed 4 application bugs (distance filter 422, save response without the lead, raw network error text, phone-width overflow).
 
 **Gaps and risks.**
 

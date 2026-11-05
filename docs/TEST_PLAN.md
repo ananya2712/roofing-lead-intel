@@ -1,6 +1,6 @@
 # Test Plan
 
-Status: **Done on 2026-11-05.** 106 tests pass. Results, failures and fixes: [TEST_RESULTS.md](TEST_RESULTS.md).
+Status: **Done on 2026-11-05.** 107 tests pass. Results, failures and fixes: [TEST_RESULTS.md](TEST_RESULTS.md).
 
 ## Test types
 

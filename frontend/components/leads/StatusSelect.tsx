@@ -30,7 +30,7 @@ export function StatusSelect({ leadId, value, label, onSaved, onMessage }: Props
     setPending(true);
     try {
       const detail = await unwrap(
-        api.PATCH("/leads/{lead_id}/status", { params: { path: { lead_id: leadId } }, body: { status: next } }),
+        api.POST("/leads/{lead_id}/status", { params: { path: { lead_id: leadId } }, body: { status: next } }),
         "The status could not be saved. Try again.",
       );
       onSaved(next, detail);

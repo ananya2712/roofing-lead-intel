@@ -24,7 +24,7 @@ def test_reimport_updates_facts_and_keeps_lead_and_status(app, client, engine, t
     run_import(app, f.parent)
     pid = sql(engine, "SELECT id FROM prospects WHERE gaf_source_id = 'TEST-IMP3'")[0][0]
     lead_id = client.post(f"/api/v1/prospects/{pid}/save").get_json()["lead"]["id"]
-    client.patch(f"/api/v1/leads/{lead_id}/status", json={"status": "qualified"})
+    client.post(f"/api/v1/leads/{lead_id}/status", json={"status": "qualified"})
     changed_at = sql(engine, "SELECT status_changed_at FROM leads WHERE id = :i", i=lead_id)[0][0]
 
     f.write_text(json.dumps(snapshot("residential", [rec("IMP3", phone="(212) 555-0131", distance_mi=4.0, website_url="https://example.com/new")])))

@@ -9,8 +9,8 @@ Give sales representatives of a roofing-materials distributor one place to find 
 - GAF residential and commercial directories, ZIP 10013, 50 mi, full profiles, collected one time (D1–D3).
 - Tables: `prospects`, `prospect_scores`, `leads` (D4). No Alembic (D5). No fixtures and no test database (D6).
 - Deterministic score v1 (D7). One saved lead for each company (D8).
-- Views: Overview, Prospects, Saved leads, Prospect details.
-- Deferred: notes (D10), AI insights (D11). Tests wait for the user (D17).
+- Views: Sales dashboard, Prospects, Saved leads, Prospect details.
+- Deferred: notes (D10), AI insights (D11). Tests authorized under D22; 106 passes recorded in `docs/TEST_RESULTS.md`.
 - Out of scope: login, outreach, CRM sync, segmentation, multi-agent orchestration, queues.
 
 ## Milestones
@@ -23,7 +23,7 @@ Give sales representatives of a roofing-materials distributor one place to find 
 | M3 | Frontend: four views | Done (first version) |
 | M4 | Docker Compose run and manual checks | Done (manual checks below) |
 | M5 | Tests | Done: 106 passed (see `docs/TEST_RESULTS.md`) |
-| M6 | Architecture guide, diagrams, handoff, walkthrough, presentation | Docs done (see the 2026-11-05 docs entry). Presentation: two-slide draft only. |
+| M6 | Architecture guide, diagrams, handoff, walkthrough, presentation | Done: 18-slide editable deck based on the current HTML, with tables, diagrams and speaker notes. |
 
 ## History
 
@@ -155,4 +155,39 @@ Give sales representatives of a roofing-materials distributor one place to find 
 | Frontend build | `npm run build` in `frontend/` | Compiled successfully; 5 routes | — |
 | Test rows removed | SQL count after the run | 0 `TEST-` rows; 409 prospects; the 2 real leads unchanged | — |
 | `CODE_WALKTHROUGH.html`, `PRODUCT_EVOLUTION.html` | Rewrote the walkthrough (table-based, per `AGENTS.md`); added Entry 005 to the running record; opened both in Chrome | Both parse as HTML and render; past record entries kept | — |
+
+### 2026-11-05 — Complete HTML-based presentation
+
+| Change | Result / reason | Verification boundary |
+| --- | --- | --- |
+| `PROJECT_DEMO.pptx` | Expanded the old two-slide draft to 18 editable slides in current HTML order. Tables throughout; native architecture/data-model diagrams; first-open/save file flow; eight endpoints; alternatives, production extensions and future work. No cover or demo-sequence slide. | Package integrity passed; 18 slides imported; native table ownership and layout checks passed with zero findings. Slides rendered and visually inspected. Native PowerPoint execution not checked. |
+| `CODE_WALKTHROUGH.html` and build source | Refreshed obsolete distance-filter, test-status and dashboard-name text against current source and `TEST_RESULTS.md`. | Read-only local API checks: health 200, 409 prospects, `max_distance=10` 200. No app writes or test-suite rerun. |
+| `PRESENTATION_CONTEXT.md`, `DEMO_GUIDE.md`, `PRODUCT_EVOLUTION.html` | Added compact working context, replaced stale current slide-count statements and retained earlier history. | Current deck cites the recorded 106-test run instead of claiming a new run. |
+
+### 2026-11-05 — More detailed architecture diagram
+
+| Change | Result / reason | Verification boundary |
+| --- | --- | --- |
+| Deck slide 4; embedded HTML; `architecture/request-flow.svg` and PNG | Expanded four boxes to 12 runtime steps and six setup stages. Show request/response direction, validation, service, ORM, commit constraints, save-only reload, serialization, errors and UI refetch. | Compared arrows with current UI/client, routes/schemas, services, queries/models, DB and CLI/importer source. Save and reads have different branches; independent GETs can overlap. |
+| Shared diagram module | `.presentation-build/full/architecture_flow.mjs` supplies native PPT elements and SVG labels. Preserved the 18-slide structure and table formatting. | Rendered slide/image inspection; package integrity and layout checks. Native PowerPoint not checked. |
+| Status-route label | Corrected stale PATCH to POST in the deck and HTML from current Flask/OpenAPI/frontend evidence. | No application code or business data changed; no application suite rerun. |
+| Supporting records | Updated diagram README, compact context, demo guide and running HTML. | Unrelated slides compared against prior rendered output. |
+
+### 2026-11-05 — PATCH removed; deck: scraping pipeline, ICP, tests
+
+| File | Change | Reason |
+| --- | --- | --- |
+| `backend/app/api/__init__.py`, `openapi.yaml`, `frontend/lib/api-types.ts` (generated) | Status route changed from PATCH to POST | D25 |
+| `frontend/components/leads/StatusSelect.tsx`, `frontend/app/page.tsx`, `frontend/app/prospects/[id]/page.tsx` | Call `api.POST` for status changes | D25 |
+| `backend/tests/*.py` | Status calls use POST; new test: PATCH returns 405 and changes nothing | D25 |
+| `docs/.presentation-build/full/build.mjs`, `docs/PROJECT_DEMO.pptx` | Removed slides "Opening the app: file control" and "Saving from Prospects: file control". Added 6 scraping-pipeline slides, an ideal-customer-profile slide and a test-failures slide. Test slide shows 107. 405 row on the API slide. 24 slides. | User request |
+| `docs/CODE_WALKTHROUGH.html`, `docs/.presentation-build/full/source.json` | POST in the API table; 107 tests | D25 |
+
+| Check | Command or action | Result | Not checked |
+| --- | --- | --- | --- |
+| Full test suite | `cd backend && .venv/bin/pytest tests --browser chromium` | 107 passed in about 21 s | — |
+| Live API | `PATCH /api/v1/leads/1/status` on port 5001 | 405 | — |
+| Test rows removed | SQL count after the run | 0 `TEST-` rows; 409 prospects; 2 real leads unchanged | — |
+| Deck build | `RUNTIME_NODE_MODULES=… node build.mjs v7` | 24 slides; package check pass; 0 layout findings; 24 notes | Native PowerPoint not opened |
+| Slide review | Read rendered previews 4–10, 13, 15, 22, 23 | Readable; no clipping or overlap | Other slides unchanged from v6 and not reinspected |
 

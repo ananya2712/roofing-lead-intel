@@ -59,11 +59,65 @@
     <div class="eyebrow">Roofing Lead Intel / Repository record</div>
     <h1>Product evolution</h1>
     <p>What changed, why it changed, and how the product fits together. This record follows the source files and keeps unknowns visible.</p>
-    <p class="meta">Latest update: <time datetime="2026-11-05">5 November 2026</time>, Entry 005 (complete data, Saved-leads redesign, directory filter, 106 passing tests and 4 fixed bugs) · Repository: <code>roofing-lead-intel</code></p>
+    <p class="meta">Latest update: <time datetime="2026-11-05">5 November 2026</time>, Entry 006 (PATCH removed, POST status route; deck adds scraping pipeline, ideal customer profile and tests; 107 passing tests) · Repository: <code>roofing-lead-intel</code></p>
   </header>
   <nav aria-label="Contents">
-    <a href="CODE_WALKTHROUGH.html">Current code walkthrough</a><a href="#tests-update">Latest update (Entry 005)</a><a href="#walkthrough-update">Walkthrough update</a><a href="#latest-review">Earlier slide review</a><a href="#changes">Change history</a><a href="#architecture">Earlier architecture snapshot</a><a href="#decisions">Earlier decisions</a><a href="#files">Earlier file map</a><a href="#gaps">Earlier open questions</a><a href="#verification">Earlier verification</a><a href="#maintenance">How this stays current</a>
+    <a href="#entry-006">Latest update (Entry 006)</a><a href="CODE_WALKTHROUGH.html">Current code walkthrough</a><a href="#granular-architecture">Granular architecture (Entry 007)</a><a href="#presentation-update">Presentation (Entry 006)</a><a href="#tests-update">Tests (Entry 005)</a><a href="#walkthrough-update">Walkthrough update</a><a href="#latest-review">Earlier slide review</a><a href="#changes">Change history</a><a href="#architecture">Earlier architecture snapshot</a><a href="#decisions">Earlier decisions</a><a href="#files">Earlier file map</a><a href="#gaps">Earlier open questions</a><a href="#verification">Earlier verification</a><a href="#maintenance">How this stays current</a>
   </nav>
+
+  <section id="entry-006">
+    <h2>5 November 2026 · Entry 006 · PATCH removed; deck adds scraping pipeline, ideal customer profile and tests</h2>
+    <div class="table-scroll"><table>
+      <thead><tr><th scope="col">Area</th><th scope="col">Before</th><th scope="col">After</th><th scope="col">Reason</th><th scope="col">Evidence</th></tr></thead>
+      <tbody>
+        <tr><td>Status route</td><td><code>PATCH /api/v1/leads/{lead_id}/status</code></td><td><code>POST /api/v1/leads/{lead_id}/status</code>, same body; PATCH returns 405</td><td>User asked to remove PATCH and chose POST (D25)</td><td>Observed: 107 tests pass; live PATCH returns 405</td></tr>
+        <tr><td>Deck flow slides</td><td>Slides "Opening the app: file control" and "Saving from Prospects: file control"</td><td>Removed; slide 4 keeps architecture and data flow</td><td>User request</td><td>Rendered previews</td></tr>
+        <tr><td>Deck scraping pipeline</td><td>Not covered</td><td>Slides 5–10: method, parameters, production changes, traffic changes, storage policies, all prospects kept</td><td>User request</td><td>Rendered previews; facts from snapshot headers and decision log</td></tr>
+        <tr><td>Deck scoring rationale</td><td>Weights only</td><td>Slide 13: ideal customer profile, signal, points and reason for each trait; unscored signals</td><td>User request</td><td>Weights from <code>scoring.py</code> and D7</td></tr>
+        <tr><td>Deck tests</td><td>106 recorded passes, not rerun</td><td>107 passes (rerun) and a slide with the 7 failures and fixes</td><td>User request; D25 added a test</td><td>Observed test run</td></tr>
+        <tr><td>Deck size</td><td>18 slides</td><td>24 slides with speaker notes</td><td>—</td><td>Package check pass; 0 layout findings</td></tr>
+      </tbody>
+    </table></div>
+    <div class="table-scroll"><table>
+      <thead><tr><th scope="col">Changed files</th><th scope="col">Component</th></tr></thead>
+      <tbody>
+        <tr><td><code>backend/app/api/__init__.py</code>, <code>openapi.yaml</code>, <code>frontend/lib/api-types.ts</code></td><td>API contract</td></tr>
+        <tr><td><code>frontend/components/leads/StatusSelect.tsx</code>, <code>frontend/app/page.tsx</code>, <code>frontend/app/prospects/[id]/page.tsx</code></td><td>Frontend callers</td></tr>
+        <tr><td><code>backend/tests/*.py</code></td><td>Tests (POST calls; PATCH 405 test)</td></tr>
+        <tr><td><code>docs/.presentation-build/full/build.mjs</code>, <code>docs/PROJECT_DEMO.pptx</code></td><td>Deck</td></tr>
+        <tr><td><code>CODE_WALKTHROUGH.html</code>, <code>DECISION_LOG.md</code>, <code>TEST_RESULTS.md</code>, <code>DEMO_GUIDE.md</code>, <code>ARCHITECTURE_AND_DESIGN.md</code>, <code>PRESENTATION_CONTEXT.md</code>, <code>BUILD_PROGRESS.md</code></td><td>Records</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="granular-architecture">
+    <h2>5 November 2026 · Entry 007 · Granular architecture diagram</h2>
+    <div class="table-scroll"><table>
+      <thead><tr><th scope="col">Change</th><th scope="col">Before / after</th><th scope="col">Reason / boundary</th></tr></thead>
+      <tbody>
+        <tr><td>Slide 4 runtime path</td><td>Four component boxes replaced by 12 numbered steps: React, client, proxy, input checks, service, ORM, PostgreSQL, reload, response model, JSON, client error handling and UI refresh</td><td>User requested more granularity. Request and response lanes preserve readable text and editable native objects.</td></tr>
+        <tr><td>Setup path</td><td>Separate six-stage row: recorded JSON, CLI, validation/normalization, source upsert, scoring imported IDs, persisted score/version</td><td>Import and scoring run explicitly, outside page/save requests. Source and score commits remain separate.</td></tr>
+        <tr><td>Error and persistence boundaries</td><td>Save-only ORM expiration; validation/missing-record errors; commit-conflict rollback and repeat-save recovery</td><td>Source-derived behavior. No new application test, API mutation or provider call.</td></tr>
+        <tr><td>HTML and reusable image</td><td>Updated embedded diagram; <a href="architecture/request-flow.svg">editable SVG</a> and <a href="architecture/request-flow.png">PNG preview</a>; compact context refreshed</td><td>Shared diagram content prevents slide/image label drift.</td></tr>
+        <tr><td>Contract correction</td><td>Status update label changed from PATCH to POST in the deck and HTML</td><td>Current Flask route, OpenAPI and frontend caller all use POST. Application code unchanged.</td></tr>
+        <tr><td>Review</td><td>18-slide package/layout checks and rendered-image comparison; architecture and mutation slides changed</td><td>Source inspection and artifact verification. Native PowerPoint and the application suite were not run.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="presentation-update">
+    <h2>5 November 2026 · Entry 006 · HTML-based technical presentation</h2>
+    <div class="table-scroll"><table>
+      <thead><tr><th scope="col">Area</th><th scope="col">Result</th><th scope="col">Reason or boundary</th></tr></thead>
+      <tbody>
+        <tr><td>Presentation</td><td><a href="PROJECT_DEMO.pptx">18 editable slides with speaker notes</a>, following the current HTML order</td><td>User requested concise tables, alternatives and trade-offs; no demo sequence</td></tr>
+        <tr><td>Architecture</td><td>Native request-flow and database diagrams; first-open and save file/function tables; all eight endpoints</td><td>Source-traced execution, including independent reads and post-commit ORM refresh</td></tr>
+        <tr><td>Current evidence</td><td>409 listings; fixed distance filter; 106 passes attributed to the existing test report</td><td>Read-only GET checks in this task; no application suite rerun or business-data writes</td></tr>
+        <tr><td>Verification</td><td>Package/layout checks and rendered-slide inspection</td><td>Native PowerPoint execution remains unverified</td></tr>
+        <tr><td>Compact handoff</td><td><a href="PRESENTATION_CONTEXT.md">Presentation context</a>; guide and progress record updated</td><td>Current contract retained without repeating the conversation</td></tr>
+      </tbody>
+    </table></div>
+  </section>
 
   <section id="tests-update">
     <h2>5 November 2026 · Entry 005 · Complete data, Saved-leads redesign, directory filter, tests and fixes</h2>

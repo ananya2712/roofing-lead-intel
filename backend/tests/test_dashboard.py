@@ -20,7 +20,7 @@ def db_counts(engine, directory=None):
 def save_with_status(client, pid, status):
     lead_id = client.post(f"/api/v1/prospects/{pid}/save").get_json()["lead"]["id"]
     if status != "new":
-        client.patch(f"/api/v1/leads/{lead_id}/status", json={"status": status})
+        client.post(f"/api/v1/leads/{lead_id}/status", json={"status": status})
     return lead_id
 
 
@@ -81,11 +81,11 @@ def test_follow_up_starts_at_exactly_14_days_and_same_status_does_not_reset(clie
     assert lead_id in {i["lead_id"] for i in ov["follow_up"]} or len(ov["follow_up"]) == 5
 
     stamp = sql(engine, "SELECT status_changed_at FROM leads WHERE id = :i", i=lead_id)[0][0]
-    client.patch(f"/api/v1/leads/{lead_id}/status", json={"status": "contacted"})   # same status again
+    client.post(f"/api/v1/leads/{lead_id}/status", json={"status": "contacted"})   # same status again
     assert sql(engine, "SELECT status_changed_at FROM leads WHERE id = :i", i=lead_id)[0][0] == stamp
     assert due()
 
-    client.patch(f"/api/v1/leads/{lead_id}/status", json={"status": "qualified"})   # real change resets
+    client.post(f"/api/v1/leads/{lead_id}/status", json={"status": "qualified"})   # real change resets
     assert sql(engine, "SELECT status_changed_at > :s FROM leads WHERE id = :i", s=stamp, i=lead_id)[0][0]
     assert not due()
 

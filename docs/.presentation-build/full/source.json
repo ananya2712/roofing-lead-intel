@@ -1,6 +1,6 @@
 {
   "htmlPath": "/Users/ananyauppal/Desktop/Instalily Case Study/roofing-lead-intel/docs/CODE_WALKTHROUGH.html",
-  "htmlSha256": "f20b2eb806ae18d1165b46441e53cc9aa5837661175906fba4e377e6c8ab03bd",
+  "htmlSha256": "c3018ca12de674351e1dab63699a28728da45a263b01c4b860f2dbd53a2008d9",
   "sections": {
     "project": [
       [
@@ -530,7 +530,7 @@
           "200 items + counts + matching total; 422 invalid query"
         ],
         [
-          "PATCH /api/v1/leads/{lead_id}/status",
+          "POST /api/v1/leads/{lead_id}/status",
           "Path ID + {\"status\":\"contacted\"}",
           "Change lead status",
           "200 ProspectDetail; 404 missing; 422 invalid body"

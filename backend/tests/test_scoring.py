@@ -75,5 +75,5 @@ def test_saving_and_status_changes_do_not_change_score(client, test_prospects):
     before = client.get(f"/api/v1/prospects/{pid}").get_json()
     lead_id = client.post(f"/api/v1/prospects/{pid}/save").get_json()["lead"]["id"]
     for status in ("contacted", "qualified", "dismissed"):
-        after = client.patch(f"/api/v1/leads/{lead_id}/status", json={"status": status}).get_json()
+        after = client.post(f"/api/v1/leads/{lead_id}/status", json={"status": status}).get_json()
         assert (after["score"], after["score_breakdown"]) == (before["score"], before["score_breakdown"])

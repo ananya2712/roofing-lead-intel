@@ -142,7 +142,7 @@ api=[
  ('GET','/prospects/{prospect_id}','Path ID','Source facts, score, Unknown fields','200 ProspectDetail; 404 missing'),
  ('POST','/prospects/{prospect_id}/save','Path ID; no body','Insert a saved lead','201 created; 200 existing; 404 missing; 409 company conflict'),
  ('GET','/leads','Directory, scope, status, queue, sort, page, search, tier','Saved lead work queues','200 items + counts + matching total; 422 invalid query'),
- ('PATCH','/leads/{lead_id}/status','Path ID + '+c('{"status":"contacted"}'),'Change lead status','200 ProspectDetail; 404 missing; 422 invalid body'),
+ ('POST','/leads/{lead_id}/status','Path ID + '+c('{"status":"contacted"}'),'Change lead status','200 ProspectDetail; 404 missing; 422 invalid body'),
 ]
 section('api','API contract',table('All eight application endpoints; no authentication. Shared unexpected failures use a safe 500 JSON error.',['Endpoint','Input','Responsibility','Result'],[(f'<strong>{m}</strong> '+c('/api/v1'+p),i,why,res) for m,p,i,why,res in api])+table('API design comparisons are inferred; implementation sources are linked below',['Choice','Why','Alternative','Why not / limit'],[
  ('Thin handlers + Pydantic','Validate the trust boundary; services own business behavior.','Validation and business logic inside page/route code','Duplicates rules across entry points and couples persistence to HTTP.'),
