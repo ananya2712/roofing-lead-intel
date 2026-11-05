@@ -59,11 +59,79 @@
     <div class="eyebrow">Roofing Lead Intel / Repository record</div>
     <h1>Product evolution</h1>
     <p>What changed, why it changed, and how the product fits together. This record follows the source files and keeps unknowns visible.</p>
-    <p class="meta">Latest update: <time datetime="2026-11-05">5 November 2026</time>, Entry 006 (PATCH removed, POST status route; deck adds scraping pipeline, ideal customer profile and tests; 107 passing tests) · Repository: <code>roofing-lead-intel</code></p>
+    <p class="meta">Latest update: <time datetime="2026-11-05">5 November 2026</time>, Entry 009 (Git history, GitHub remote and record corrections) · Repository: <code>roofing-lead-intel</code></p>
   </header>
   <nav aria-label="Contents">
-    <a href="#entry-006">Latest update (Entry 006)</a><a href="CODE_WALKTHROUGH.html">Current code walkthrough</a><a href="#granular-architecture">Granular architecture (Entry 007)</a><a href="#presentation-update">Presentation (Entry 006)</a><a href="#tests-update">Tests (Entry 005)</a><a href="#walkthrough-update">Walkthrough update</a><a href="#latest-review">Earlier slide review</a><a href="#changes">Change history</a><a href="#architecture">Earlier architecture snapshot</a><a href="#decisions">Earlier decisions</a><a href="#files">Earlier file map</a><a href="#gaps">Earlier open questions</a><a href="#verification">Earlier verification</a><a href="#maintenance">How this stays current</a>
+    <a href="CODE_WALKTHROUGH.html">Current code walkthrough</a><a href="#entry-009">Latest update (Entry 009)</a><a href="#dark-walkthrough">Dark walkthrough (Entry 008)</a><a href="#entry-007">Pastel deck (Entry 007)</a><a href="#entry-006">PATCH and deck update (Entry 006)</a><a href="#granular-architecture">Granular architecture (Entry 007)</a><a href="#presentation-update">Presentation (Entry 006)</a><a href="#tests-update">Tests (Entry 005)</a><a href="#walkthrough-update">Walkthrough update</a><a href="#latest-review">Earlier slide review</a><a href="#changes">Change history</a><a href="#architecture">Earlier architecture snapshot</a><a href="#decisions">Earlier decisions</a><a href="#files">Earlier file map</a><a href="#gaps">Earlier open questions</a><a href="#verification">Earlier verification</a><a href="#maintenance">How this stays current</a>
   </nav>
+
+  <section id="entry-009">
+    <h2>5 November 2026 · Entry 009 · Git history, GitHub remote and record corrections</h2>
+    <div class="table-scroll"><table>
+      <thead><tr><th scope="col">Area</th><th scope="col">Before</th><th scope="col">After</th><th scope="col">Reason</th><th scope="col">Evidence</th></tr></thead>
+      <tbody>
+        <tr><td>Version control</td><td>This record said that the project <code>.git</code> folder was removed. The project had no Git history, branches or remote (<a href="#git-removal">Local Git metadata removed</a>).</td><td>The project is a Git repository. Branch <code>main</code> has three commits. Remote <code>origin</code> is <code>https://github.com/ananya2712/roofing-lead-intel</code>.</td><td>User request for a Git repository</td><td>Observed: <code>git log</code>; <code>git ls-remote origin refs/heads/main</code> returned <code>568180f</code></td></tr>
+        <tr><td>Deck build files</td><td>Commit <code>303a323</code> included <code>docs/.presentation-build/</code>: slide previews, draft decks and build scripts, about 29 MB.</td><td>Commit <code>568180f</code> removed the folder from Git and added it to <code>.gitignore</code>. The files stay on the local machine. The final deck stays in <a href="PROJECT_DEMO.pptx"><code>docs/PROJECT_DEMO.pptx</code></a>.</td><td>Keep generated build files out of the repository (commit message)</td><td>Observed: <code>git ls-files docs/.presentation-build</code> lists 0 files; <code>git check-ignore -v</code> matches <code>.gitignore</code> line 15</td></tr>
+        <tr><td>Entries 007 and 008 in Git</td><td>The text of Entries 007 and 008 was in the working copy only.</td><td>This commit adds that text to Git. At 15:50 EST, the files that these entries describe, <code>docs/PROJECT_DEMO.pptx</code> and <code>docs/CODE_WALKTHROUGH.html</code>, had uncommitted changes. Another session continued to edit the walkthrough.</td><td>Keep the record complete in Git</td><td>Observed: <code>git status --short</code> at 15:50 EST</td></tr>
+        <tr><td>Header and contents links</td><td>The header named Entry 007 as the latest update. The contents links named Entry 008.</td><td>Both name Entry 009. The contents links also include Entry 007.</td><td>Make the two links agree</td><td>HTML integrity check (below)</td></tr>
+        <tr><td>Scope</td><td>—</td><td>Only this record changed.</td><td>—</td><td>No application code, data, tests or other records changed</td></tr>
+      </tbody>
+    </table></div>
+    <div class="table-scroll"><table>
+      <thead><tr><th scope="col">Commit on <code>main</code></th><th scope="col">Time (EST)</th><th scope="col">Content</th><th scope="col">Entry</th></tr></thead>
+      <tbody>
+        <tr><td><code>ebc3d27</code></td><td>15:13:49</td><td>First commit: application, GAF snapshot data and tests</td><td>—</td></tr>
+        <tr><td><code>303a323</code></td><td>15:37:39</td><td>POST status route (D25), 24-slide deck and updated records</td><td><a href="#entry-006">Entry 006</a></td></tr>
+        <tr><td><code>568180f</code></td><td>15:39:02</td><td>Deck build folder removed from Git and added to <code>.gitignore</code></td><td>Entry 009</td></tr>
+      </tbody>
+    </table></div>
+    <div class="table-scroll"><table>
+      <thead><tr><th scope="col">Earlier section</th><th scope="col">Earlier statement</th><th scope="col">Current state</th></tr></thead>
+      <tbody>
+        <tr><td><a href="#git-removal">Local Git metadata removed</a></td><td>The project has no Git history, branches or remote.</td><td>Git history and remote <code>origin</code> exist (this entry).</td></tr>
+        <tr><td><a href="#verification">Earlier verification</a>, Commit history</td><td>Branch <code>main</code> has no commits.</td><td>Branch <code>main</code> has three commits.</td></tr>
+        <tr><td><a href="#latest-review">Earlier slide review</a>, Current API surface</td><td><code>PATCH /api/v1/leads/{id}/status</code></td><td><code>POST /api/v1/leads/{id}/status</code>. PATCH returns 405 (D25, <a href="#entry-006">Entry 006</a>). <code>backend/app/api/__init__.py</code> has 8 routes and no PATCH route.</td></tr>
+        <tr><td>Entry numbers</td><td>Numbers 006 and 007 each name two entries.</td><td>The old headings stay as history. Order inferred from slide counts: <a href="#presentation-update">006, HTML-based presentation (18 slides)</a>; <a href="#granular-architecture">007, granular architecture (18 slides)</a>; <a href="#entry-006">006, PATCH removed (24 slides)</a>; <a href="#entry-007">007, pastel deck (28 slides)</a>.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="table-scroll"><table>
+      <thead><tr><th scope="col">Check</th><th scope="col">Command or action</th><th scope="col">Result</th><th scope="col">Not checked</th></tr></thead>
+      <tbody>
+        <tr><td>Commit history</td><td><code>git log --format='%h %ad %s' --date=iso</code></td><td>Three commits, as listed above</td><td>—</td></tr>
+        <tr><td>GitHub branch</td><td><code>git ls-remote origin refs/heads/main</code></td><td><code>568180f</code>, the same as local <code>main</code></td><td>GitHub web page not opened</td></tr>
+        <tr><td>Ignore rule</td><td><code>git ls-files docs/.presentation-build</code>; <code>git check-ignore -v</code></td><td>0 tracked files; rule at <code>.gitignore</code> line 15</td><td>—</td></tr>
+        <tr><td>Status route</td><td>Read route decorators in <code>backend/app/api/__init__.py</code></td><td>8 routes; the status route uses POST</td><td>API not called; application tests not run</td></tr>
+        <tr><td>HTML integrity</td><td>Python standard-library HTML parser: IDs, internal anchors, relative file links, external assets</td><td>Passed: 26 unique IDs; all 71 links resolve; 0 external assets</td><td>Full HTML standards validation</td></tr>
+        <tr><td>HTML rendering</td><td>Headless Chromium (Playwright) at 1280 px and 390 px</td><td>No page-level horizontal overflow; 0 script errors; Entry 009 link present. At 390 px, wide tables scroll inside their frames.</td><td>Other browsers; print layout</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="entry-007">
+    <h2>5 November 2026 · Entry 007 · Pastel presentation, 28 slides</h2>
+    <div class="table-scroll"><table>
+      <thead><tr><th scope="col">Area</th><th scope="col">Before</th><th scope="col">After</th><th scope="col">Evidence</th></tr></thead>
+      <tbody>
+        <tr><td>Style</td><td>Navy tables, 24–28 pt text</td><td>Pastel theme matching the app; 12–15 pt text; more content from the docs</td><td>Rendered previews</td></tr>
+        <tr><td>Structure</td><td>24 slides, first slide a table</td><td>28 slides: visual overview, functional / non-functional requirements, high-level architecture, save-flow line diagram, Flask vs FastAPI with REST, scraping and production pipeline diagrams, scoring fields, ideal profiles, roadmap, scheduled collection options, append-only lead_events proposal, test strategy</td><td>Package check pass; 0 layout findings; 28 notes</td></tr>
+        <tr><td>Source</td><td><code>build.mjs</code></td><td><code>build_pastel.mjs</code> in <code>docs/.presentation-build/full/</code> (local only, not in git)</td><td>—</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="dark-walkthrough">
+    <h2>5 November 2026 · Entry 008 · Dark technical walkthrough</h2>
+    <div class="table-scroll"><table>
+      <thead><tr><th scope="col">Area</th><th scope="col">Change</th><th scope="col">Reason and verification</th></tr></thead>
+      <tbody>
+        <tr><td>Single-page guide</td><td><a href="CODE_WALKTHROUGH.html">Dark theme, clear headings, compact tables and visible keyboard focus.</a></td><td>User request. Chromium screenshots at desktop and 390 px width showed readable content and no page-level horizontal overflow.</td></tr>
+        <tr><td>Diagrams</td><td>Embedded request-flow and database SVGs use dark colors. Their standalone source SVGs remain editable.</td><td>Both embedded SVGs passed XML parsing and were rasterized for inspection.</td></tr>
+        <tr><td>Current evidence</td><td>Added one-time collection steps, approved search parameters, ideal customer profile, 107-test result and seven test findings.</td><td>Mapped to current code, decision log, snapshot records and test report.</td></tr>
+        <tr><td>Production paths</td><td>Separate tables cover approved collection and refresh, PostgreSQL changes, and a proposed durable LLM insight workflow.</td><td>The LLM draft remains disconnected and untested; additions are proposals.</td></tr>
+        <tr><td>Scope</td><td>Documentation generator and HTML changed.</td><td>No application logic, business data or application tests changed in this update.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
 
   <section id="entry-006">
     <h2>5 November 2026 · Entry 006 · PATCH removed; deck adds scraping pipeline, ideal customer profile and tests</h2>
@@ -310,6 +378,7 @@
 
   <section id="git-removal">
     <h2>5 November 2026 · Local Git metadata removed</h2>
+    <div class="notice"><strong>Superseded by <a href="#entry-009">Entry 009</a>.</strong><p>The project now has a Git repository with a GitHub remote. This section describes an earlier state.</p></div>
     <p>At the user's request, <code>roofing-lead-intel/.git</code> was removed. The project files remain. This folder no longer has its own Git history, index, branches, or remote configuration. Earlier Git observations on this page describe the historical snapshots before removal. The separate sibling <code>skills/</code> repository was left unchanged.</p>
     <p><strong>Observed check:</strong> the project's <code>.git</code> path is absent; <code>AGENTS.md</code>, this HTML record, and the backend and frontend directories remain present. This operation did not reverify application behavior.</p>
   </section>
