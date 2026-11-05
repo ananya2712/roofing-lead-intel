@@ -1,0 +1,28 @@
+{
+  "name": "roofing-lead-intel-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "typecheck": "tsc --noEmit",
+    "gen:api": "openapi-typescript ../openapi.yaml -o lib/api-types.ts"
+  },
+  "dependencies": {
+    "next": "14.2.35",
+    "openapi-fetch": "0.13.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "20.17.6",
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
+    "autoprefixer": "10.4.20",
+    "openapi-typescript": "7.4.2",
+    "postcss": "8.4.47",
+    "tailwindcss": "3.4.14",
+    "typescript": "5.6.3"
+  }
+}

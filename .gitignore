@@ -1,0 +1,12 @@
+.env
+__pycache__/
+*.pyc
+.pytest_cache/
+node_modules
+.next/
+frontend/out/
+test-results/
+playwright-report/
+.venv/
+.DS_Store
+tsconfig.tsbuildinfo

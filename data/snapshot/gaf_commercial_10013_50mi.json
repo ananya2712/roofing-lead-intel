@@ -1,0 +1,5858 @@
+{
+ "source": "GAF contractor directory",
+ "directory": "commercial",
+ "postal_code": "10013",
+ "radius_mi": 50,
+ "search_url": "https://www.gaf.com/en-us/roofing-contractors/commercial?postalCode=10013&distance=50&countryCode=us",
+ "expected_total": 233,
+ "collected_at": "2026-11-05T19:37:31.934Z",
+ "collection_method": "Browser snapshot: list pages and profile pages read in the user's Chrome session by Claude in Chrome, about 1.5 s between profile requests",
+ "records": [
+  {
+   "gaf_source_id": "63354",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/arco-construction-inc-west-caldwell-nj-63354",
+   "name": "Arco Construction Inc",
+   "phone": "(973) 575-5200",
+   "website_url": null,
+   "street": "15 Fairfield Pl",
+   "city": "West Caldwell",
+   "state": "NJ",
+   "postal_code": "07006",
+   "about_text": null,
+   "years_in_business": "In business since 1995",
+   "distance_mi": 17.6,
+   "rating": 3,
+   "review_count": 25,
+   "distinctions": [
+    "Chairman's Circle",
+    "GAF PlatinumElite™ Commercial Contractor",
+    "GAF CoatingsPro™+ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:13:00.124Z",
+   "search_rank": 1
+  },
+  {
+   "gaf_source_id": "61486",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/roofco-group-sayreville-nj-61486",
+   "name": "Roofco Group",
+   "phone": "(732) 952-4001",
+   "website_url": null,
+   "street": "222 Jernee Mill Rd",
+   "city": "Sayreville",
+   "state": "NJ",
+   "postal_code": "08872",
+   "about_text": null,
+   "years_in_business": "In business since 1992",
+   "distance_mi": 26.5,
+   "rating": 3,
+   "review_count": 4,
+   "distinctions": [
+    "Chairman's Circle",
+    "GAF PlatinumElite™ Commercial Contractor",
+    "GAF CoatingsPro™+ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:13:01.640Z",
+   "search_rank": 2
+  },
+  {
+   "gaf_source_id": "1143858",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/pieros-roofing-a-tecta-america-company-somerville-nj-1143858",
+   "name": "Pieros Roofing A Tecta America Company",
+   "phone": "(908) 534-4451",
+   "website_url": null,
+   "street": "58 Tannery Rd",
+   "city": "Somerville",
+   "state": "NJ",
+   "postal_code": "08876",
+   "about_text": null,
+   "years_in_business": "In business since 1973",
+   "distance_mi": 38.2,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "Chairman's Circle",
+    "GAF PlatinumElite™ Commercial Contractor",
+    "GAF CoatingsPro™+ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:13:04.511Z",
+   "search_rank": 3
+  },
+  {
+   "gaf_source_id": "1102969",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/mjt-co-inc-montvale-nj-1102969",
+   "name": "MJT & Co Inc",
+   "phone": "(201) 805-2527",
+   "website_url": null,
+   "street": "18 Summit Ave",
+   "city": "Montvale",
+   "state": "NJ",
+   "postal_code": "07645",
+   "about_text": "MJT ROOFING is a family owned and operated business providing commercial roofing services in Northern NJ. With our 25 years of experience, we can provide long term solutions for your buildings at very competitive prices. MJT is fully insured, licensed and bonded. We employ the best, factory trained service personnel who take great pride in their work.  Excellent customer service is on top of our priorities.",
+   "years_in_business": null,
+   "distance_mi": 23.4,
+   "rating": 5,
+   "review_count": 16,
+   "distinctions": [
+    "Chairman's Circle",
+    "GAF PlatinumElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:13:08.769Z",
+   "search_rank": 4
+  },
+  {
+   "gaf_source_id": "1119735",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/executive-roofing-systems-inc-morganville-nj-1119735",
+   "name": "Executive Roofing Systems Inc",
+   "phone": "(732) 972-3770",
+   "website_url": "https://www.executiveroof.com/",
+   "street": "PO Box 25",
+   "city": "Morganville",
+   "state": "NJ",
+   "postal_code": "07751",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 27.3,
+   "rating": 4.7,
+   "review_count": 76,
+   "distinctions": [
+    "GAF PlatinumElite™ Commercial Contractor",
+    "GAF CoatingsPro™+ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:13:11.920Z",
+   "search_rank": 5
+  },
+  {
+   "gaf_source_id": "17950",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/centimark-corporation-south-plainfield-nj-17950",
+   "name": "CentiMark Corporation",
+   "phone": "(732) 623-4208",
+   "website_url": null,
+   "street": "105 Sylvania Pl Ste A",
+   "city": "South Plainfield",
+   "state": "NJ",
+   "postal_code": "07080",
+   "about_text": "CentiMark Corporation is North America&#39;s largest commercial roofing and flooring contractor. We provide complete roof and floor services, roof replacement, roof repairs, floor repairs, emergency services, preventative maintenance programs, energy efficient solutions, safety options and accessories, online project management, DIY Made-in-America floor products.",
+   "years_in_business": null,
+   "distance_mi": 24.2,
+   "rating": 4.3,
+   "review_count": 15,
+   "distinctions": [
+    "GAF PlatinumElite™ Commercial Contractor",
+    "GAF CoatingsPro™+ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:13:16.498Z",
+   "search_rank": 6
+  },
+  {
+   "gaf_source_id": "1101737",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/best-energy-power-valley-stream-ny-1101737",
+   "name": "Best Energy Power 2015 LLC",
+   "phone": "(212) 730-2267",
+   "website_url": "https://www.bestenergypower.com/",
+   "street": "20 W Fairview Ave",
+   "city": "Valley Stream",
+   "state": "NY",
+   "postal_code": "11580",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 16.7,
+   "rating": 3,
+   "review_count": 4,
+   "distinctions": [
+    "GAF PlatinumElite™ Commercial Contractor",
+    "GAF CoatingsPro™+ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:13:18.897Z",
+   "search_rank": 7
+  },
+  {
+   "gaf_source_id": "1134020",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/thunderseal-roofing-oradell-nj-1134020",
+   "name": "Thunderseal Roofing",
+   "phone": "(845) 662-4822",
+   "website_url": null,
+   "street": "700 Kinderkamack Rd Ste 102",
+   "city": "Oradell",
+   "state": "NJ",
+   "postal_code": "07649",
+   "about_text": null,
+   "years_in_business": "In business since 2018",
+   "distance_mi": 16.9,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF PlatinumElite™ Commercial Contractor",
+    "GAF CoatingsPro™+ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:13:22.042Z",
+   "search_rank": 8
+  },
+  {
+   "gaf_source_id": "62536",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/mile-square-roofing-co-inc-stanhope-nj-62536",
+   "name": "Mile Square Roofing Co Inc",
+   "phone": "(201) 525-1901",
+   "website_url": null,
+   "street": "10 Continental Dr",
+   "city": "Stanhope",
+   "state": "NJ",
+   "postal_code": "07874",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 40.5,
+   "rating": 5,
+   "review_count": 6,
+   "distinctions": [
+    "GAF PlatinumElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:13:25.430Z",
+   "search_rank": 9
+  },
+  {
+   "gaf_source_id": "1105313",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/pb-roofing-llc-elmwood-park-nj-1105313",
+   "name": "PB Roofing LLC",
+   "phone": "(201) 791-3235",
+   "website_url": null,
+   "street": "475 Market St Ste 301",
+   "city": "Elmwood Park",
+   "state": "NJ",
+   "postal_code": "07407",
+   "about_text": null,
+   "years_in_business": "In business since 2024",
+   "distance_mi": 13.3,
+   "rating": 4.6,
+   "review_count": 21,
+   "distinctions": [
+    "GAF PlatinumElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:13:27.810Z",
+   "search_rank": 10
+  },
+  {
+   "gaf_source_id": "1001922",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/dp-roofing-and-contracting-llc-north-plainfield-nj-1001922",
+   "name": "DP Roofing and Contracting LLC",
+   "phone": "(732) 766-2268",
+   "website_url": "https://doneperfectroofing.com/",
+   "street": "574 Somerset St",
+   "city": "North Plainfield",
+   "state": "NJ",
+   "postal_code": "07060",
+   "about_text": null,
+   "years_in_business": "In business since 1996",
+   "distance_mi": 23.4,
+   "rating": 4.5,
+   "review_count": 39,
+   "distinctions": [
+    "GAF PlatinumElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:13:31.681Z",
+   "search_rank": 11
+  },
+  {
+   "gaf_source_id": "1109342",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/plescia-roofing-inc-oradell-nj-1109342",
+   "name": "Plescia Roofing Inc",
+   "phone": "(201) 262-6006",
+   "website_url": null,
+   "street": "441 New Milford Ave",
+   "city": "Oradell",
+   "state": "NJ",
+   "postal_code": "07649",
+   "about_text": null,
+   "years_in_business": "In business since 1979",
+   "distance_mi": 15.5,
+   "rating": 4.5,
+   "review_count": 8,
+   "distinctions": [
+    "GAF PlatinumElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:13:34.654Z",
+   "search_rank": 12
+  },
+  {
+   "gaf_source_id": "1109794",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/all-seasons-commercial-systems-inc-westbury-ny-1109794",
+   "name": "All Seasons Commercial Systems Inc",
+   "phone": "(516) 322-7669",
+   "website_url": "https://www.allseasonsroofing.com/",
+   "street": "577 Main St",
+   "city": "Westbury",
+   "state": "NY",
+   "postal_code": "11590",
+   "about_text": null,
+   "years_in_business": "In business since 1964",
+   "distance_mi": 23.4,
+   "rating": 4.5,
+   "review_count": 2,
+   "distinctions": [
+    "GAF PlatinumElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:13:37.785Z",
+   "search_rank": 13
+  },
+  {
+   "gaf_source_id": "1105104",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/cipollini-roofing-dover-nj-1105104",
+   "name": "P Cipollini Inc",
+   "phone": "(973) 989-1110",
+   "website_url": null,
+   "street": "171 E Blackwell St",
+   "city": "Dover",
+   "state": "NJ",
+   "postal_code": "07801",
+   "about_text": "Cipollini Roofing established and incorporated in 1987, delivers excellence in the roofing field through our highly experienced labor force and knowledgeable office staff, which can assist with roof evaluations, estimates, and planning. Doing business with fully bonded and insured professionals, Cipollini Roofing will provide you with various options to customize a roof system that best fits your needs and budget requirements.",
+   "years_in_business": null,
+   "distance_mi": 30.4,
+   "rating": 3.9,
+   "review_count": 7,
+   "distinctions": [
+    "GAF PlatinumElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:13:40.639Z",
+   "search_rank": 14
+  },
+  {
+   "gaf_source_id": "1001694",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/barrett-roofs-inc-kenilworth-nj-1001694",
+   "name": "Barrett Roofs Inc",
+   "phone": "(908) 647-2211",
+   "website_url": null,
+   "street": "136 Market St Ste A",
+   "city": "Kenilworth",
+   "state": "NJ",
+   "postal_code": "07033",
+   "about_text": null,
+   "years_in_business": "In business since 1975",
+   "distance_mi": 14.6,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF PlatinumElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:13:43.547Z",
+   "search_rank": 15
+  },
+  {
+   "gaf_source_id": "1005866",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/tamco-construction-llc-east-rutherford-nj-1005866",
+   "name": "Tamco Construction LLC",
+   "phone": "(973) 779-0636",
+   "website_url": "https://tamcoroof.com/",
+   "street": "1 Madison St Ste D2",
+   "city": "East Rutherford",
+   "state": "NJ",
+   "postal_code": "07073",
+   "about_text": null,
+   "years_in_business": "In business since 2003",
+   "distance_mi": 10.3,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF PlatinumElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:13:45.829Z",
+   "search_rank": 16
+  },
+  {
+   "gaf_source_id": "1000079",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/arm-roofing-elmsford-ny-1000079",
+   "name": "Anthony's Roofing & Maintenance Inc",
+   "phone": "(914) 347-2763",
+   "website_url": "https://www.armroofinginc.com/",
+   "street": "63 S Central Ave",
+   "city": "Elmsford",
+   "state": "NY",
+   "postal_code": "10523",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 24.9,
+   "rating": 5,
+   "review_count": 10,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™+ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:13:49.325Z",
+   "search_rank": 17
+  },
+  {
+   "gaf_source_id": "1002801",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/nu-tek-roof-systems-lake-hopatcong-nj-1002801",
+   "name": "KJM Firm Holdings LLC",
+   "phone": "(973) 663-5800",
+   "website_url": null,
+   "street": "PO Box 967",
+   "city": "Lake Hopatcong",
+   "state": "NJ",
+   "postal_code": "07849",
+   "about_text": null,
+   "years_in_business": "In business since 1987",
+   "distance_mi": 35.7,
+   "rating": 5,
+   "review_count": 4,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™+ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:13:51.426Z",
+   "search_rank": 18
+  },
+  {
+   "gaf_source_id": "1005912",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/four-seasons-roofing-farmingdale-ny-1005912",
+   "name": "Four Seasons Enterprises Inc",
+   "phone": "(631) 249-3377",
+   "website_url": "https://www.fourseasonsroofingny.com/",
+   "street": "90 Florida St",
+   "city": "Farmingdale",
+   "state": "NY",
+   "postal_code": "11735",
+   "about_text": "FREE ESTIMATES! CALL TODAY 631-249-3377. COMMERCIAL FLAT ROOF EXPERTS &amp; WINNERS OF GAF MASTER SELECT PRESIDENT&#39;S AWARD FOR SUPERIOR SERVICE &amp; WORKMANSHIP. &quot;Quality and experience unrivaled in the roofing industry.&quot;  Four Seasons Roofing has been installing and servicing roofs on Long Island and the 5 boroughs since 1983. We are a third generation, family owned &amp; operated professional roofing company specializing in all facets of commercial roofing. Our services range from roof repairs, roof replacements, new installations, annual roof maintenance programs &amp; drainage systems. We work with some of the most well known real estate management companies and owners in the Tri-State area &amp; understand the unique facets involved with managing and operating commercial facilities. We work within your budget and time frame to help assure a flawless and excellently installed roof. Emergency Service/ Free Estimates.. Call 631-249-3377",
+   "years_in_business": null,
+   "distance_mi": 30.9,
+   "rating": 4.9,
+   "review_count": 701,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™+ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:13:53.601Z",
+   "search_rank": 19
+  },
+  {
+   "gaf_source_id": "1001493",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/mcas-roofing-contracting-inc-croton-on-hudson-ny-1001493",
+   "name": "MCAS Roofing & Contracting Inc",
+   "phone": "(914) 455-0976",
+   "website_url": "https://www.mcasroofing.com/",
+   "street": "2006 Albany Post Rd",
+   "city": "Croton-on-Hudson",
+   "state": "NY",
+   "postal_code": "10520",
+   "about_text": "MCAS Roofing &amp; Contracting, Inc. is a commercial roofing company serving Westchester, Putnam, and Rockland Counties since 1972. Our licensed and insured roofers specialize in commercial roof installation, roof replacement, and roof repair for flat, metal, EPDM, and TPO roofing systems. We work with property owners, facility managers, and contractors to deliver durable, energy-efficient roofing solutions. Whether it&#39;s a new construction project or a roof restoration, the Casolaro family ensures quality craftsmanship, reliable service, and long-lasting protection for your commercial property.",
+   "years_in_business": null,
+   "distance_mi": 35.4,
+   "rating": 4.9,
+   "review_count": 179,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™+ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:13:55.839Z",
+   "search_rank": 20
+  },
+  {
+   "gaf_source_id": "1005303",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/all-county-exteriors-llc-lakewood-nj-1005303",
+   "name": "All County Exteriors LLC",
+   "phone": "(732) 370-2780",
+   "website_url": null,
+   "street": "560 Cross St",
+   "city": "Lakewood",
+   "state": "NJ",
+   "postal_code": "08701",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 46.9,
+   "rating": 4.8,
+   "review_count": 923,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™+ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:13:58.080Z",
+   "search_rank": 21
+  },
+  {
+   "gaf_source_id": "1004877",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/nations-roof-east-llc-yonkers-ny-1004877",
+   "name": "Nations Roof East LLC",
+   "phone": "(732) 406-4471",
+   "website_url": null,
+   "street": "255 Lake Ave",
+   "city": "Yonkers",
+   "state": "NY",
+   "postal_code": "10701",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 16.9,
+   "rating": 4.8,
+   "review_count": 21,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™+ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:14:00.159Z",
+   "search_rank": 22
+  },
+  {
+   "gaf_source_id": "1113734",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/engelmann-construction-northport-ny-1113734",
+   "name": "Big E Enterprises Inc",
+   "phone": "(631) 246-1415",
+   "website_url": "https://www.engelmannconstruction.com/",
+   "street": "345 Fort Salonga Rd",
+   "city": "Northport",
+   "state": "NY",
+   "postal_code": "11768",
+   "about_text": "We are a family-owned commercial roofing company specializing in flat roof coatings and restoration. Our focus is on providing durable, cost-effective solutions that extend the life of existing roofs while improving waterproofing and energy efficiency. Built on integrity and hands-on experience, we deliver personalized service, honest recommendations, and quality workmanship on every project.",
+   "years_in_business": null,
+   "distance_mi": 36.7,
+   "rating": 4.7,
+   "review_count": 20,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™+ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:14:02.720Z",
+   "search_rank": 23
+  },
+  {
+   "gaf_source_id": "1003358",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/alpine-roofing-llc-ogdensburg-nj-1003358",
+   "name": "Alpine Roofing LLC",
+   "phone": "(973) 729-7663",
+   "website_url": null,
+   "street": "50 Kennedy Ave",
+   "city": "Ogdensburg",
+   "state": "NJ",
+   "postal_code": "07439",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 39.5,
+   "rating": 4.7,
+   "review_count": 15,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™+ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:14:05.785Z",
+   "search_rank": 24
+  },
+  {
+   "gaf_source_id": "1002923",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/canopy-roofing-systems-briarcliff-manor-ny-1002923",
+   "name": "CR Systems Inc",
+   "phone": "(914) 334-2305",
+   "website_url": "https://www.canopyroofing.com/",
+   "street": "505 N State Rd",
+   "city": "Briarcliff Manor",
+   "state": "NY",
+   "postal_code": "10510",
+   "about_text": null,
+   "years_in_business": "In business since 1996",
+   "distance_mi": 32,
+   "rating": 4.1,
+   "review_count": 9,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™+ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:14:07.907Z",
+   "search_rank": 25
+  },
+  {
+   "gaf_source_id": "1005700",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/chris-andersen-roofing-tecta-america-co-hopelawn-nj-1005700",
+   "name": "Chris Andersen Roofing Tecta America Co",
+   "phone": "(732) 826-1250",
+   "website_url": null,
+   "street": "95 New Brunswick Ave",
+   "city": "Hopelawn",
+   "state": "NJ",
+   "postal_code": "08861",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 20.3,
+   "rating": 4,
+   "review_count": 9,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™+ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:14:10.783Z",
+   "search_rank": 26
+  },
+  {
+   "gaf_source_id": "1003903",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/roof-services-of-ny-a-tecta-america-co-deer-park-ny-1003903",
+   "name": "Roof Services of NY a Tecta America Co",
+   "phone": "(631) 666-3232",
+   "website_url": "https://www.roofservices.com/",
+   "street": "48 W Jefryn Blvd",
+   "city": "Deer Park",
+   "state": "NY",
+   "postal_code": "11729",
+   "about_text": null,
+   "years_in_business": "In business since 2021",
+   "distance_mi": 37.2,
+   "rating": 3.9,
+   "review_count": 7,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™+ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:14:13.141Z",
+   "search_rank": 27
+  },
+  {
+   "gaf_source_id": "1101120",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/pravco-inc-rahway-nj-1101120",
+   "name": "Pravco Inc",
+   "phone": "(732) 388-0800",
+   "website_url": null,
+   "street": "245 Wescott Dr",
+   "city": "Rahway",
+   "state": "NJ",
+   "postal_code": "07065",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 16.8,
+   "rating": 3.5,
+   "review_count": 11,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™+ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:14:16.338Z",
+   "search_rank": 28
+  },
+  {
+   "gaf_source_id": "1148313",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/high-low-maintenance-llc-west-milford-nj-1148313",
+   "name": "High & Low Maintenance LLC",
+   "phone": "(201) 889-6559",
+   "website_url": null,
+   "street": "38 Peach Ln",
+   "city": "West Milford",
+   "state": "NJ",
+   "postal_code": "07480",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 29.2,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™+ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:14:20.071Z",
+   "search_rank": 29
+  },
+  {
+   "gaf_source_id": "1002688",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/complete-roof-systems-dumont-nj-1002688",
+   "name": "AE Logan Inc",
+   "phone": "(201) 387-1846",
+   "website_url": null,
+   "street": "25 Aladdin Ave",
+   "city": "Dumont",
+   "state": "NJ",
+   "postal_code": "07628",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 15,
+   "rating": 5,
+   "review_count": 402,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:14:27.359Z",
+   "search_rank": 30
+  },
+  {
+   "gaf_source_id": "1101267",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/ak-gatsios-inc-bronx-ny-1101267",
+   "name": "AK Gatsios Inc",
+   "phone": "(646) 302-5175",
+   "website_url": null,
+   "street": "1162 Ellsworth Ave",
+   "city": "Bronx",
+   "state": "NY",
+   "postal_code": "10465",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 12.6,
+   "rating": 5,
+   "review_count": 329,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:14:31.304Z",
+   "search_rank": 31
+  },
+  {
+   "gaf_source_id": "1110830",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/green-apple-roofing-llc-wall-township-nj-1110830",
+   "name": "Green Apple Roofing LLC",
+   "phone": "(732) 677-6961",
+   "website_url": null,
+   "street": "1630 Marconi Rd",
+   "city": "Wall Township",
+   "state": "NJ",
+   "postal_code": "07719",
+   "about_text": null,
+   "years_in_business": "In business since 2019",
+   "distance_mi": 37.4,
+   "rating": 5,
+   "review_count": 271,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:15:07.779Z",
+   "search_rank": 32
+  },
+  {
+   "gaf_source_id": "1145389",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/eagle-express-contractor-llc-maspeth-ny-1145389",
+   "name": "Eagle Express Contractor LLC",
+   "phone": "(347) 362-0008",
+   "website_url": null,
+   "street": "5361 70th St",
+   "city": "Maspeth",
+   "state": "NY",
+   "postal_code": "11378",
+   "about_text": null,
+   "years_in_business": "In business since 2022",
+   "distance_mi": 6.1,
+   "rating": 5,
+   "review_count": 128,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:15:11.607Z",
+   "search_rank": 33
+  },
+  {
+   "gaf_source_id": "1144268",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/elite-waterproofing-and-roofing-glen-cove-ny-1144268",
+   "name": "Blackrock Home Improvment",
+   "phone": "(516) 774-4477",
+   "website_url": null,
+   "street": "143 Glen St",
+   "city": "Glen Cove",
+   "state": "NY",
+   "postal_code": "11542",
+   "about_text": null,
+   "years_in_business": "In business since 2019",
+   "distance_mi": 22.4,
+   "rating": 5,
+   "review_count": 89,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:15:14.532Z",
+   "search_rank": 34
+  },
+  {
+   "gaf_source_id": "1118403",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/reisch-roofing-and-construction-llc-pompton-plains-nj-1118403",
+   "name": "Reisch Roofing and Construction LLC",
+   "phone": "(855) 734-7241",
+   "website_url": null,
+   "street": "312 Sunset Rd",
+   "city": "Pompton Plains",
+   "state": "NJ",
+   "postal_code": "07444",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 23.2,
+   "rating": 5,
+   "review_count": 79,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:15:16.753Z",
+   "search_rank": 35
+  },
+  {
+   "gaf_source_id": "1116560",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/capitol-roofing-company-clifton-nj-1116560",
+   "name": "Classic Home Improvements Inc",
+   "phone": "(973) 414-0660",
+   "website_url": null,
+   "street": "2 Getty Ave",
+   "city": "Clifton",
+   "state": "NJ",
+   "postal_code": "07011",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 12.3,
+   "rating": 5,
+   "review_count": 56,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:15:18.936Z",
+   "search_rank": 36
+  },
+  {
+   "gaf_source_id": "1119459",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/joseph-doherty-roofing-company-madison-nj-1119459",
+   "name": "Joseph Doherty Corp",
+   "phone": "(973) 993-1082",
+   "website_url": null,
+   "street": "54 Burnet Rd",
+   "city": "Madison",
+   "state": "NJ",
+   "postal_code": "07940",
+   "about_text": null,
+   "years_in_business": "In business since 1991",
+   "distance_mi": 21.4,
+   "rating": 5,
+   "review_count": 52,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:15:20.607Z",
+   "search_rank": 37
+  },
+  {
+   "gaf_source_id": "1004859",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/preferred-exterior-corp-plainview-ny-1004859",
+   "name": "Preferred Exterior Corp",
+   "phone": "(516) 354-7252",
+   "website_url": null,
+   "street": "1538 Old Country Rd",
+   "city": "Plainview",
+   "state": "NY",
+   "postal_code": "11803",
+   "about_text": null,
+   "years_in_business": "In business since 1969",
+   "distance_mi": 29.6,
+   "rating": 5,
+   "review_count": 49,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:15:22.702Z",
+   "search_rank": 38
+  },
+  {
+   "gaf_source_id": "1119153",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/big-apple-renovators-astoria-ny-1119153",
+   "name": "NY Big Apple Renovators",
+   "phone": "(718) 521-2121",
+   "website_url": null,
+   "street": "2109 Steinway St",
+   "city": "Astoria",
+   "state": "NY",
+   "postal_code": "11105",
+   "about_text": null,
+   "years_in_business": "In business since 2016",
+   "distance_mi": 6.6,
+   "rating": 5,
+   "review_count": 40,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:15:24.843Z",
+   "search_rank": 39
+  },
+  {
+   "gaf_source_id": "1124470",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/r-stevens-commercial-roofing-inc-west-orange-nj-1124470",
+   "name": "R Stevens Commercial Roofing Inc",
+   "phone": "(973) 535-6500",
+   "website_url": "https://rstevensroofinginc.com/",
+   "street": "1312 Pleasant Valley Way",
+   "city": "West Orange",
+   "state": "NJ",
+   "postal_code": "07052",
+   "about_text": "Commercial flat roofers",
+   "years_in_business": "In business since 2014",
+   "distance_mi": 14.6,
+   "rating": 5,
+   "review_count": 33,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:15:27.039Z",
+   "search_rank": 40
+  },
+  {
+   "gaf_source_id": "1144325",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/doni-aor-llc-lincoln-park-nj-1144325",
+   "name": "Doni AOR LLC",
+   "phone": "(973) 519-3417",
+   "website_url": null,
+   "street": "7 Sherman Rd",
+   "city": "Lincoln Park",
+   "state": "NJ",
+   "postal_code": "07035",
+   "about_text": null,
+   "years_in_business": "In business since 2017",
+   "distance_mi": 21.6,
+   "rating": 5,
+   "review_count": 32,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:15:30.744Z",
+   "search_rank": 41
+  },
+  {
+   "gaf_source_id": "1145450",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/va-management-group-inc-deer-park-ny-1145450",
+   "name": "VA Management Group Inc",
+   "phone": "(631) 265-5002",
+   "website_url": null,
+   "street": "40 Burt Dr",
+   "city": "Deer Park",
+   "state": "NY",
+   "postal_code": "11729",
+   "about_text": null,
+   "years_in_business": "In business since 2019",
+   "distance_mi": 36.9,
+   "rating": 5,
+   "review_count": 22,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:15:34.546Z",
+   "search_rank": 42
+  },
+  {
+   "gaf_source_id": "1004326",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/riedel-contracting-inc-warwick-ny-1004326",
+   "name": "Riedel Contracting Inc",
+   "phone": "(845) 544-7253",
+   "website_url": "https://www.riedelroofingandsiding.com/",
+   "street": "114 Onderdonk Rd",
+   "city": "Warwick",
+   "state": "NY",
+   "postal_code": "10990",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 42.8,
+   "rating": 5,
+   "review_count": 21,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:15:36.945Z",
+   "search_rank": 43
+  },
+  {
+   "gaf_source_id": "1104474",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/tri-state-commercial-roofing-corp-hillburn-ny-1104474",
+   "name": "Tri-State Commercial Roofing Corp",
+   "phone": "(845) 360-1730",
+   "website_url": null,
+   "street": "143 Rte 59 Bldg 6C",
+   "city": "Hillburn",
+   "state": "NY",
+   "postal_code": "10931",
+   "about_text": "All phases of commercial roofing and waterproofing. www.tri-stateroofing.com",
+   "years_in_business": "In business since 2016",
+   "distance_mi": 29.1,
+   "rating": 5,
+   "review_count": 14,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:15:40.040Z",
+   "search_rank": 44
+  },
+  {
+   "gaf_source_id": "1114976",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/weathertite-solutions-port-murray-nj-1114976",
+   "name": "Weathertite Solutions",
+   "phone": "(908) 484-7077",
+   "website_url": null,
+   "street": "502 State Rte 57",
+   "city": "Port Murray",
+   "state": "NJ",
+   "postal_code": "07865",
+   "about_text": null,
+   "years_in_business": "In business since 2016",
+   "distance_mi": 48.8,
+   "rating": 5,
+   "review_count": 14,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:15:42.227Z",
+   "search_rank": 45
+  },
+  {
+   "gaf_source_id": "61620",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/hayden-building-maintenance-corp-tappan-ny-61620",
+   "name": "Hayden Building Maintenance Corp",
+   "phone": "(845) 353-3400",
+   "website_url": null,
+   "street": "115 Rte 303",
+   "city": "Tappan",
+   "state": "NY",
+   "postal_code": "10983",
+   "about_text": null,
+   "years_in_business": "In business since 1973",
+   "distance_mi": 21.6,
+   "rating": 5,
+   "review_count": 7,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:15:44.499Z",
+   "search_rank": 46
+  },
+  {
+   "gaf_source_id": "1001134",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/devine-roofing-construction-llc-morris-plains-nj-1001134",
+   "name": "Devine Roofing & Construction LLC",
+   "phone": "(973) 675-5038",
+   "website_url": null,
+   "street": "2399 Watnong Ter",
+   "city": "Morris Plains",
+   "state": "NJ",
+   "postal_code": "07950",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 26.2,
+   "rating": 5,
+   "review_count": 5,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:15:47.876Z",
+   "search_rank": 47
+  },
+  {
+   "gaf_source_id": "1118697",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/hiarc-white-glove-commercial-roofing-lakewood-nj-1118697",
+   "name": "HIARC LLC",
+   "phone": "(203) 864-4272",
+   "website_url": null,
+   "street": "1970 Swarthmore Ave Ste 11",
+   "city": "Lakewood",
+   "state": "NJ",
+   "postal_code": "08701",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 45.6,
+   "rating": 5,
+   "review_count": 5,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:15:50.717Z",
+   "search_rank": 48
+  },
+  {
+   "gaf_source_id": "1005618",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/lr-watts-son-roofing-construction-perth-amboy-nj-1005618",
+   "name": "LR Watts & Son Roofing & Construction",
+   "phone": "(732) 826-2001",
+   "website_url": null,
+   "street": "927 State St",
+   "city": "Perth Amboy",
+   "state": "NJ",
+   "postal_code": "08861",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 18.9,
+   "rating": 5,
+   "review_count": 5,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:15:52.358Z",
+   "search_rank": 49
+  },
+  {
+   "gaf_source_id": "1005300",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/m-gottfried-inc-stamford-ct-1005300",
+   "name": "M Gottfried Inc",
+   "phone": "(203) 323-8173",
+   "website_url": null,
+   "street": "89 Research Dr",
+   "city": "Stamford",
+   "state": "CT",
+   "postal_code": "06906",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 35.5,
+   "rating": 5,
+   "review_count": 5,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:15:54.418Z",
+   "search_rank": 50
+  },
+  {
+   "gaf_source_id": "1135111",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/utb-united-technology-inc-mineola-ny-1135111",
+   "name": "UTB-United Technology Inc",
+   "phone": "(516) 326-1160",
+   "website_url": null,
+   "street": "146 E 2nd St",
+   "city": "Mineola",
+   "state": "NY",
+   "postal_code": "11501",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 20,
+   "rating": 5,
+   "review_count": 3,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:15:57.420Z",
+   "search_rank": 51
+  },
+  {
+   "gaf_source_id": "1120367",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/as-construction-son-inc-brooklyn-ny-1120367",
+   "name": "A&S Construction & Son Inc",
+   "phone": "(347) 326-4098",
+   "website_url": null,
+   "street": "929 70th St",
+   "city": "Brooklyn",
+   "state": "NY",
+   "postal_code": "11228",
+   "about_text": "A Father and son business established in 1993 serving the five boroughs of New York City and New Jersey for 28 years.",
+   "years_in_business": "In business since 1993",
+   "distance_mi": 6.5,
+   "rating": 5,
+   "review_count": 2,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:16:00.900Z",
+   "search_rank": 52
+  },
+  {
+   "gaf_source_id": "1003734",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/all-ply-roofing-co-inc-haledon-nj-1003734",
+   "name": "All-Ply Roofing Co Inc",
+   "phone": "(973) 389-0172",
+   "website_url": null,
+   "street": "74 Lee Ave",
+   "city": "Haledon",
+   "state": "NJ",
+   "postal_code": "07508",
+   "about_text": null,
+   "years_in_business": "In business since 1989",
+   "distance_mi": 17.1,
+   "rating": 5,
+   "review_count": 1,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:16:03.603Z",
+   "search_rank": 53
+  },
+  {
+   "gaf_source_id": "1002344",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/cro-international-inc-north-brunswick-nj-1002344",
+   "name": "Cro International Inc",
+   "phone": "(732) 846-5580",
+   "website_url": null,
+   "street": "855 Ridgewood Ave",
+   "city": "North Brunswick",
+   "state": "NJ",
+   "postal_code": "08902",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 29.9,
+   "rating": 5,
+   "review_count": 1,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:16:06.396Z",
+   "search_rank": 54
+  },
+  {
+   "gaf_source_id": "1106404",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/dover-roofing-dover-nj-1106404",
+   "name": "Dover Roofing & Construction Two LLC",
+   "phone": "(973) 671-1792",
+   "website_url": null,
+   "street": "171 E Blackwell St",
+   "city": "Dover",
+   "state": "NJ",
+   "postal_code": "07801",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 30.5,
+   "rating": 5,
+   "review_count": 1,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:16:08.404Z",
+   "search_rank": 55
+  },
+  {
+   "gaf_source_id": "1124738",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/facelift-contracting-corp-albertson-ny-1124738",
+   "name": "Facelift Contracting Corp",
+   "phone": "(516) 250-0800",
+   "website_url": null,
+   "street": "25 Lea Pl",
+   "city": "Albertson",
+   "state": "NY",
+   "postal_code": "11507",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 19.5,
+   "rating": 5,
+   "review_count": 1,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:16:11.901Z",
+   "search_rank": 56
+  },
+  {
+   "gaf_source_id": "1102949",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/jds-industrial-roofing-contractors-new-egypt-nj-1102949",
+   "name": "JDS General Contracting Inc",
+   "phone": "(732) 477-6700",
+   "website_url": null,
+   "street": "879 County Rd Rte 539",
+   "city": "New Egypt",
+   "state": "NJ",
+   "postal_code": "08533",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 49.8,
+   "rating": 5,
+   "review_count": 1,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:16:15.047Z",
+   "search_rank": 57
+  },
+  {
+   "gaf_source_id": "1005411",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/jeca-associates-inc-wayne-nj-1005411",
+   "name": "Jeca Associates Inc",
+   "phone": "(973) 772-6711",
+   "website_url": null,
+   "street": "23 Knight Rd",
+   "city": "Wayne",
+   "state": "NJ",
+   "postal_code": "07474",
+   "about_text": null,
+   "years_in_business": "In business since 1996",
+   "distance_mi": 21.3,
+   "rating": 5,
+   "review_count": 1,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:16:17.179Z",
+   "search_rank": 58
+  },
+  {
+   "gaf_source_id": "1005114",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/mcfar-contracting-corp-westbury-ny-1005114",
+   "name": "McFar Contracting Corp",
+   "phone": "(516) 873-9080",
+   "website_url": null,
+   "street": "243 Winthrop Ave",
+   "city": "Westbury",
+   "state": "NY",
+   "postal_code": "11590",
+   "about_text": null,
+   "years_in_business": "In business since 2020",
+   "distance_mi": 22.2,
+   "rating": 5,
+   "review_count": 1,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:16:20.815Z",
+   "search_rank": 59
+  },
+  {
+   "gaf_source_id": "1116184",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/pro-metal-construction-inc-brooklyn-ny-1116184",
+   "name": "Pro-Metal Construction Inc",
+   "phone": "(718) 439-8500",
+   "website_url": null,
+   "street": "549 63rd St",
+   "city": "Brooklyn",
+   "state": "NY",
+   "postal_code": "11220",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 5.9,
+   "rating": 5,
+   "review_count": 1,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:16:25.627Z",
+   "search_rank": 60
+  },
+  {
+   "gaf_source_id": "1001904",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/tecta-america-metro-ny-llc-belleville-nj-1001904",
+   "name": "Tecta America Metro NY LLC",
+   "phone": "(973) 450-9555",
+   "website_url": "https://www.tectaamerica.com/",
+   "street": "38 Roosevelt Ave",
+   "city": "Belleville",
+   "state": "NJ",
+   "postal_code": "07109",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 8.8,
+   "rating": 5,
+   "review_count": 1,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:16:36.436Z",
+   "search_rank": 61
+  },
+  {
+   "gaf_source_id": "1146336",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/tns-construction-llc-stanhope-nj-1146336",
+   "name": "TNS Construction LLC",
+   "phone": "(973) 337-0660",
+   "website_url": null,
+   "street": "1294 Waterloo Rd",
+   "city": "Stanhope",
+   "state": "NJ",
+   "postal_code": "07874",
+   "about_text": null,
+   "years_in_business": "In business since 2015",
+   "distance_mi": 43.3,
+   "rating": 5,
+   "review_count": 1,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:16:39.280Z",
+   "search_rank": 62
+  },
+  {
+   "gaf_source_id": "1101707",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/triangle-general-contractors-inc-brooklyn-ny-1101707",
+   "name": "Triangle General Contractors Inc",
+   "phone": "(718) 462-6262",
+   "website_url": null,
+   "street": "39 Coffey St",
+   "city": "Brooklyn",
+   "state": "NY",
+   "postal_code": "11231",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 3.3,
+   "rating": 5,
+   "review_count": 1,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:16:41.413Z",
+   "search_rank": 63
+  },
+  {
+   "gaf_source_id": "63229",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/vmg-group-roselle-nj-63229",
+   "name": "VMG Group",
+   "phone": "(908) 298-1130",
+   "website_url": null,
+   "street": "288 Cox St",
+   "city": "Roselle",
+   "state": "NJ",
+   "postal_code": "07203",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 15,
+   "rating": 5,
+   "review_count": 1,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:16:43.593Z",
+   "search_rank": 64
+  },
+  {
+   "gaf_source_id": "1005906",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/long-island-roofing-and-repairs-service-north-bellmore-ny-1005906",
+   "name": "Long Island Roofing and Repairs Service",
+   "phone": "(516) 221-9100",
+   "website_url": null,
+   "street": "2490 Charles Ct",
+   "city": "North Bellmore",
+   "state": "NY",
+   "postal_code": "11710",
+   "about_text": null,
+   "years_in_business": "In business since 1989",
+   "distance_mi": 24.8,
+   "rating": 4.9,
+   "review_count": 400,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:16:45.868Z",
+   "search_rank": 65
+  },
+  {
+   "gaf_source_id": "1003500",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/perrys-roofing-pleasantville-ny-1003500",
+   "name": "Perry's Roofing LLC",
+   "phone": "(914) 747-7663",
+   "website_url": null,
+   "street": "12 Center St",
+   "city": "Pleasantville",
+   "state": "NY",
+   "postal_code": "10570",
+   "about_text": null,
+   "years_in_business": "In business since 2008",
+   "distance_mi": 30.5,
+   "rating": 4.9,
+   "review_count": 387,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:16:48.100Z",
+   "search_rank": 66
+  },
+  {
+   "gaf_source_id": "1122053",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/westchester-roofing-group-briarcliff-manor-ny-1122053",
+   "name": "Westchester Roofing Group",
+   "phone": "(914) 885-7400",
+   "website_url": null,
+   "street": "555 Pleasantville Rd",
+   "city": "Briarcliff Manor",
+   "state": "NY",
+   "postal_code": "10510",
+   "about_text": null,
+   "years_in_business": "In business since 2016",
+   "distance_mi": 30.6,
+   "rating": 4.9,
+   "review_count": 141,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:16:51.093Z",
+   "search_rank": 67
+  },
+  {
+   "gaf_source_id": "1002451",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/precision-roofing-inc-southfields-ny-1002451",
+   "name": "Precision Roofing Inc",
+   "phone": "(845) 351-2009",
+   "website_url": null,
+   "street": "22 Kerr Ln",
+   "city": "Southfields",
+   "state": "NY",
+   "postal_code": "10975",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 37.3,
+   "rating": 4.9,
+   "review_count": 87,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:16:53.323Z",
+   "search_rank": 68
+  },
+  {
+   "gaf_source_id": "1139164",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/six-brothers-contractors-llc-lincoln-park-nj-1139164",
+   "name": "Six Brothers Contractors LLC",
+   "phone": "(201) 650-3321",
+   "website_url": null,
+   "street": "41 Algonquin Ave",
+   "city": "Lincoln Park",
+   "state": "NJ",
+   "postal_code": "07035",
+   "about_text": null,
+   "years_in_business": "In business since 1996",
+   "distance_mi": 19.5,
+   "rating": 4.9,
+   "review_count": 86,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:16:55.475Z",
+   "search_rank": 69
+  },
+  {
+   "gaf_source_id": "1102371",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/usa-general-contractors-corp-manalapan-nj-1102371",
+   "name": "USA General Contractors Corp",
+   "phone": "(908) 436-3739",
+   "website_url": null,
+   "street": "167 State Rte 33",
+   "city": "Manalapan",
+   "state": "NJ",
+   "postal_code": "07726",
+   "about_text": null,
+   "years_in_business": "In business since 1993",
+   "distance_mi": 36.9,
+   "rating": 4.9,
+   "review_count": 57,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:16:58.048Z",
+   "search_rank": 70
+  },
+  {
+   "gaf_source_id": "1137801",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/fischers-roofing-siding-jackson-nj-1137801",
+   "name": "Fischer's Roofing & Siding",
+   "phone": "(732) 589-7663",
+   "website_url": null,
+   "street": "276 S Hope Chapel Rd",
+   "city": "Jackson",
+   "state": "NJ",
+   "postal_code": "08527",
+   "about_text": null,
+   "years_in_business": "In business since 2009",
+   "distance_mi": 47.3,
+   "rating": 4.9,
+   "review_count": 50,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:17:02.508Z",
+   "search_rank": 71
+  },
+  {
+   "gaf_source_id": "1117546",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/tnt-construction-group-llc-garfield-nj-1117546",
+   "name": "TNT Construction Group LLC",
+   "phone": "(973) 546-2606",
+   "website_url": null,
+   "street": "74 Semel Ave",
+   "city": "Garfield",
+   "state": "NJ",
+   "postal_code": "07026",
+   "about_text": null,
+   "years_in_business": "In business since 2012",
+   "distance_mi": 12.6,
+   "rating": 4.9,
+   "review_count": 42,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:17:09.601Z",
+   "search_rank": 72
+  },
+  {
+   "gaf_source_id": "1125170",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/nyc-general-pro-roofing-inc-brooklyn-ny-1125170",
+   "name": "NYC General Pro Roofing Inc",
+   "phone": "(718) 676-7987",
+   "website_url": null,
+   "street": "1431 Nostrand Ave",
+   "city": "Brooklyn",
+   "state": "NY",
+   "postal_code": "11226",
+   "about_text": null,
+   "years_in_business": "In business since 2019",
+   "distance_mi": 5.8,
+   "rating": 4.9,
+   "review_count": 36,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:17:38.686Z",
+   "search_rank": 73
+  },
+  {
+   "gaf_source_id": "1133746",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/precision-general-builders-staten-island-ny-1133746",
+   "name": "Precision General Builders",
+   "phone": "(347) 979-5155",
+   "website_url": null,
+   "street": "217 Milton Ave",
+   "city": "Staten Island",
+   "state": "NY",
+   "postal_code": "10306",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 12.2,
+   "rating": 4.9,
+   "review_count": 31,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:17:41.308Z",
+   "search_rank": 74
+  },
+  {
+   "gaf_source_id": "1004056",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/simpson-roofing-vernon-nj-1004056",
+   "name": "Simpson Roofing",
+   "phone": "(973) 794-3500",
+   "website_url": "https://www.simpsonroofingco.com/",
+   "street": "12 Church St",
+   "city": "Vernon",
+   "state": "NJ",
+   "postal_code": "07462",
+   "about_text": "3rd Generation of Commercial Roofing specialists.  Handling all your Commercial needs from asphalt based systems to single membranes like TPO and PVC.  Providing services in retail, industrial, manufacturing, municipal and medical facilities.",
+   "years_in_business": null,
+   "distance_mi": 41.4,
+   "rating": 4.9,
+   "review_count": 27,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:17:43.493Z",
+   "search_rank": 75
+  },
+  {
+   "gaf_source_id": "1130528",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/quality-one-roofing-inc-princeton-nj-1130528",
+   "name": "Quality One Roofing Inc",
+   "phone": "(609) 921-8868",
+   "website_url": null,
+   "street": "100 Overlook Ctr Ste 200",
+   "city": "Princeton",
+   "state": "NJ",
+   "postal_code": "08540",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 43.3,
+   "rating": 4.9,
+   "review_count": 13,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:17:45.513Z",
+   "search_rank": 76
+  },
+  {
+   "gaf_source_id": "1002065",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/imperium-construction-inc-brooklyn-ny-1002065",
+   "name": "Imperium Construction Inc",
+   "phone": "(718) 384-6992",
+   "website_url": null,
+   "street": "338 Scholes St",
+   "city": "Brooklyn",
+   "state": "NY",
+   "postal_code": "11206",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 4,
+   "rating": 4.9,
+   "review_count": 9,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:17:48.729Z",
+   "search_rank": 77
+  },
+  {
+   "gaf_source_id": "1101776",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/keystone-roofing-and-siding-llc-freehold-nj-1101776",
+   "name": "EMT Roofing and Siding LLC",
+   "phone": "(732) 637-8300",
+   "website_url": null,
+   "street": "1719 Ginesi Dr",
+   "city": "Freehold",
+   "state": "NJ",
+   "postal_code": "07728",
+   "about_text": null,
+   "years_in_business": "In business since 2012",
+   "distance_mi": 34.7,
+   "rating": 4.8,
+   "review_count": 520,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:17:51.173Z",
+   "search_rank": 78
+  },
+  {
+   "gaf_source_id": "1104750",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/dior-construction-bergenfield-nj-1104750",
+   "name": "Dior Construction",
+   "phone": "(201) 472-5462",
+   "website_url": "https://www.diorconstruction.com/",
+   "street": "37B Woodbine St",
+   "city": "Bergenfield",
+   "state": "NJ",
+   "postal_code": "07621",
+   "about_text": "Dior Construction is a family owned and operated company specializing in all systems of roofing for residential and commercial properties. From shingle roofs to flat roofs and everything in between, Dior Construction is your trusted neighborhood provider for premium roof installation. We understand any renovation can be intimidating, and we will guide you through the process of installing your new roof to guarantee your satisfaction. At Dior Construction, we care about our clients, and we maintain ongoing relationships to ensure our projects stand the test of time.",
+   "years_in_business": "In business since 2014",
+   "distance_mi": 13.7,
+   "rating": 4.8,
+   "review_count": 269,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:17:53.299Z",
+   "search_rank": 79
+  },
+  {
+   "gaf_source_id": "1112005",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/kamtech-restoration-corp-brooklyn-ny-1112005",
+   "name": "Kamtech Restoration Corp",
+   "phone": "(347) 860-1109",
+   "website_url": null,
+   "street": "117 Bay 8th St",
+   "city": "Brooklyn",
+   "state": "NY",
+   "postal_code": "11228",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 7.8,
+   "rating": 4.8,
+   "review_count": 268,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:17:55.484Z",
+   "search_rank": 80
+  },
+  {
+   "gaf_source_id": "1115011",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/allied-roofing-and-construction-lodi-nj-1115011",
+   "name": "Allied Construction & Remodeling LLC",
+   "phone": "(973) 851-2768",
+   "website_url": null,
+   "street": "116 S Main St",
+   "city": "Lodi",
+   "state": "NJ",
+   "postal_code": "07644",
+   "about_text": null,
+   "years_in_business": "In business since 1999",
+   "distance_mi": 11.1,
+   "rating": 4.8,
+   "review_count": 255,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:17:57.573Z",
+   "search_rank": 81
+  },
+  {
+   "gaf_source_id": "1113994",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/leak-stoppers-inc-west-babylon-ny-1113994",
+   "name": "Leak Stoppers Inc",
+   "phone": "(631) 669-1570",
+   "website_url": null,
+   "street": "85 Otis St Unit C",
+   "city": "West Babylon",
+   "state": "NY",
+   "postal_code": "11704",
+   "about_text": null,
+   "years_in_business": "In business since 1999",
+   "distance_mi": 33.3,
+   "rating": 4.8,
+   "review_count": 40,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:18:02.916Z",
+   "search_rank": 82
+  },
+  {
+   "gaf_source_id": "1005013",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/shawnee-construction-llc-rockaway-nj-1005013",
+   "name": "Shawnee Construction LLC",
+   "phone": "(973) 601-7927",
+   "website_url": null,
+   "street": "101 Mount Hope Rd",
+   "city": "Rockaway",
+   "state": "NJ",
+   "postal_code": "07866",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 30.4,
+   "rating": 4.8,
+   "review_count": 21,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:18:07.083Z",
+   "search_rank": 83
+  },
+  {
+   "gaf_source_id": "1116530",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/lester-goldsmith-roofing-brooklyn-ny-1116530",
+   "name": "Lesgold LLC",
+   "phone": "(718) 253-3484",
+   "website_url": null,
+   "street": "1222 Ave M Ste 207",
+   "city": "Brooklyn",
+   "state": "NY",
+   "postal_code": "11230",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 7.6,
+   "rating": 4.8,
+   "review_count": 19,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:18:09.141Z",
+   "search_rank": 84
+  },
+  {
+   "gaf_source_id": "1135227",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/mn-construction-group-scotch-plains-nj-1135227",
+   "name": "DBK Consulting LLC",
+   "phone": "(914) 906-3034",
+   "website_url": null,
+   "street": "2020 Winding Brook Way",
+   "city": "Scotch Plains",
+   "state": "NJ",
+   "postal_code": "07076",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 18.4,
+   "rating": 4.8,
+   "review_count": 19,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:18:11.455Z",
+   "search_rank": 85
+  },
+  {
+   "gaf_source_id": "1123688",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/lm-company-port-chester-ny-1123688",
+   "name": "Nieto Contractors Inc",
+   "phone": "(914) 937-1030",
+   "website_url": "https://www.lmroofing.com/",
+   "street": "140 Highland St",
+   "city": "Port Chester",
+   "state": "NY",
+   "postal_code": "10573",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 26.7,
+   "rating": 4.8,
+   "review_count": 5,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:18:13.593Z",
+   "search_rank": 86
+  },
+  {
+   "gaf_source_id": "1101248",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/garden-state-roofing-siding-north-middletown-nj-1101248",
+   "name": "Garden State Roofing & Siding",
+   "phone": "(732) 787-5545",
+   "website_url": null,
+   "street": "646 Palmer Ave",
+   "city": "North Middletown",
+   "state": "NJ",
+   "postal_code": "07748",
+   "about_text": null,
+   "years_in_business": "In business since 1971",
+   "distance_mi": 21.3,
+   "rating": 4.7,
+   "review_count": 116,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:18:15.770Z",
+   "search_rank": 87
+  },
+  {
+   "gaf_source_id": "1000294",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/ricks-main-roofing-ltd-norwalk-ct-1000294",
+   "name": "Rick's Main Roofing Ltd",
+   "phone": "(203) 838-5858",
+   "website_url": null,
+   "street": "26 Fitch St Ste 1A",
+   "city": "Norwalk",
+   "state": "CT",
+   "postal_code": "06855",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 41.4,
+   "rating": 4.7,
+   "review_count": 113,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:18:17.938Z",
+   "search_rank": 88
+  },
+  {
+   "gaf_source_id": "1130929",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/allied-roofing-plainview-ny-1130929",
+   "name": "Frank Harman Service Systems",
+   "phone": "(516) 938-3838",
+   "website_url": null,
+   "street": "22 East Mall",
+   "city": "Plainview",
+   "state": "NY",
+   "postal_code": "11803",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 29.5,
+   "rating": 4.7,
+   "review_count": 60,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:18:20.412Z",
+   "search_rank": 89
+  },
+  {
+   "gaf_source_id": "1121329",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/garden-state-roofing-and-sheet-metal-morganville-nj-1121329",
+   "name": "Garden State Roofing and Sheet Metal",
+   "phone": "(800) 800-2115",
+   "website_url": null,
+   "street": "293 State Rte 79 N",
+   "city": "Morganville",
+   "state": "NJ",
+   "postal_code": "07751",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 28.1,
+   "rating": 4.7,
+   "review_count": 19,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:18:22.517Z",
+   "search_rank": 90
+  },
+  {
+   "gaf_source_id": "1104898",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/eagle-one-roofing-astoria-ny-1104898",
+   "name": "Eagle One Roofing Contractors Inc",
+   "phone": "(718) 626-2108",
+   "website_url": null,
+   "street": "1860 45th St",
+   "city": "Astoria",
+   "state": "NY",
+   "postal_code": "11105",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 7.1,
+   "rating": 4.7,
+   "review_count": 16,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:18:24.727Z",
+   "search_rank": 91
+  },
+  {
+   "gaf_source_id": "1000630",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/northeast-roof-maintenance-inc-perth-amboy-nj-1000630",
+   "name": "Northeast Roof Maintenance Inc",
+   "phone": "(732) 442-2020",
+   "website_url": null,
+   "street": "649 Catherine St",
+   "city": "Perth Amboy",
+   "state": "NJ",
+   "postal_code": "08861",
+   "about_text": null,
+   "years_in_business": "In business since 1993",
+   "distance_mi": 19.4,
+   "rating": 4.7,
+   "review_count": 3,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:18:26.754Z",
+   "search_rank": 92
+  },
+  {
+   "gaf_source_id": "1002412",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/schnabel-roofing-of-long-island-inc-ronkonkoma-ny-1002412",
+   "name": "Schnabel Roofing of Long Island Inc",
+   "phone": "(631) 585-7073",
+   "website_url": null,
+   "street": "80 Remington Blvd",
+   "city": "Ronkonkoma",
+   "state": "NY",
+   "postal_code": "11779",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 46,
+   "rating": 4.7,
+   "review_count": 3,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:18:32.620Z",
+   "search_rank": 93
+  },
+  {
+   "gaf_source_id": "1004515",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/accent-group-inc-nutley-nj-1004515",
+   "name": "Accent Group Inc",
+   "phone": "(973) 562-0200",
+   "website_url": null,
+   "street": "104 E Centre St",
+   "city": "Nutley",
+   "state": "NJ",
+   "postal_code": "07110",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 9.3,
+   "rating": 4.6,
+   "review_count": 65,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:18:37.121Z",
+   "search_rank": 94
+  },
+  {
+   "gaf_source_id": "1000029",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/layne-roofing-inc-new-milford-nj-1000029",
+   "name": "Layne Roofing Inc",
+   "phone": "(201) 385-5263",
+   "website_url": null,
+   "street": "251 Main St",
+   "city": "New Milford",
+   "state": "NJ",
+   "postal_code": "07646",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 15.5,
+   "rating": 4.6,
+   "review_count": 37,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:20:24.334Z",
+   "search_rank": 95
+  },
+  {
+   "gaf_source_id": "1005908",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/frank-j-tucek-son-inc-congers-ny-1005908",
+   "name": "Frank J Tucek & Son Inc",
+   "phone": "(845) 268-5170",
+   "website_url": null,
+   "street": "92 N Rte 9W",
+   "city": "Congers",
+   "state": "NY",
+   "postal_code": "10920",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 30.2,
+   "rating": 4.6,
+   "review_count": 34,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:20:40.862Z",
+   "search_rank": 96
+  },
+  {
+   "gaf_source_id": "1100323",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/ff-roofing-company-inc-floral-park-ny-1100323",
+   "name": "F&F Roofing Company Inc",
+   "phone": "(516) 352-6677",
+   "website_url": "https://www.ffroofing.com/",
+   "street": "315 Jericho Tpke",
+   "city": "Floral Park",
+   "state": "NY",
+   "postal_code": "11001",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 15.3,
+   "rating": 4.5,
+   "review_count": 16,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:20:43.173Z",
+   "search_rank": 97
+  },
+  {
+   "gaf_source_id": "1115195",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/nba-construction-inc-brooklyn-ny-1115195",
+   "name": "NBA Construction Inc",
+   "phone": "(718) 633-2905",
+   "website_url": null,
+   "street": "283 E 3rd St",
+   "city": "Brooklyn",
+   "state": "NY",
+   "postal_code": "11218",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 5.6,
+   "rating": 4.5,
+   "review_count": 11,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:20:45.382Z",
+   "search_rank": 98
+  },
+  {
+   "gaf_source_id": "1003611",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/gem-roofing-waterproofing-corp-union-city-nj-1003611",
+   "name": "Gem Roofing & Waterproofing Corp",
+   "phone": "(201) 867-7673",
+   "website_url": "https://gemroof.com/",
+   "street": "1414 Summit Ave",
+   "city": "Union City",
+   "state": "NJ",
+   "postal_code": "07087",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 3.3,
+   "rating": 4.5,
+   "review_count": 2,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:20:48.392Z",
+   "search_rank": 99
+  },
+  {
+   "gaf_source_id": "1005473",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/prestige-roofing-group-bayonne-nj-1005473",
+   "name": "Prestige Roof Service LLC",
+   "phone": "(844) 853-7663",
+   "website_url": null,
+   "street": "PO Box 10",
+   "city": "Bayonne",
+   "state": "NJ",
+   "postal_code": "07002",
+   "about_text": null,
+   "years_in_business": "In business since 2012",
+   "distance_mi": 6.8,
+   "rating": 4.4,
+   "review_count": 16,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:20:50.943Z",
+   "search_rank": 100
+  },
+  {
+   "gaf_source_id": "1109511",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/ccm-roofing-llc-hicksville-ny-1109511",
+   "name": "CCM Roofing LLC",
+   "phone": "(516) 681-3853",
+   "website_url": null,
+   "street": "105 Bloomingdale Rd",
+   "city": "Hicksville",
+   "state": "NY",
+   "postal_code": "11801",
+   "about_text": null,
+   "years_in_business": "In business since 2006",
+   "distance_mi": 26.5,
+   "rating": 4.4,
+   "review_count": 14,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:20:53.498Z",
+   "search_rank": 101
+  },
+  {
+   "gaf_source_id": "1122183",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/delta-contracting-services-inc-east-brunswick-nj-1122183",
+   "name": "Delta Contracting Services Inc",
+   "phone": "(732) 432-4870",
+   "website_url": null,
+   "street": "12 Connerty Ct Unit A",
+   "city": "East Brunswick",
+   "state": "NJ",
+   "postal_code": "08816",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 26.9,
+   "rating": 4.4,
+   "review_count": 9,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:20:56.060Z",
+   "search_rank": 102
+  },
+  {
+   "gaf_source_id": "1005773",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/ss-roofing-inc-carteret-nj-1005773",
+   "name": "S&S Roofing Inc",
+   "phone": "(732) 602-0099",
+   "website_url": null,
+   "street": "2 Self Blvd",
+   "city": "Carteret",
+   "state": "NJ",
+   "postal_code": "07008",
+   "about_text": null,
+   "years_in_business": "In business since 1989",
+   "distance_mi": 15.6,
+   "rating": 4.4,
+   "review_count": 7,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:20:58.379Z",
+   "search_rank": 103
+  },
+  {
+   "gaf_source_id": "1004041",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/prime-home-improvements-armonk-ny-1004041",
+   "name": "Prime Building Services Inc",
+   "phone": "(914) 683-8081",
+   "website_url": null,
+   "street": "200 Business Park Dr Ste 202",
+   "city": "Armonk",
+   "state": "NY",
+   "postal_code": "10504",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 31.4,
+   "rating": 4.3,
+   "review_count": 26,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:21:01.029Z",
+   "search_rank": 104
+  },
+  {
+   "gaf_source_id": "1004046",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/fort-cica-roofing-general-contractors-bronx-ny-1004046",
+   "name": "Fort-Cica Roofing & General Contractors",
+   "phone": "(718) 585-9188",
+   "website_url": null,
+   "street": "720 E 141st St",
+   "city": "Bronx",
+   "state": "NY",
+   "postal_code": "10454",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 7.8,
+   "rating": 4.3,
+   "review_count": 21,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:21:03.400Z",
+   "search_rank": 105
+  },
+  {
+   "gaf_source_id": "1123580",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/master-rns-llc-montvale-nj-1123580",
+   "name": "Master RNS LLC",
+   "phone": "(845) 425-1619",
+   "website_url": null,
+   "street": "1 Paragon Dr Ste 122",
+   "city": "Montvale",
+   "state": "NJ",
+   "postal_code": "07645",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 23.3,
+   "rating": 4.3,
+   "review_count": 21,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:21:07.449Z",
+   "search_rank": 106
+  },
+  {
+   "gaf_source_id": "1003597",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/kns-building-restoration-inc-middle-village-ny-1003597",
+   "name": "KNS Building Restoration Inc",
+   "phone": "(718) 956-7920",
+   "website_url": null,
+   "street": "6981 75th St",
+   "city": "Middle Village",
+   "state": "NY",
+   "postal_code": "11379",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 7.1,
+   "rating": 4.3,
+   "review_count": 16,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:21:10.234Z",
+   "search_rank": 107
+  },
+  {
+   "gaf_source_id": "1114337",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/a-b-systems-inc-hicksville-ny-1114337",
+   "name": "A & B Systems Inc",
+   "phone": "(516) 934-0856",
+   "website_url": null,
+   "street": "140 Lauman Ln",
+   "city": "Hicksville",
+   "state": "NY",
+   "postal_code": "11801",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 26.6,
+   "rating": 4.2,
+   "review_count": 6,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:21:15.335Z",
+   "search_rank": 108
+  },
+  {
+   "gaf_source_id": "1005401",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/bqe-industries-inc-queens-ny-1005401",
+   "name": "BQE Industries Inc",
+   "phone": "(718) 429-1648",
+   "website_url": null,
+   "street": "47-46 69th St",
+   "city": "Queens",
+   "state": "NY",
+   "postal_code": "11377",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 6.1,
+   "rating": 4.2,
+   "review_count": 5,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:21:17.575Z",
+   "search_rank": 109
+  },
+  {
+   "gaf_source_id": "1006349",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/stanley-orke-inc-dover-nj-1006349",
+   "name": "Stanley & Orke Inc",
+   "phone": "(973) 627-2009",
+   "website_url": "https://thestanleyway.com/",
+   "street": "165 Richards Ave",
+   "city": "Dover",
+   "state": "NJ",
+   "postal_code": "07801",
+   "about_text": null,
+   "years_in_business": "In business since 1931",
+   "distance_mi": 30.4,
+   "rating": 4.1,
+   "review_count": 16,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:21:20.207Z",
+   "search_rank": 110
+  },
+  {
+   "gaf_source_id": "1004925",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/patwood-roofing-co-inc-little-falls-nj-1004925",
+   "name": "Patwood Contracting Co Inc",
+   "phone": "(973) 256-0400",
+   "website_url": null,
+   "street": "3 Peckman Rd",
+   "city": "Little Falls",
+   "state": "NJ",
+   "postal_code": "07424",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 15.6,
+   "rating": 4.1,
+   "review_count": 9,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:21:22.412Z",
+   "search_rank": 111
+  },
+  {
+   "gaf_source_id": "1006185",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/fm-construction-group-llc-east-orange-nj-1006185",
+   "name": "FM Construction Group LLC",
+   "phone": "(973) 989-1616",
+   "website_url": null,
+   "street": "100 Dr MLK Jr Blvd",
+   "city": "East Orange",
+   "state": "NJ",
+   "postal_code": "07018",
+   "about_text": null,
+   "years_in_business": "In business since 2014",
+   "distance_mi": 10.3,
+   "rating": 4,
+   "review_count": 38,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:21:24.712Z",
+   "search_rank": 112
+  },
+  {
+   "gaf_source_id": "1005047",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/white-rock-construction-corp-staten-island-ny-1005047",
+   "name": "White Rock Construction Corp",
+   "phone": "(718) 832-4701",
+   "website_url": "https://www.whiterockroofing.com/",
+   "street": "149 Willow Ave",
+   "city": "Staten Island",
+   "state": "NY",
+   "postal_code": "10305",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 8,
+   "rating": 4,
+   "review_count": 2,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:21:27.039Z",
+   "search_rank": 113
+  },
+  {
+   "gaf_source_id": "1114450",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/rojas-brothers-jafp-corp-paterson-nj-1114450",
+   "name": "Rojas Brothers JAFP Corp",
+   "phone": "(862) 268-0869",
+   "website_url": null,
+   "street": "424 E 22nd St",
+   "city": "Paterson",
+   "state": "NJ",
+   "postal_code": "07514",
+   "about_text": null,
+   "years_in_business": "In business since 2016",
+   "distance_mi": 15.9,
+   "rating": 4,
+   "review_count": 1,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:21:29.299Z",
+   "search_rank": 114
+  },
+  {
+   "gaf_source_id": "1100951",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/coffey-brothers-inc-howell-nj-1100951",
+   "name": "Coffey Brothers Inc",
+   "phone": "(732) 363-7010",
+   "website_url": null,
+   "street": "2559 US Hwy 9",
+   "city": "Howell",
+   "state": "NJ",
+   "postal_code": "07731",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 39.7,
+   "rating": 3.9,
+   "review_count": 7,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:21:31.736Z",
+   "search_rank": 115
+  },
+  {
+   "gaf_source_id": "1006135",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/fania-roofing-dover-nj-1006135",
+   "name": "The Fania Company",
+   "phone": "(973) 361-9151",
+   "website_url": null,
+   "street": "271 E Blackwell St",
+   "city": "Dover",
+   "state": "NJ",
+   "postal_code": "07801",
+   "about_text": null,
+   "years_in_business": "In business since 1951",
+   "distance_mi": 30.2,
+   "rating": 3.8,
+   "review_count": 23,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:21:34.324Z",
+   "search_rank": 116
+  },
+  {
+   "gaf_source_id": "1111929",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/fidelis-contracting-inc-great-neck-ny-1111929",
+   "name": "Fidelis Contracting Inc",
+   "phone": "(718) 305-1860",
+   "website_url": null,
+   "street": "300 Northern Blvd Ste 201",
+   "city": "Great Neck",
+   "state": "NY",
+   "postal_code": "11021",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 15.4,
+   "rating": 3.7,
+   "review_count": 3,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:21:36.436Z",
+   "search_rank": 117
+  },
+  {
+   "gaf_source_id": "1115192",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/regal-restoration-usa-llc-eatontown-nj-1115192",
+   "name": "Regal Restoration USA LLC",
+   "phone": "(732) 915-0671",
+   "website_url": null,
+   "street": "103 Weston Pl",
+   "city": "Eatontown",
+   "state": "NJ",
+   "postal_code": "07724",
+   "about_text": null,
+   "years_in_business": "In business since 2012",
+   "distance_mi": 30.7,
+   "rating": 3.6,
+   "review_count": 9,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:21:39.423Z",
+   "search_rank": 118
+  },
+  {
+   "gaf_source_id": "1004202",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/donofrio-general-contractors-corp-brooklyn-ny-1004202",
+   "name": "D'Onofrio General Contractors Corp",
+   "phone": "(718) 832-5700",
+   "website_url": null,
+   "street": "202 28th St",
+   "city": "Brooklyn",
+   "state": "NY",
+   "postal_code": "11232",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 4.5,
+   "rating": 3.3,
+   "review_count": 19,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:21:42.200Z",
+   "search_rank": 119
+  },
+  {
+   "gaf_source_id": "1000595",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/advanced-roofing-sheet-metal-co-inc-belleville-nj-1000595",
+   "name": "Advanced Roofing & Sheet Metal Co Inc",
+   "phone": "(973) 751-3800",
+   "website_url": null,
+   "street": "112 Greylock Ave",
+   "city": "Belleville",
+   "state": "NJ",
+   "postal_code": "07109",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 8.9,
+   "rating": 3.3,
+   "review_count": 7,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:21:45.179Z",
+   "search_rank": 120
+  },
+  {
+   "gaf_source_id": "61313",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/badger-roofing-company-inc-piscataway-nj-61313",
+   "name": "Badger Roofing Company Inc",
+   "phone": "(732) 424-9498",
+   "website_url": null,
+   "street": "600 Prospect Ave Ste B",
+   "city": "Piscataway",
+   "state": "NJ",
+   "postal_code": "08854",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 25.9,
+   "rating": 3,
+   "review_count": 8,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:21:47.430Z",
+   "search_rank": 121
+  },
+  {
+   "gaf_source_id": "1000587",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/armstrong-roofing-corp-staten-island-ny-1000587",
+   "name": "Armstrong Roofing Corp",
+   "phone": "(718) 494-6777",
+   "website_url": "https://www.armstrongroofingny.com/",
+   "street": "2703 Richmond Ter",
+   "city": "Staten Island",
+   "state": "NY",
+   "postal_code": "10303",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 9.4,
+   "rating": 3,
+   "review_count": 4,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:21:50.997Z",
+   "search_rank": 122
+  },
+  {
+   "gaf_source_id": "1004105",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/gc-dynatech-construction-llc-south-amboy-nj-1004105",
+   "name": "GC Dynatech Construction LLC",
+   "phone": "(732) 688-7562",
+   "website_url": null,
+   "street": "2066 State Rte 35",
+   "city": "South Amboy",
+   "state": "NJ",
+   "postal_code": "08879",
+   "about_text": null,
+   "years_in_business": "In business since 2008",
+   "distance_mi": 22.5,
+   "rating": 3,
+   "review_count": 2,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:21:56.324Z",
+   "search_rank": 123
+  },
+  {
+   "gaf_source_id": "1002044",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/paino-roofing-co-inc-hackensack-nj-1002044",
+   "name": "Paino Roofing Co Inc",
+   "phone": "(201) 343-0470",
+   "website_url": "https://painoroofing.com/",
+   "street": "75 Voorhis Ln",
+   "city": "Hackensack",
+   "state": "NJ",
+   "postal_code": "07601",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 12.7,
+   "rating": 2.8,
+   "review_count": 9,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:21:59.792Z",
+   "search_rank": 124
+  },
+  {
+   "gaf_source_id": "1006054",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/james-joseph-construction-inc-paterson-nj-1006054",
+   "name": "James Joseph Construction Inc",
+   "phone": "(973) 904-9899",
+   "website_url": null,
+   "street": "177 McBride Ave",
+   "city": "Paterson",
+   "state": "NJ",
+   "postal_code": "07501",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 16,
+   "rating": 2.8,
+   "review_count": 5,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:22:02.758Z",
+   "search_rank": 125
+  },
+  {
+   "gaf_source_id": "1117401",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/sj-carney-maintenance-whippany-nj-1117401",
+   "name": "SJ Carney Maintenance",
+   "phone": "(973) 324-0830",
+   "website_url": null,
+   "street": "16 Hilltop Cir",
+   "city": "Whippany",
+   "state": "NJ",
+   "postal_code": "07981",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 22.9,
+   "rating": 1,
+   "review_count": 1,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:22:05.521Z",
+   "search_rank": 126
+  },
+  {
+   "gaf_source_id": "1105394",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/1-first-quality-contracting-islip-ny-1105394",
+   "name": "1 First Quality Contracting",
+   "phone": "(631) 774-8472",
+   "website_url": null,
+   "street": "28 Roosevelt Ave",
+   "city": "Islip",
+   "state": "NY",
+   "postal_code": "11751",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 41.4,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:22:08.139Z",
+   "search_rank": 127
+  },
+  {
+   "gaf_source_id": "1165071",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/2-saab-construction-brooklyn-ny-1165071",
+   "name": "2 Saab Construction",
+   "phone": "(718) 769-4592",
+   "website_url": null,
+   "street": "3084 Coney Island Ave",
+   "city": "Brooklyn",
+   "state": "NY",
+   "postal_code": "11235",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 10.1,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:22:10.358Z",
+   "search_rank": 128
+  },
+  {
+   "gaf_source_id": "7157337",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/as-construction-ozone-park-ny-7157337",
+   "name": "A&S Interior Construction Inc",
+   "phone": "(646) 423-0890",
+   "website_url": null,
+   "street": "13201 81st St 1st Fl",
+   "city": "Ozone Park",
+   "state": "NY",
+   "postal_code": "11417",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 8.7,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:22:12.981Z",
+   "search_rank": 129
+  },
+  {
+   "gaf_source_id": "1145057",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/as-contractor-llc-newark-nj-1145057",
+   "name": "A&S Contractor LLC",
+   "phone": "(973) 536-5866",
+   "website_url": null,
+   "street": "226 W Runyon St",
+   "city": "Newark",
+   "state": "NJ",
+   "postal_code": "07108",
+   "about_text": "A&amp;S IS A COMPANY SPECIALIZED IN FLAT ROOFS AND WE TAKE OUR WORK VERY SERIOUSLY SO THAT OUR CUSTOMERS ARE VERY SATISFIED.",
+   "years_in_business": "In business since 2022",
+   "distance_mi": 10.3,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:22:15.444Z",
+   "search_rank": 130
+  },
+  {
+   "gaf_source_id": "1109451",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/aaa-exteriors-llc-lyndhurst-nj-1109451",
+   "name": "AAA Exteriors LLC",
+   "phone": "(551) 556-1405",
+   "website_url": null,
+   "street": "522 3rd Ave",
+   "city": "Lyndhurst",
+   "state": "NJ",
+   "postal_code": "07071",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 8.5,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:22:17.639Z",
+   "search_rank": 131
+  },
+  {
+   "gaf_source_id": "1144539",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/ac-maintenance-repairs-llc-wayne-nj-1144539",
+   "name": "AC Maintenance & Repairs LLC",
+   "phone": "(973) 356-1514",
+   "website_url": null,
+   "street": "381 Black Oak Ridge Rd",
+   "city": "Wayne",
+   "state": "NJ",
+   "postal_code": "07470",
+   "about_text": null,
+   "years_in_business": "In business since 2016",
+   "distance_mi": 21.1,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:22:20.491Z",
+   "search_rank": 132
+  },
+  {
+   "gaf_source_id": "1150309",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/adams-european-contracting-inc-brooklyn-ny-1150309",
+   "name": "Adams European Contracting Inc",
+   "phone": "(718) 417-9000",
+   "website_url": null,
+   "street": "589 Johnson Ave",
+   "city": "Brooklyn",
+   "state": "NY",
+   "postal_code": "11237",
+   "about_text": null,
+   "years_in_business": "In business since 1994",
+   "distance_mi": 4.6,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:22:22.541Z",
+   "search_rank": 133
+  },
+  {
+   "gaf_source_id": "1152394",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/al-general-contracting-services-corp-new-rochelle-ny-1152394",
+   "name": "AL General Contracting Services Corp",
+   "phone": "(914) 406-1871",
+   "website_url": null,
+   "street": "57 Beechwood Ave Apt 1",
+   "city": "New Rochelle",
+   "state": "NY",
+   "postal_code": "10801",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 17.1,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:22:24.658Z",
+   "search_rank": 134
+  },
+  {
+   "gaf_source_id": "1138734",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/all-force-construction-llc-franklin-nj-1138734",
+   "name": "All Force Construction LLC",
+   "phone": "(201) 663-5847",
+   "website_url": null,
+   "street": "2 Andre Ct",
+   "city": "Franklin",
+   "state": "NJ",
+   "postal_code": "07416",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 41.4,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:22:28.063Z",
+   "search_rank": 135
+  },
+  {
+   "gaf_source_id": "1126013",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/amana-construction-company-inc-wayne-nj-1126013",
+   "name": "Amana Construction Company Inc",
+   "phone": "(973) 449-9202",
+   "website_url": null,
+   "street": "1177 Ratzer Rd",
+   "city": "Wayne",
+   "state": "NJ",
+   "postal_code": "07470",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 19.4,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:22:30.682Z",
+   "search_rank": 136
+  },
+  {
+   "gaf_source_id": "1114522",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/ams-construction-corp-bronx-ny-1114522",
+   "name": "AMS Construction Corp",
+   "phone": "(718) 829-4136",
+   "website_url": null,
+   "street": "2283 Light St",
+   "city": "Bronx",
+   "state": "NY",
+   "postal_code": "10466",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 14.9,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:22:33.611Z",
+   "search_rank": 137
+  },
+  {
+   "gaf_source_id": "1152032",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/apollon-group-llc-queens-ny-1152032",
+   "name": "Apollon Group LLC",
+   "phone": "(718) 728-8000",
+   "website_url": null,
+   "street": "24-57 49th St Ste 205",
+   "city": "Queens",
+   "state": "NY",
+   "postal_code": "11105",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 6.3,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:25:07.825Z",
+   "search_rank": 138
+  },
+  {
+   "gaf_source_id": "1165009",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/arial-contracting-inc-staten-island-ny-1165009",
+   "name": "Arial Contracting Inc",
+   "phone": "(347) 302-0159",
+   "website_url": null,
+   "street": "63 Chelsea St",
+   "city": "Staten Island",
+   "state": "NY",
+   "postal_code": "10307",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 19.3,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:25:10.077Z",
+   "search_rank": 139
+  },
+  {
+   "gaf_source_id": "1004958",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/arid-solutions-inc-lincoln-park-nj-1004958",
+   "name": "Arid Solutions Inc",
+   "phone": "(973) 628-0011",
+   "website_url": null,
+   "street": "1 Station Rd Ste A",
+   "city": "Lincoln Park",
+   "state": "NJ",
+   "postal_code": "07035",
+   "about_text": null,
+   "years_in_business": "In business since 2010",
+   "distance_mi": 20.8,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:25:12.417Z",
+   "search_rank": 140
+  },
+  {
+   "gaf_source_id": "1157285",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/atlas-roofing-ny-llc-bellmore-ny-1157285",
+   "name": "Atlas Roofing NY LLC",
+   "phone": "(516) 510-3577",
+   "website_url": null,
+   "street": "111 Barbara Rd",
+   "city": "Bellmore",
+   "state": "NY",
+   "postal_code": "11710",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 26,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:25:14.506Z",
+   "search_rank": 141
+  },
+  {
+   "gaf_source_id": "1150275",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/bd-team-group-inc-lincoln-park-nj-1150275",
+   "name": "BD Team Group Inc",
+   "phone": "(973) 820-6084",
+   "website_url": null,
+   "street": "59 Beaverbrook Rd",
+   "city": "Lincoln Park",
+   "state": "NJ",
+   "postal_code": "07035",
+   "about_text": null,
+   "years_in_business": "In business since 2024",
+   "distance_mi": 21.2,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:25:17.134Z",
+   "search_rank": 142
+  },
+  {
+   "gaf_source_id": "1143128",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/begu-general-contractors-brooklyn-ny-1143128",
+   "name": "BEGU Contractors",
+   "phone": "(718) 234-7533",
+   "website_url": null,
+   "street": "1712 Stillwell Ave",
+   "city": "Brooklyn",
+   "state": "NY",
+   "postal_code": "11223",
+   "about_text": null,
+   "years_in_business": "In business since 2016",
+   "distance_mi": 8.2,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:25:19.327Z",
+   "search_rank": 143
+  },
+  {
+   "gaf_source_id": "1150412",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/best-solution-contracting-llc-rockaway-nj-1150412",
+   "name": "Best Solution Contracting LLC",
+   "phone": "(201) 467-1792",
+   "website_url": null,
+   "street": "28 Calumet Ave",
+   "city": "Rockaway",
+   "state": "NJ",
+   "postal_code": "07866",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 29.9,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:25:21.485Z",
+   "search_rank": 144
+  },
+  {
+   "gaf_source_id": "1156625",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/better-homes-builders-inc-white-plains-ny-1156625",
+   "name": "Better Homes Builders Inc",
+   "phone": "(917) 302-7474",
+   "website_url": null,
+   "street": "455 Tarrytown Rd Ste 1449",
+   "city": "White Plains",
+   "state": "NY",
+   "postal_code": "10607",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 24.7,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:25:23.522Z",
+   "search_rank": 145
+  },
+  {
+   "gaf_source_id": "1103510",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/billy-contracting-restoration-inc-paterson-nj-1103510",
+   "name": "Billy Contracting & Restoration Inc",
+   "phone": "(973) 396-2579",
+   "website_url": null,
+   "street": "67 Danforth Ave",
+   "city": "Paterson",
+   "state": "NJ",
+   "postal_code": "07501",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 16,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:25:25.542Z",
+   "search_rank": 146
+  },
+  {
+   "gaf_source_id": "1151902",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/blackstone-group-llc-orange-nj-1151902",
+   "name": "Blackstone Group LLC",
+   "phone": "(973) 624-6300",
+   "website_url": null,
+   "street": "169 Scotland Rd",
+   "city": "Orange",
+   "state": "NJ",
+   "postal_code": "07050",
+   "about_text": null,
+   "years_in_business": "In business since 1996",
+   "distance_mi": 12.5,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:25:27.677Z",
+   "search_rank": 147
+  },
+  {
+   "gaf_source_id": "1149578",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/boccia-waterproofing-new-hyde-park-ny-1149578",
+   "name": "Boccia Waterproofing",
+   "phone": "(516) 747-7727",
+   "website_url": null,
+   "street": "168 Broadway",
+   "city": "New Hyde Park",
+   "state": "NY",
+   "postal_code": "11040",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 18.4,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:25:30.883Z",
+   "search_rank": 148
+  },
+  {
+   "gaf_source_id": "1144183",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/brentwood-roofing-contracting-inc-brentwood-ny-1144183",
+   "name": "Brentwood Roofing & Contracting Inc",
+   "phone": "(516) 765-0350",
+   "website_url": null,
+   "street": "219 Studley St",
+   "city": "Brentwood",
+   "state": "NY",
+   "postal_code": "11717",
+   "about_text": null,
+   "years_in_business": "In business since 2022",
+   "distance_mi": 41.5,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:25:33.805Z",
+   "search_rank": 149
+  },
+  {
+   "gaf_source_id": "1004313",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/camelot-contracting-cranford-nj-1004313",
+   "name": "Camelot Roofing LLC",
+   "phone": "(732) 877-3147",
+   "website_url": null,
+   "street": "549 Lexington Ave",
+   "city": "Cranford",
+   "state": "NJ",
+   "postal_code": "07016",
+   "about_text": null,
+   "years_in_business": "In business since 1999",
+   "distance_mi": 13.2,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:25:36.690Z",
+   "search_rank": 150
+  },
+  {
+   "gaf_source_id": "1152115",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/capital-construction-pro-inc-eastchester-ny-1152115",
+   "name": "Capital Construction Pro Inc",
+   "phone": "(347) 323-1622",
+   "website_url": null,
+   "street": "75 Highland Ave",
+   "city": "Eastchester",
+   "state": "NY",
+   "postal_code": "10709",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 18.8,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:26:08.934Z",
+   "search_rank": 151
+  },
+  {
+   "gaf_source_id": "1149657",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/cepheus-construction-restoration-group-belleville-nj-1149657",
+   "name": "Cepheus Construction & Restoration",
+   "phone": "(551) 430-1296",
+   "website_url": null,
+   "street": "12 Railroad Pl",
+   "city": "Belleville",
+   "state": "NJ",
+   "postal_code": "07109",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 9,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:26:11.235Z",
+   "search_rank": 152
+  },
+  {
+   "gaf_source_id": "1104598",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/circle-rose-contracting-inc-farmingdale-ny-1104598",
+   "name": "Circle Rose Contracting Inc",
+   "phone": "(516) 404-8008",
+   "website_url": null,
+   "street": "20 Cresthollow Ct",
+   "city": "Farmingdale",
+   "state": "NY",
+   "postal_code": "11735",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 28.4,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:26:13.416Z",
+   "search_rank": 153
+  },
+  {
+   "gaf_source_id": "1149262",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/coverall-construction-llc-milltown-nj-1149262",
+   "name": "Coverall Construction LLC",
+   "phone": "(732) 620-3256",
+   "website_url": null,
+   "street": "96 S Main St",
+   "city": "Milltown",
+   "state": "NJ",
+   "postal_code": "08850",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 29.2,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:26:15.462Z",
+   "search_rank": 154
+  },
+  {
+   "gaf_source_id": "1000159",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/custom-siding-llc-robbinsville-nj-1000159",
+   "name": "Custom Siding LLC",
+   "phone": "(609) 371-0358",
+   "website_url": null,
+   "street": "222 Meadowbrook Rd",
+   "city": "Robbinsville",
+   "state": "NJ",
+   "postal_code": "08691",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 45.5,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:26:18.024Z",
+   "search_rank": 155
+  },
+  {
+   "gaf_source_id": "1005928",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/dei-brooklyn-ny-1005928",
+   "name": "Dimitri Enterprises Inc",
+   "phone": "(718) 499-3871",
+   "website_url": null,
+   "street": "161 21st St Fl 2",
+   "city": "Brooklyn",
+   "state": "NY",
+   "postal_code": "11232",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 4.1,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:26:20.410Z",
+   "search_rank": 156
+  },
+  {
+   "gaf_source_id": "1144085",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/demy-construction-systems-inc-holbrook-ny-1144085",
+   "name": "Demy Construction Systems Inc",
+   "phone": "(631) 888-3055",
+   "website_url": null,
+   "street": "1180 Lincoln Ave Unit 11",
+   "city": "Holbrook",
+   "state": "NY",
+   "postal_code": "11741",
+   "about_text": null,
+   "years_in_business": "In business since 2016",
+   "distance_mi": 48.6,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:26:23.965Z",
+   "search_rank": 157
+  },
+  {
+   "gaf_source_id": "1131715",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/dimitrakis-construction-group-inc-north-brunswick-nj-1131715",
+   "name": "Dimitrakis Construction Group Inc",
+   "phone": "(732) 422-9000",
+   "website_url": null,
+   "street": "2374 US Hwy 130",
+   "city": "North Brunswick",
+   "state": "NJ",
+   "postal_code": "08902",
+   "about_text": null,
+   "years_in_business": "In business since 2018",
+   "distance_mi": 32.4,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:26:26.206Z",
+   "search_rank": 158
+  },
+  {
+   "gaf_source_id": "1159711",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/emj-corporation-boonton-nj-1159711",
+   "name": "EMJ Corporation",
+   "phone": "(862) 591-7740",
+   "website_url": null,
+   "street": "718 Main St",
+   "city": "Boonton",
+   "state": "NJ",
+   "postal_code": "07005",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 24.6,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:26:28.993Z",
+   "search_rank": 159
+  },
+  {
+   "gaf_source_id": "1142029",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/everroofing-llc-lakewood-nj-1142029",
+   "name": "Everroofing LLC",
+   "phone": "(732) 427-8383",
+   "website_url": null,
+   "street": "1465 Lanes Mill Rd",
+   "city": "Lakewood",
+   "state": "NJ",
+   "postal_code": "08701",
+   "about_text": null,
+   "years_in_business": "In business since 2018",
+   "distance_mi": 43.8,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:26:31.775Z",
+   "search_rank": 160
+  },
+  {
+   "gaf_source_id": "1103599",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/evian-construction-corp-farmingdale-ny-1103599",
+   "name": "Evian Construction Corp",
+   "phone": "(516) 318-6853",
+   "website_url": null,
+   "street": "984 Fulton St",
+   "city": "Farmingdale",
+   "state": "NY",
+   "postal_code": "11735",
+   "about_text": null,
+   "years_in_business": "In business since 2019",
+   "distance_mi": 30.1,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:26:34.878Z",
+   "search_rank": 161
+  },
+  {
+   "gaf_source_id": "1005751",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/galia-construction-inc-totowa-nj-1005751",
+   "name": "Galia Construction Inc",
+   "phone": "(973) 333-1513",
+   "website_url": null,
+   "street": "94 Gordon Ave",
+   "city": "Totowa",
+   "state": "NJ",
+   "postal_code": "07512",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 16.5,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:26:37.656Z",
+   "search_rank": 162
+  },
+  {
+   "gaf_source_id": "1146186",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/grb-contracting-llc-perth-amboy-nj-1146186",
+   "name": "GRB Contracting LLC",
+   "phone": "(732) 585-2680",
+   "website_url": null,
+   "street": "82 Lewis St",
+   "city": "Perth Amboy",
+   "state": "NJ",
+   "postal_code": "08861",
+   "about_text": null,
+   "years_in_business": "In business since 2019",
+   "distance_mi": 20.4,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:28:09.854Z",
+   "search_rank": 163
+  },
+  {
+   "gaf_source_id": "1145677",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/highlands-property-services-nutley-nj-1145677",
+   "name": "D&V Construction Enterprises LLC",
+   "phone": "(201) 230-1606",
+   "website_url": null,
+   "street": "683 Bloomfield Ave",
+   "city": "Nutley",
+   "state": "NJ",
+   "postal_code": "07110",
+   "about_text": null,
+   "years_in_business": "In business since 2013",
+   "distance_mi": 10.8,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:28:12.013Z",
+   "search_rank": 164
+  },
+  {
+   "gaf_source_id": "1152313",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/highrise-roofing-llc-brooklyn-ny-1152313",
+   "name": "Highrise Roofing LLC",
+   "phone": "(347) 731-6076",
+   "website_url": null,
+   "street": "1570 E 12th St",
+   "city": "Brooklyn",
+   "state": "NY",
+   "postal_code": "11230",
+   "about_text": null,
+   "years_in_business": "In business since 2023",
+   "distance_mi": 8.1,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:28:14.683Z",
+   "search_rank": 165
+  },
+  {
+   "gaf_source_id": "1148199",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/industrial-commercial-roofing-atlantic-beach-ny-1148199",
+   "name": "Industrial Commercial Roofing",
+   "phone": "(516) 589-1544",
+   "website_url": null,
+   "street": "132 Daytona St",
+   "city": "Atlantic Beach",
+   "state": "NY",
+   "postal_code": "11509",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 16.8,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:28:17.148Z",
+   "search_rank": 166
+  },
+  {
+   "gaf_source_id": "1114217",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/interboro-contracting-inc-new-hyde-park-ny-1114217",
+   "name": "Interboro Contracting Inc",
+   "phone": "(516) 260-6444",
+   "website_url": null,
+   "street": "12 8th St",
+   "city": "New Hyde Park",
+   "state": "NY",
+   "postal_code": "11040",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 17.8,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:28:19.586Z",
+   "search_rank": 167
+  },
+  {
+   "gaf_source_id": "1143496",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/island-roofing-inc-valley-stream-ny-1143496",
+   "name": "Island Roofing Inc",
+   "phone": "(516) 303-7663",
+   "website_url": null,
+   "street": "1085 Rockaway Ave",
+   "city": "Valley Stream",
+   "state": "NY",
+   "postal_code": "11581",
+   "about_text": null,
+   "years_in_business": "In business since 2010",
+   "distance_mi": 17.3,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:28:21.784Z",
+   "search_rank": 168
+  },
+  {
+   "gaf_source_id": "1130942",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/j-channel-roofing-siding-monroe-ny-1130942",
+   "name": "J Channel Roofing & Siding",
+   "phone": "(845) 637-5635",
+   "website_url": null,
+   "street": "308 Museum Village Rd",
+   "city": "Monroe",
+   "state": "NY",
+   "postal_code": "10950",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 44.2,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:28:23.972Z",
+   "search_rank": 169
+  },
+  {
+   "gaf_source_id": "1151962",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/kiani-restoration-inc-astoria-ny-1151962",
+   "name": "Kiani Restoration Inc",
+   "phone": "(646) 604-6410",
+   "website_url": null,
+   "street": "33-01 Vernon Blvd",
+   "city": "Astoria",
+   "state": "NY",
+   "postal_code": "11106",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 4.8,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:28:26.966Z",
+   "search_rank": 170
+  },
+  {
+   "gaf_source_id": "1156623",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/king-contracting-cranford-nj-1156623",
+   "name": "King Contracting Group NY Inc",
+   "phone": "(347) 203-6927",
+   "website_url": null,
+   "street": "20 Commerce Dr Ste 326",
+   "city": "Cranford",
+   "state": "NJ",
+   "postal_code": "07016",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 15.5,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:28:29.347Z",
+   "search_rank": 171
+  },
+  {
+   "gaf_source_id": "1162120",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/kourtis-contracting-llc-queens-ny-1162120",
+   "name": "Kourtis Contracting LLC",
+   "phone": "(347) 869-5434",
+   "website_url": null,
+   "street": "34-58 200th St",
+   "city": "Queens",
+   "state": "NY",
+   "postal_code": "11361",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 12,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:28:31.724Z",
+   "search_rank": 172
+  },
+  {
+   "gaf_source_id": "1004188",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/kraft-roofing-company-vernon-nj-1004188",
+   "name": "Kraft Roofing Company",
+   "phone": "(973) 636-6500",
+   "website_url": null,
+   "street": "14 Higgins Dr",
+   "city": "Vernon",
+   "state": "NJ",
+   "postal_code": "07462",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 39.5,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:28:34.853Z",
+   "search_rank": 173
+  },
+  {
+   "gaf_source_id": "1117714",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/leon-contractors-llc-west-long-branch-nj-1117714",
+   "name": "Leon Contractors LLC",
+   "phone": "(732) 865-0904",
+   "website_url": null,
+   "street": "1090 Broadway Ste 104",
+   "city": "West Long Branch",
+   "state": "NJ",
+   "postal_code": "07764",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 29.2,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:28:38.570Z",
+   "search_rank": 174
+  },
+  {
+   "gaf_source_id": "1100786",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/litehouse-builders-inc-astoria-ny-1100786",
+   "name": "Litehouse Builders Inc",
+   "phone": "(516) 883-8500",
+   "website_url": null,
+   "street": "2321 Brooklyn Queens Expy E",
+   "city": "Astoria",
+   "state": "NY",
+   "postal_code": "11103",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 6.3,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:29:10.225Z",
+   "search_rank": 175
+  },
+  {
+   "gaf_source_id": "1101247",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/mak-group-llc-saddle-brook-nj-1101247",
+   "name": "MAK Group LLC",
+   "phone": "(973) 341-2404",
+   "website_url": null,
+   "street": "82 Midland Ave",
+   "city": "Saddle Brook",
+   "state": "NJ",
+   "postal_code": "07663",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 12.8,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:29:12.355Z",
+   "search_rank": 176
+  },
+  {
+   "gaf_source_id": "7159193",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/maleni-group-inc-east-meadow-ny-7159193",
+   "name": "Maleni Group Inc",
+   "phone": "(631) 992-4220",
+   "website_url": null,
+   "street": "1863 Chester Dr",
+   "city": "East Meadow",
+   "state": "NY",
+   "postal_code": "11554",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 23.6,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:29:14.465Z",
+   "search_rank": 177
+  },
+  {
+   "gaf_source_id": "1136237",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/marsal-maintenance-corp-staten-island-ny-1136237",
+   "name": "Marsal Maintenance Corp",
+   "phone": "(718) 238-4146",
+   "website_url": null,
+   "street": "20 Cordelia Ave",
+   "city": "Staten Island",
+   "state": "NY",
+   "postal_code": "10309",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 17.5,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:29:16.622Z",
+   "search_rank": 178
+  },
+  {
+   "gaf_source_id": "1133509",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/martinez-a-roofing-llc-freehold-nj-1133509",
+   "name": "Martinez Roofing LLC",
+   "phone": "(732) 308-8585",
+   "website_url": null,
+   "street": "218 Harding Rd Apt D",
+   "city": "Freehold",
+   "state": "NJ",
+   "postal_code": "07728",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 34,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:29:18.718Z",
+   "search_rank": 179
+  },
+  {
+   "gaf_source_id": "1156329",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/mdb-development-corp-new-york-ny-1156329",
+   "name": "MDB Development Corp",
+   "phone": "(646) 423-2249",
+   "website_url": null,
+   "street": "100 Park Ave Fl 16",
+   "city": "New York",
+   "state": "NY",
+   "postal_code": "10017",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 2.6,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:29:21.000Z",
+   "search_rank": 180
+  },
+  {
+   "gaf_source_id": "1121863",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/metro-r-services-moonachie-nj-1121863",
+   "name": "Metro R Services",
+   "phone": "(201) 488-2091",
+   "website_url": null,
+   "street": "20 Universal Pl",
+   "city": "Moonachie",
+   "state": "NJ",
+   "postal_code": "07074",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 8.2,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:29:23.080Z",
+   "search_rank": 181
+  },
+  {
+   "gaf_source_id": "1150741",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/mr-roofing-construction-inc-paterson-nj-1150741",
+   "name": "MR Roofing & Construction Inc",
+   "phone": "(862) 413-7300",
+   "website_url": null,
+   "street": "236 Franklin St",
+   "city": "Paterson",
+   "state": "NJ",
+   "postal_code": "07524",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 16,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:29:25.328Z",
+   "search_rank": 182
+  },
+  {
+   "gaf_source_id": "1156686",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/mss-golden-eagle-construction-usa-co-south-ozone-park-ny-1156686",
+   "name": "MSS Golden Eagle Construction USA Co",
+   "phone": "(917) 440-4440",
+   "website_url": null,
+   "street": "130-05 125th St",
+   "city": "South Ozone Park",
+   "state": "NY",
+   "postal_code": "11420",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 10.8,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:29:28.362Z",
+   "search_rank": 183
+  },
+  {
+   "gaf_source_id": "1115559",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/mtb-llc-neptune-city-nj-1115559",
+   "name": "MTB LLC",
+   "phone": "(732) 774-1806",
+   "website_url": null,
+   "street": "100 Steiner Ave",
+   "city": "Neptune City",
+   "state": "NJ",
+   "postal_code": "07753",
+   "about_text": null,
+   "years_in_business": "In business since 2010",
+   "distance_mi": 36.1,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:29:30.672Z",
+   "search_rank": 184
+  },
+  {
+   "gaf_source_id": "1107323",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/mullen-roofing-lincoln-park-nj-1107323",
+   "name": "Mullen & Sons Contractors Inc",
+   "phone": "(973) 812-4242",
+   "website_url": null,
+   "street": "63 Beaverbrook Rd",
+   "city": "Lincoln Park",
+   "state": "NJ",
+   "postal_code": "07035",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 21.2,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:29:33.611Z",
+   "search_rank": 185
+  },
+  {
+   "gaf_source_id": "7159515",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/mx-construction-co-clifton-nj-7159515",
+   "name": "MX Construction Co",
+   "phone": "(201) 280-8883",
+   "website_url": null,
+   "street": "58 Johnson St",
+   "city": "Clifton",
+   "state": "NJ",
+   "postal_code": "07014",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 9.5,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:29:37.058Z",
+   "search_rank": 186
+  },
+  {
+   "gaf_source_id": "1134645",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/njai-services-llc-clifton-nj-1134645",
+   "name": "NJAI Services LLC",
+   "phone": "(201) 450-1579",
+   "website_url": null,
+   "street": "300 Mount Prospect Ave",
+   "city": "Clifton",
+   "state": "NJ",
+   "postal_code": "07012",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 12.3,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:29:43.200Z",
+   "search_rank": 187
+  },
+  {
+   "gaf_source_id": "1104054",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/oleni-contracting-corp-brooklyn-ny-1104054",
+   "name": "Oleni Contracting Corp",
+   "phone": "(347) 497-4005",
+   "website_url": null,
+   "street": "1104 62nd St",
+   "city": "Brooklyn",
+   "state": "NY",
+   "postal_code": "11219",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 6.3,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:29:46.601Z",
+   "search_rank": 188
+  },
+  {
+   "gaf_source_id": "1104959",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/pk-contracting-inc-new-hyde-park-ny-1104959",
+   "name": "P&K Contracting Inc",
+   "phone": "(516) 775-5659",
+   "website_url": null,
+   "street": "1645 Jericho Tpke Ste B",
+   "city": "New Hyde Park",
+   "state": "NY",
+   "postal_code": "11040",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 17.5,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:29:48.787Z",
+   "search_rank": 189
+  },
+  {
+   "gaf_source_id": "1136340",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/padilla-construction-services-inc-westbury-ny-1136340",
+   "name": "Padilla Construction Services Inc",
+   "phone": "(516) 338-6848",
+   "website_url": null,
+   "street": "299 Main St",
+   "city": "Westbury",
+   "state": "NY",
+   "postal_code": "11590",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 23.3,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:29:50.936Z",
+   "search_rank": 190
+  },
+  {
+   "gaf_source_id": "1003666",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/pardini-r-construction-corp-eatontown-nj-1003666",
+   "name": "Pardini R Construction Corp",
+   "phone": "(732) 222-6628",
+   "website_url": "https://pardinic.com/",
+   "street": "409 S St Unit 13",
+   "city": "Eatontown",
+   "state": "NJ",
+   "postal_code": "07724",
+   "about_text": "ROOFING,SIDING AND DECKS SINCE 1986",
+   "years_in_business": "In business since 1986",
+   "distance_mi": 29.7,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:29:53.218Z",
+   "search_rank": 191
+  },
+  {
+   "gaf_source_id": "1140275",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/prata-construction-llc-denville-nj-1140275",
+   "name": "Prata Construction LLC",
+   "phone": "(973) 343-7330",
+   "website_url": null,
+   "street": "3125 Rte 10",
+   "city": "Denville",
+   "state": "NJ",
+   "postal_code": "07834",
+   "about_text": null,
+   "years_in_business": "In business since 2002",
+   "distance_mi": 27.4,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:29:55.522Z",
+   "search_rank": 192
+  },
+  {
+   "gaf_source_id": "1110329",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/premier-building-farmingdale-ny-1110329",
+   "name": "Premier Building and Renovations Corp",
+   "phone": "(516) 359-5729",
+   "website_url": null,
+   "street": "769 Fulton St",
+   "city": "Farmingdale",
+   "state": "NY",
+   "postal_code": "11735",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 29.7,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:29:57.558Z",
+   "search_rank": 193
+  },
+  {
+   "gaf_source_id": "1150517",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/premier-construction-inc-hollis-ny-1150517",
+   "name": "Premier Construction Inc",
+   "phone": "(718) 468-6900",
+   "website_url": null,
+   "street": "204-08 Jamaica Ave",
+   "city": "Hollis",
+   "state": "NY",
+   "postal_code": "11423",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 13.3,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:29:59.654Z",
+   "search_rank": 194
+  },
+  {
+   "gaf_source_id": "1114517",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/preserv-building-restoration-management-brooklyn-ny-1114517",
+   "name": "Preserv Building Restoration Management",
+   "phone": "(718) 768-3600",
+   "website_url": null,
+   "street": "96 14th St",
+   "city": "Brooklyn",
+   "state": "NY",
+   "postal_code": "11215",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 3.7,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:30:01.801Z",
+   "search_rank": 195
+  },
+  {
+   "gaf_source_id": "1156324",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/pro-shield-slezac-corp-wood-ridge-nj-1156324",
+   "name": "Pro Shield Slezac Corp",
+   "phone": "(201) 421-9592",
+   "website_url": null,
+   "street": "339 Marlboro Rd",
+   "city": "Wood Ridge",
+   "state": "NJ",
+   "postal_code": "07075",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 9.9,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:30:03.816Z",
+   "search_rank": 196
+  },
+  {
+   "gaf_source_id": "1136695",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/prograde-construction-inc-maspeth-ny-1136695",
+   "name": "Prograde Construction Inc",
+   "phone": "(929) 463-3714",
+   "website_url": null,
+   "street": "5824 64th St",
+   "city": "Maspeth",
+   "state": "NY",
+   "postal_code": "11378",
+   "about_text": null,
+   "years_in_business": "In business since 2017",
+   "distance_mi": 5.7,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:30:05.815Z",
+   "search_rank": 197
+  },
+  {
+   "gaf_source_id": "1152070",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/qb-roofing-solutions-north-bellmore-ny-1152070",
+   "name": "QB Roofing Solutions & Exterior LLC",
+   "phone": "(516) 481-7663",
+   "website_url": null,
+   "street": "2564 Ashland Pl",
+   "city": "North Bellmore",
+   "state": "NY",
+   "postal_code": "11710",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 24.6,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:30:08.831Z",
+   "search_rank": 198
+  },
+  {
+   "gaf_source_id": "1113171",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/renovate-inc-staten-island-ny-1113171",
+   "name": "Renovate Inc",
+   "phone": "(718) 772-1590",
+   "website_url": null,
+   "street": "432 Manor Rd",
+   "city": "Staten Island",
+   "state": "NY",
+   "postal_code": "10314",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 9.4,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:30:11.917Z",
+   "search_rank": 199
+  },
+  {
+   "gaf_source_id": "1004123",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/restor-technologies-inc-huntington-station-ny-1004123",
+   "name": "Restor Technologies Inc",
+   "phone": "(631) 385-8400",
+   "website_url": null,
+   "street": "16 Norden Ln",
+   "city": "Huntington Station",
+   "state": "NY",
+   "postal_code": "11746",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 31.7,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:30:14.866Z",
+   "search_rank": 200
+  },
+  {
+   "gaf_source_id": "1150458",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/roth-roofing-brooklyn-ny-1150458",
+   "name": "Alrose Construction Inc",
+   "phone": "(718) 851-7783",
+   "website_url": null,
+   "street": "1163 50th St",
+   "city": "Brooklyn",
+   "state": "NY",
+   "postal_code": "11219",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 6,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:30:41.067Z",
+   "search_rank": 201
+  },
+  {
+   "gaf_source_id": "1151960",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/rpg-contracting-corp-astoria-ny-1151960",
+   "name": "RPG Contracting Corp",
+   "phone": "(914) 354-1428",
+   "website_url": null,
+   "street": "22-68 43rd St",
+   "city": "Astoria",
+   "state": "NY",
+   "postal_code": "11105",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 6.4,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:30:44.086Z",
+   "search_rank": 202
+  },
+  {
+   "gaf_source_id": "1148188",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/safe-way-construction-corp-richmond-hill-ny-1148188",
+   "name": "Safe Way Construction Corp",
+   "phone": "(347) 203-7189",
+   "website_url": null,
+   "street": "10517 Jamaica Ave",
+   "city": "Richmond Hill",
+   "state": "NY",
+   "postal_code": "11418",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 9,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:30:46.743Z",
+   "search_rank": 203
+  },
+  {
+   "gaf_source_id": "1140151",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/safeway-contracting-inc-union-nj-1140151",
+   "name": "Safeway Contracting Inc",
+   "phone": "(908) 347-5202",
+   "website_url": null,
+   "street": "2461 Lorio St",
+   "city": "Union",
+   "state": "NJ",
+   "postal_code": "07083",
+   "about_text": null,
+   "years_in_business": "In business since 1997",
+   "distance_mi": 14.7,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:30:49.224Z",
+   "search_rank": 204
+  },
+  {
+   "gaf_source_id": "1158238",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/savion-construction-inc-brooklyn-ny-1158238",
+   "name": "Savion Construction Inc",
+   "phone": "(718) 541-8363",
+   "website_url": null,
+   "street": "2638 E 23rd St",
+   "city": "Brooklyn",
+   "state": "NY",
+   "postal_code": "11235",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 9.8,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:30:51.369Z",
+   "search_rank": 205
+  },
+  {
+   "gaf_source_id": "1141087",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/skytight-construction-llc-parsippany-nj-1141087",
+   "name": "Skytight Construction LLC",
+   "phone": "(908) 361-2416",
+   "website_url": null,
+   "street": "200 Ball Ave",
+   "city": "Parsippany",
+   "state": "NJ",
+   "postal_code": "07054",
+   "about_text": null,
+   "years_in_business": "In business since 2016",
+   "distance_mi": 22.3,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:30:53.504Z",
+   "search_rank": 206
+  },
+  {
+   "gaf_source_id": "1125630",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/slezak-construction-llc-wallington-nj-1125630",
+   "name": "Slezak Construction LLC",
+   "phone": "(201) 421-9592",
+   "website_url": null,
+   "street": "73 Hayward Pl",
+   "city": "Wallington",
+   "state": "NJ",
+   "postal_code": "07057",
+   "about_text": null,
+   "years_in_business": "In business since 2019",
+   "distance_mi": 10.9,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:30:55.684Z",
+   "search_rank": 207
+  },
+  {
+   "gaf_source_id": "1101320",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/smac-corp-saddle-brook-nj-1101320",
+   "name": "SMAC Corp",
+   "phone": "(201) 791-6777",
+   "website_url": null,
+   "street": "431 N Midland Ave",
+   "city": "Saddle Brook",
+   "state": "NJ",
+   "postal_code": "07663",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 14.1,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:30:57.887Z",
+   "search_rank": 208
+  },
+  {
+   "gaf_source_id": "1159627",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/srr-holdings-llc-floral-park-ny-1159627",
+   "name": "SRR Holdings LLC",
+   "phone": "(516) 613-4813",
+   "website_url": null,
+   "street": "271 Jericho Tpke Ste 2002",
+   "city": "Floral Park",
+   "state": "NY",
+   "postal_code": "11001",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 16.2,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:31:00.281Z",
+   "search_rank": 209
+  },
+  {
+   "gaf_source_id": "1143319",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/star-construction-industries-inc-westbury-ny-1143319",
+   "name": "Star Construction Industries Inc",
+   "phone": "(516) 998-4133",
+   "website_url": null,
+   "street": "3 Jaymie Dr",
+   "city": "Westbury",
+   "state": "NY",
+   "postal_code": "11590",
+   "about_text": null,
+   "years_in_business": "In business since 2018",
+   "distance_mi": 23.1,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:31:03.163Z",
+   "search_rank": 210
+  },
+  {
+   "gaf_source_id": "1150229",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/top-care-roofing-llc-west-long-branch-nj-1150229",
+   "name": "Top Care Roofing LLC",
+   "phone": "(732) 740-6013",
+   "website_url": null,
+   "street": "17 Nolan Dr",
+   "city": "West Long Branch",
+   "state": "NJ",
+   "postal_code": "07764",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 30.1,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:31:06.518Z",
+   "search_rank": 211
+  },
+  {
+   "gaf_source_id": "1117595",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/tri-state-roofing-waterproofing-stirling-nj-1117595",
+   "name": "Tri-State Roofing & Waterproofing",
+   "phone": "(908) 642-0899",
+   "website_url": null,
+   "street": "320 Essex St",
+   "city": "Stirling",
+   "state": "NJ",
+   "postal_code": "07980",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 25.7,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:31:09.617Z",
+   "search_rank": 212
+  },
+  {
+   "gaf_source_id": "1159924",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/tundra-contracting-group-inc-new-rochelle-ny-1159924",
+   "name": "Tundra Contracting Group Inc",
+   "phone": "(914) 449-1252",
+   "website_url": null,
+   "street": "35 Portman Rd Fl 1",
+   "city": "New Rochelle",
+   "state": "NY",
+   "postal_code": "10801",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 18.9,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:31:44.856Z",
+   "search_rank": 213
+  },
+  {
+   "gaf_source_id": "1125591",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/universal-nj-construction-llc-cliffside-park-nj-1125591",
+   "name": "Universal NJ Construction LLC",
+   "phone": "(973) 901-8587",
+   "website_url": null,
+   "street": "36 Lawton Ave",
+   "city": "Cliffside Park",
+   "state": "NJ",
+   "postal_code": "07010",
+   "about_text": null,
+   "years_in_business": "In business since 2020",
+   "distance_mi": 7.2,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:31:47.866Z",
+   "search_rank": 214
+  },
+  {
+   "gaf_source_id": "1157143",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/vg-construction-corp-staten-island-ny-1157143",
+   "name": "V&G Construction Corp",
+   "phone": "(347) 893-1887",
+   "website_url": null,
+   "street": "14 Rumplert Ct",
+   "city": "Staten Island",
+   "state": "NY",
+   "postal_code": "10302",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 9.7,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:31:50.099Z",
+   "search_rank": 215
+  },
+  {
+   "gaf_source_id": "1001764",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/vacca-roofing-inc-marlboro-nj-1001764",
+   "name": "Vacca Roofing Inc",
+   "phone": "(732) 446-3839",
+   "website_url": null,
+   "street": "62 Dutch Lane Rd",
+   "city": "Marlboro",
+   "state": "NJ",
+   "postal_code": "07746",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 31.7,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:31:52.226Z",
+   "search_rank": 216
+  },
+  {
+   "gaf_source_id": "1146790",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/vad-contractors-inc-staten-island-ny-1146790",
+   "name": "VAD Contractors Inc",
+   "phone": "(718) 500-3011",
+   "website_url": null,
+   "street": "14 Meadow Ave",
+   "city": "Staten Island",
+   "state": "NY",
+   "postal_code": "10304",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 9.3,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:31:54.246Z",
+   "search_rank": 217
+  },
+  {
+   "gaf_source_id": "1111823",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/valley-view-construction-inc-hillside-nj-1111823",
+   "name": "Valley View Construction Inc.",
+   "phone": "(908) 578-1138",
+   "website_url": null,
+   "street": "1150 N Broad St",
+   "city": "Hillside",
+   "state": "NJ",
+   "postal_code": "07205",
+   "about_text": null,
+   "years_in_business": "In business since 1999",
+   "distance_mi": 11,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:31:56.437Z",
+   "search_rank": 218
+  },
+  {
+   "gaf_source_id": "1001216",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/vardaris-tech-inc-astoria-ny-1001216",
+   "name": "Vardaris Tech Inc",
+   "phone": "(718) 729-3210",
+   "website_url": null,
+   "street": "2255 31st St Ste 206B",
+   "city": "Astoria",
+   "state": "NY",
+   "postal_code": "11105",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 6.3,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:31:59.923Z",
+   "search_rank": 219
+  },
+  {
+   "gaf_source_id": "1000326",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/water-tight-roofing-corp-hauppauge-ny-1000326",
+   "name": "Water Tight Roofing Corp",
+   "phone": "(631) 321-0979",
+   "website_url": null,
+   "street": "215 Oser Ave Ste A",
+   "city": "Hauppauge",
+   "state": "NY",
+   "postal_code": "11788",
+   "about_text": null,
+   "years_in_business": "In business since 2005",
+   "distance_mi": 40.1,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor",
+    "GAF CoatingsPro™ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:32:02.152Z",
+   "search_rank": 220
+  },
+  {
+   "gaf_source_id": "1122677",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/waterproof-properties-ii-llc-plainfield-nj-1122677",
+   "name": "Waterproof Properties II LLC",
+   "phone": "(908) 225-1448",
+   "website_url": null,
+   "street": "518 South Ave",
+   "city": "Plainfield",
+   "state": "NJ",
+   "postal_code": "07060",
+   "about_text": null,
+   "years_in_business": "In business since 2016",
+   "distance_mi": 22.2,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:32:04.425Z",
+   "search_rank": 221
+  },
+  {
+   "gaf_source_id": "1118898",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/wdf-inc-mount-vernon-ny-1118898",
+   "name": "WDF Inc",
+   "phone": "(914) 346-0299",
+   "website_url": null,
+   "street": "30 N Macquesten Pkwy",
+   "city": "Mount Vernon",
+   "state": "NY",
+   "postal_code": "10550",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 15.7,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:32:06.768Z",
+   "search_rank": 222
+  },
+  {
+   "gaf_source_id": "1152278",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/weather-tex-exteriors-corp-deer-park-ny-1152278",
+   "name": "Weather Tex Exteriors Corp",
+   "phone": "(516) 522-9602",
+   "website_url": null,
+   "street": "1080 Long Island Ave Fl 2",
+   "city": "Deer Park",
+   "state": "NY",
+   "postal_code": "11729",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 36.8,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:32:12.376Z",
+   "search_rank": 223
+  },
+  {
+   "gaf_source_id": "1154752",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/westbury-roofing-contracting-inc-westbury-ny-1154752",
+   "name": "Westbury Roofing & Contracting Inc",
+   "phone": "(516) 603-1809",
+   "website_url": null,
+   "street": "426 King St",
+   "city": "Westbury",
+   "state": "NY",
+   "postal_code": "11590",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 23.1,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF GoldElite™ Commercial Contractor"
+   ],
+   "specialties": [
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:32:33.483Z",
+   "search_rank": 224
+  },
+  {
+   "gaf_source_id": "1132105",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/mk-roofing-co-llc-hampton-nj-1132105",
+   "name": "MK Roofing Co LLC",
+   "phone": "(908) 323-9686",
+   "website_url": null,
+   "street": "72 MacKenzie Rd",
+   "city": "Hampton",
+   "state": "NJ",
+   "postal_code": "08827",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 49.1,
+   "rating": 5,
+   "review_count": 96,
+   "distinctions": [
+    "GAF Certified™ Commercial Contractor",
+    "GAF CoatingsPro™+ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:32:35.672Z",
+   "search_rank": 225
+  },
+  {
+   "gaf_source_id": "1119633",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/above-it-all-llc-dover-nj-1119633",
+   "name": "Above It All LLC",
+   "phone": "(973) 219-3072",
+   "website_url": null,
+   "street": "105 Bassett Hwy Ste B",
+   "city": "Dover",
+   "state": "NJ",
+   "postal_code": "07801",
+   "about_text": null,
+   "years_in_business": "In business since 2001",
+   "distance_mi": 31.1,
+   "rating": 5,
+   "review_count": 4,
+   "distinctions": [
+    "GAF CoatingsPro™+ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Coatings & Liquid Applied"
+   ],
+   "retrieved_at": "2026-11-05T19:32:37.988Z",
+   "search_rank": 226
+  },
+  {
+   "gaf_source_id": "1002958",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/high-grade-contracting-randolph-nj-1002958",
+   "name": "Donald G Smith Contracting Inc",
+   "phone": "(973) 252-1500",
+   "website_url": null,
+   "street": "155 Canfield Ave",
+   "city": "Randolph",
+   "state": "NJ",
+   "postal_code": "07869",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 33,
+   "rating": 4.9,
+   "review_count": 47,
+   "distinctions": [
+    "GAF Certified™ Commercial Contractor",
+    "GAF CoatingsPro™+ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:32:40.248Z",
+   "search_rank": 227
+  },
+  {
+   "gaf_source_id": "1115122",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/accord-power-inc-flushing-ny-1115122",
+   "name": "Accord Power Inc",
+   "phone": "(718) 321-8820",
+   "website_url": null,
+   "street": "13030 31st Ave Ste 707",
+   "city": "Flushing",
+   "state": "NY",
+   "postal_code": "11354",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 9.5,
+   "rating": 4.9,
+   "review_count": 15,
+   "distinctions": [
+    "GAF CoatingsPro™+ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Coatings & Liquid Applied"
+   ],
+   "retrieved_at": "2026-11-05T19:32:42.448Z",
+   "search_rank": 228
+  },
+  {
+   "gaf_source_id": "1103353",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/bb-siding-and-roofing-staten-island-ny-1103353",
+   "name": "B&B Siding Contractors LLC",
+   "phone": "(718) 757-2904",
+   "website_url": null,
+   "street": "33 Lott Ln",
+   "city": "Staten Island",
+   "state": "NY",
+   "postal_code": "10314",
+   "about_text": null,
+   "years_in_business": "In business since 1994",
+   "distance_mi": 12.9,
+   "rating": 4.8,
+   "review_count": 214,
+   "distinctions": [
+    "GAF Certified™ Commercial Contractor",
+    "GAF CoatingsPro™+ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Asphaltic Roofer",
+    "Coatings & Liquid Applied",
+    "Single-Ply Roofer"
+   ],
+   "retrieved_at": "2026-11-05T19:32:44.663Z",
+   "search_rank": 229
+  },
+  {
+   "gaf_source_id": "1003996",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/eldorado-maintenance-scarsdale-ny-1003996",
+   "name": "M Fitzpatrick Inc",
+   "phone": "(914) 779-8127",
+   "website_url": null,
+   "street": "700 Scarsdale Ave Apt G4",
+   "city": "Scarsdale",
+   "state": "NY",
+   "postal_code": "10583",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 20.7,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF CoatingsPro™+ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Coatings & Liquid Applied"
+   ],
+   "retrieved_at": "2026-11-05T19:32:47.057Z",
+   "search_rank": 230
+  },
+  {
+   "gaf_source_id": "1110147",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/prs-home-improvement-corp-white-plains-ny-1110147",
+   "name": "PRS Home Improvement Corp",
+   "phone": "(914) 494-1214",
+   "website_url": null,
+   "street": "111 Concord Ave",
+   "city": "White Plains",
+   "state": "NY",
+   "postal_code": "10606",
+   "about_text": null,
+   "years_in_business": "In business since 2003",
+   "distance_mi": 24.1,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF CoatingsPro™+ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Coatings & Liquid Applied"
+   ],
+   "retrieved_at": "2026-11-05T19:32:49.322Z",
+   "search_rank": 231
+  },
+  {
+   "gaf_source_id": "1111522",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/vjp-industries-inc-north-haledon-nj-1111522",
+   "name": "VJP Industries Inc",
+   "phone": "(201) 417-4706",
+   "website_url": null,
+   "street": "2 Cranberry Ct",
+   "city": "North Haledon",
+   "state": "NJ",
+   "postal_code": "07508",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 20.3,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF CoatingsPro™+ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Coatings & Liquid Applied"
+   ],
+   "retrieved_at": "2026-11-05T19:32:51.557Z",
+   "search_rank": 232
+  },
+  {
+   "gaf_source_id": "1163559",
+   "profile_url": "https://www.gaf.com/en-us/roofing-contractors/commercial/weathertight-systems-inc-clifton-nj-1163559",
+   "name": "Weathertight Systems Inc",
+   "phone": "(201) 787-6276",
+   "website_url": null,
+   "street": "407 River Rd",
+   "city": "Clifton",
+   "state": "NJ",
+   "postal_code": "07014",
+   "about_text": null,
+   "years_in_business": null,
+   "distance_mi": 9.4,
+   "rating": null,
+   "review_count": null,
+   "distinctions": [
+    "GAF CoatingsPro™+ Liquid Applied Roofing Contractor"
+   ],
+   "specialties": [
+    "Coatings & Liquid Applied"
+   ],
+   "retrieved_at": "2026-11-05T19:32:57.125Z",
+   "search_rank": 233
+  }
+ ]
+}

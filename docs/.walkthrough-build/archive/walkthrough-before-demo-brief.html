@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roofing Lead Intel · Code walkthrough</title>
+<style>
+body{margin:0;background:#fff;color:#1E2333;font:15px/1.55 -apple-system,Helvetica,Arial,sans-serif}
+main{max-width:1040px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:28px;margin:0 0 4px} h2{font-size:21px;margin:40px 0 8px;border-bottom:1px solid #E5E8EF;padding-bottom:6px} h3{font-size:16px;margin:20px 0 6px}
+code,pre{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px} code{background:#F3F4F8;padding:1px 4px;border-radius:3px}
+pre{background:#F6F7FB;border:1px solid #E5E8EF;padding:10px;border-radius:4px;overflow-x:auto;white-space:pre-wrap}
+table{border-collapse:collapse;width:100%;margin:8px 0 16px;font-size:14px;display:block;overflow-x:auto}
+th,td{border:1px solid #E5E8EF;padding:6px 8px;text-align:left;vertical-align:top} th{background:#F6F7FB}
+details{border:1px solid #E5E8EF;border-radius:4px;margin:8px 0;padding:6px 10px} summary{cursor:pointer;font-weight:600}
+.fig{overflow-x:auto;border:1px solid #E5E8EF;border-radius:4px;margin:10px 0} .fig svg{display:block;max-width:100%;height:auto;min-width:640px}
+.tag{display:inline-block;font-size:12px;padding:1px 6px;border-radius:3px;margin-right:4px}
+.impl{background:#E3F7EC;color:#16774A} .part{background:#FDF6D8;color:#7C5E05} .plan{background:#EFEBFE;color:#5B3FC4} .unv{background:#FDE8EC;color:#A62B47}
+nav ol{columns:2;font-size:14px} @media(max-width:640px){nav ol{columns:1}}
+.muted{color:#5C6478}
+</style></head><body><main>
+<h1>Roofing Lead Intel — code walkthrough</h1>
+<p class="muted">Generated from the repository on 2026-11-05. Labels: <span class="tag impl">Implemented</span> in code; <span class="tag part">Partial</span>; <span class="tag plan">Proposed</span> not built; <span class="tag unv">Unverified</span> no check run. Paths are relative to the repository root.</p>
+<nav><h2 style="margin-top:16px">Contents</h2><ol>
+<li><a href="#overview">Project overview and requirements</a></li><li><a href="#tree">Directory structure</a></li>
+<li><a href="#arch">Architecture diagrams</a></li><li><a href="#api">API inventory and walkthroughs</a></li>
+<li><a href="#data">Where data lives</a></li><li><a href="#rules">Deterministic rules</a></li>
+<li><a href="#decisions">Key design decisions</a></li><li><a href="#prod">Translation to production</a></li>
+<li><a href="#verify">Verification and limitations</a></li><li><a href="#guide">How to walk through the code</a></li></ol></nav>
+
+<h2 id="overview">1. Project overview and requirements</h2>
+<p><strong>Problem.</strong> Sales representatives of a roofing-materials distributor research contractors by hand before account planning. <strong>Users.</strong> Distributor representatives (one shared workspace, no login). <strong>Workflows.</strong> Review prospects → open a prospect → save as lead → work the call lists → change status → check the Overview.</p>
+<table><thead><tr><th>Requirement</th><th>State</th><th>Evidence</th></tr></thead><tbody>
+<tr><td>GAF data for ZIP 10013 within 50 mi, residential and commercial</td><td><span class="tag impl">Implemented</span></td><td><code>data/snapshot/*.json</code>: 176 + 233 records, each equal to the GAF total; <code>collection/importer.py</code></td></tr>
+<tr><td>Results really match ZIP 10013</td><td><span class="tag impl">Implemented</span></td><td>URL needs <code>countryCode=us</code> (D2); all 409 distances ≤ 50 mi</td></tr>
+<tr><td>Repeated collection makes no duplicates</td><td><span class="tag impl">Implemented</span></td><td><code>uq_prospect_listing</code> upsert; manual check: 0 new rows on re-import</td></tr>
+<tr><td>Explainable deterministic priority</td><td><span class="tag impl">Implemented</span></td><td><code>scoring.py</code>; breakdown on the details page</td></tr>
+<tr><td>Missing information shown as Unknown</td><td><span class="tag impl">Implemented</span></td><td><code>services.FIELD_LABELS</code>; UI "Unknown" text</td></tr>
+<tr><td>Save leads and statuses; persist after restart</td><td><span class="tag impl">Implemented</span></td><td><code>leads</code> table; manual restart check</td></tr>
+<tr><td>Directory filter in UI and database queries</td><td><span class="tag impl">Implemented</span></td><td><code>DirectoryToggle.tsx</code>; <code>queries._in_directory</code></td></tr>
+<tr><td>Call lists for first contact and follow-up</td><td><span class="tag impl">Implemented</span></td><td><code>LeadQuery.queue</code>; <code>is_follow_up_due</code></td></tr>
+<tr><td>Notes; AI insights</td><td><span class="tag plan">Deferred</span></td><td>D10, D11; draft in <code>additional/insights/</code> (not connected)</td></tr>
+<tr><td>Validation and consistent errors</td><td><span class="tag impl">Implemented</span></td><td><code>schemas.py</code>, <code>errors.py</code></td></tr>
+<tr><td>Stale UI responses ignored</td><td><span class="tag impl">Implemented</span></td><td><code>frontend/lib/useLoad.ts</code></td></tr>
+<tr><td>Accessibility: labels, focus, text with color</td><td><span class="tag part">Partial</span></td><td>Labeled fields, <code>aria-pressed</code>, <code>aria-sort</code>, focus outlines; no audit run</td></tr>
+<tr><td>Performance and scale</td><td><span class="tag unv">Unverified</span></td><td>No load test; targets not set</td></tr>
+<tr><td>Authentication and observability</td><td><span class="tag plan">Proposed</span></td><td><code>docs/operations/production-readiness.md</code></td></tr>
+<tr><td>Automated tests</td><td><span class="tag plan">Planned</span></td><td><code>docs/TEST_PLAN.md</code>; user decides when (D17)</td></tr>
+</tbody></table>
+
+<h2 id="tree">2. Directory structure</h2>
+<pre>
+docker-compose.yml          db (PostgreSQL 16), backend (Flask, 5001), frontend (Next.js, 3000)
+openapi.yaml                API contract → frontend/lib/api-types.ts (generated)
+data/snapshot/              GAF snapshot JSON files (only data source)
+backend/wsgi.py             gunicorn entry point
+backend/app/__init__.py     create_app(): config, DB, error handlers, blueprint, CLI
+backend/app/models.py       prospects, prospect_scores, leads + constraints
+backend/app/schemas.py      Pydantic requests (QueryModel ...) and responses
+backend/app/api/__init__.py routes under /api/v1 (thin)
+backend/app/services.py     business rules, response building, mutations
+backend/app/queries.py      SQL reads (filters, stats, directory filter)
+backend/app/scoring.py      score rule v1
+backend/app/cli.py          flask import-snapshot, flask rescore (entry point)
+backend/app/collection/     snapshot.py (validate), importer.py (normalize, upsert, rescore)
+frontend/app/               page.tsx (Overview), prospects/, prospects/[id]/, leads/
+frontend/components/ui/     shared Badge, KpiCard, BarList, SortHeader, Icon, fields, states, Sidebar
+frontend/components/leads/  PriorityBadge, ScoreMeter, ReasonChips, SaveButton, StatusSelect, DirectoryToggle
+frontend/lib/               api.ts (typed client), useLoad.ts, format.ts
+additional/insights/        deferred AI insight draft (not imported)
+docs/                       guides, diagrams, decisions, operations, test plan
+</pre>
+
+<h2 id="arch">3. Architecture diagrams</h2>
+<h3>System boundary</h3><div class="fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 460" width="1000" height="460" font-family="Helvetica, Arial, sans-serif" font-size="14">
+  <title>System boundary: Roofing Lead Intel</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#3B4256"/></marker>
+  </defs>
+  <rect width="1000" height="460" fill="#FFFFFF"/>
+  <text x="24" y="34" font-size="20" font-weight="bold" fill="#1E2333">System boundary (current MVP)</text>
+  <!-- Docker Compose boundary -->
+  <rect x="250" y="70" width="720" height="250" rx="6" fill="#F6F7FB" stroke="#5B4BC4" stroke-dasharray="6 4" stroke-width="1.5"/>
+  <text x="264" y="92" fill="#5B4BC4" font-weight="bold">Docker Compose on the local computer</text>
+  <!-- User -->
+  <rect x="24" y="150" width="170" height="80" rx="6" fill="#E3F1FD" stroke="#1F5F96"/>
+  <text x="109" y="182" text-anchor="middle" font-weight="bold" fill="#1F5F96">Sales representative</text>
+  <text x="109" y="204" text-anchor="middle" fill="#1F5F96">web browser</text>
+  <!-- Frontend -->
+  <rect x="280" y="140" width="200" height="100" rx="6" fill="#EFEBFE" stroke="#5B3FC4"/>
+  <text x="380" y="172" text-anchor="middle" font-weight="bold" fill="#5B3FC4">frontend (Next.js)</text>
+  <text x="380" y="194" text-anchor="middle" fill="#5B3FC4">port 3000</text>
+  <text x="380" y="214" text-anchor="middle" fill="#5B3FC4">pages + /api/v1 proxy</text>
+  <!-- Backend -->
+  <rect x="530" y="140" width="200" height="100" rx="6" fill="#E3F7EC" stroke="#16774A"/>
+  <text x="630" y="172" text-anchor="middle" font-weight="bold" fill="#16774A">backend (Flask)</text>
+  <text x="630" y="194" text-anchor="middle" fill="#16774A">port 5001 → 5000</text>
+  <text x="630" y="214" text-anchor="middle" fill="#16774A">routes, services, scoring</text>
+  <!-- DB -->
+  <rect x="780" y="140" width="170" height="100" rx="6" fill="#FEEEE2" stroke="#A44A12"/>
+  <text x="865" y="172" text-anchor="middle" font-weight="bold" fill="#A44A12">db (PostgreSQL)</text>
+  <text x="865" y="194" text-anchor="middle" fill="#A44A12">volume pgdata</text>
+  <text x="865" y="214" text-anchor="middle" fill="#A44A12">3 tables</text>
+  <!-- Files -->
+  <rect x="530" y="360" width="200" height="70" rx="6" fill="#FDF6D8" stroke="#7C5E05"/>
+  <text x="630" y="388" text-anchor="middle" font-weight="bold" fill="#7C5E05">data/snapshot/*.json</text>
+  <text x="630" y="410" text-anchor="middle" fill="#7C5E05">GAF snapshot, read-only mount</text>
+  <!-- GAF -->
+  <rect x="24" y="360" width="250" height="70" rx="6" fill="#FFFFFF" stroke="#9AA1B2" stroke-dasharray="4 4"/>
+  <text x="149" y="388" text-anchor="middle" font-weight="bold" fill="#5C6478">GAF directory (gaf.com)</text>
+  <text x="149" y="410" text-anchor="middle" fill="#5C6478">external, not called by the app</text>
+  <!-- arrows -->
+  <line x1="194" y1="190" x2="276" y2="190" stroke="#3B4256" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="235" y="180" text-anchor="middle" font-size="12" fill="#3B4256">HTTP</text>
+  <line x1="480" y1="190" x2="526" y2="190" stroke="#3B4256" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="503" y="180" text-anchor="middle" font-size="12" fill="#3B4256">/api/v1</text>
+  <line x1="730" y1="190" x2="776" y2="190" stroke="#3B4256" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="753" y="180" text-anchor="middle" font-size="12" fill="#3B4256">SQL</text>
+  <line x1="630" y1="356" x2="630" y2="244" stroke="#3B4256" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="640" y="300" font-size="12" fill="#3B4256">flask import-snapshot (one time)</text>
+  <line x1="274" y1="395" x2="526" y2="395" stroke="#9AA1B2" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="400" y="385" text-anchor="middle" font-size="12" fill="#5C6478">manual browser collection, 2026-11-05</text>
+  <text x="24" y="450" font-size="12" fill="#5C6478">Solid arrow: runs in the app. Dashed arrow: a manual step outside the app. Trust boundary: the dashed purple box. No login is implemented.</text>
+</svg>
+</div>
+<p>The browser talks only to Next.js. Next.js forwards <code>/api/v1</code> to Flask (<code>frontend/next.config.mjs</code>). Flask uses PostgreSQL. Snapshot files enter only through the CLI. The app never calls gaf.com.</p>
+<h3>Module dependencies</h3>
+<pre>
+Pages (app/*) → components/leads/* → components/ui/*
+Pages → lib/useLoad.ts → lib/api.ts (openapi-fetch) → /api/v1
+api/__init__.py → schemas.py (validate) → services.py → queries.py / models.py
+services.py → scoring.py (tier_for, top_reason)
+cli.py → collection/importer.py → collection/snapshot.py, scoring.py
+</pre>
+<h3>Data model</h3><div class="fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" width="900" height="300" font-family="Helvetica, Arial, sans-serif" font-size="13" role="img" aria-label="Data model">
+<rect width="900" height="300" fill="#fff"/>
+<g><rect x="20" y="30" width="270" height="250" rx="6" fill="#FDF6D8" stroke="#7C5E05"/><text x="155" y="54" text-anchor="middle" font-weight="bold" fill="#7C5E05">prospects (GAF data)</text>
+<text x="34" y="80">id PK</text><text x="34" y="100">directory + gaf_source_id UNIQUE</text><text x="34" y="120">profile_url, name, phone</text><text x="34" y="140">phone_digits (links directories)</text><text x="34" y="160">website_url, address, city, state</text><text x="34" y="180">about_text, years_in_business</text><text x="34" y="200">distance_mi, rating, review_count</text><text x="34" y="220">distinctions[], specialties[]</text><text x="34" y="240">retrieved_at</text></g>
+<g><rect x="330" y="30" width="240" height="140" rx="6" fill="#EFEBFE" stroke="#5B3FC4"/><text x="450" y="54" text-anchor="middle" font-weight="bold" fill="#5B3FC4">prospect_scores (derived)</text>
+<text x="344" y="80">prospect_id PK → prospects.id</text><text x="344" y="100">score 0–100 (CHECK)</text><text x="344" y="120">breakdown JSONB</text><text x="344" y="140">rule_version, scored_at</text></g>
+<g><rect x="610" y="30" width="270" height="170" rx="6" fill="#E3F7EC" stroke="#16774A"/><text x="745" y="54" text-anchor="middle" font-weight="bold" fill="#16774A">leads (representative work)</text>
+<text x="624" y="80">id PK</text><text x="624" y="100">prospect_id UNIQUE → prospects.id</text><text x="624" y="120">company_key UNIQUE when not null</text><text x="624" y="140">status (CHECK 4 values)</text><text x="624" y="160">saved_at, status_changed_at</text><text x="624" y="180">updated_at</text></g>
+<line x1="290" y1="100" x2="330" y2="100" stroke="#3B4256" stroke-width="1.5"/><text x="296" y="94" font-size="11">1–0..1</text>
+<path d="M290 150 C 450 260, 600 260, 610 150" fill="none" stroke="#3B4256" stroke-width="1.5"/><text x="440" y="250" font-size="11">1–0..1 (saved as)</text>
+</svg></div>
+<h3>Save flow with failure paths</h3><div class="fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="1000" height="560" font-family="Helvetica, Arial, sans-serif" font-size="14">
+  <title>Main data flow: save a prospect as a lead, with failure paths</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#3B4256"/></marker>
+    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#A62B47"/></marker>
+  </defs>
+  <rect width="1000" height="560" fill="#FFFFFF"/>
+  <text x="24" y="34" font-size="20" font-weight="bold" fill="#1E2333">Main data flow: Save as lead</text>
+  <!-- lanes -->
+  <g font-weight="bold" fill="#5C6478">
+    <text x="90" y="70" text-anchor="middle">Browser</text>
+    <text x="330" y="70" text-anchor="middle">Next.js proxy</text>
+    <text x="580" y="70" text-anchor="middle">Flask</text>
+    <text x="860" y="70" text-anchor="middle">PostgreSQL</text>
+  </g>
+  <g stroke="#E5E8EF" stroke-width="2">
+    <line x1="90" y1="80" x2="90" y2="540"/><line x1="330" y1="80" x2="330" y2="540"/>
+    <line x1="580" y1="80" x2="580" y2="540"/><line x1="860" y1="80" x2="860" y2="540"/>
+  </g>
+  <!-- steps -->
+  <g font-size="13" fill="#1E2333">
+    <line x1="90" y1="110" x2="326" y2="110" stroke="#3B4256" stroke-width="1.5" marker-end="url(#a)"/>
+    <text x="100" y="102">1 SaveButton: POST /api/v1/prospects/{id}/save</text>
+    <line x1="330" y1="140" x2="576" y2="140" stroke="#3B4256" stroke-width="1.5" marker-end="url(#a)"/>
+    <text x="340" y="132">2 forward to backend:5000</text>
+    <line x1="580" y1="175" x2="856" y2="175" stroke="#3B4256" stroke-width="1.5" marker-end="url(#a)"/>
+    <text x="590" y="167">3 load prospect, score, lead</text>
+    <rect x="470" y="195" width="220" height="44" rx="4" fill="#E3F1FD" stroke="#1F5F96"/>
+    <text x="580" y="214" text-anchor="middle" fill="#1F5F96">4 Lead exists for this prospect?</text>
+    <text x="580" y="231" text-anchor="middle" fill="#1F5F96">yes → 200, no new row</text>
+    <line x1="580" y1="270" x2="856" y2="270" stroke="#3B4256" stroke-width="1.5" marker-end="url(#a)"/>
+    <text x="590" y="262">5 INSERT leads (company_key = phone digits)</text>
+    <line x1="856" y1="300" x2="584" y2="300" stroke="#3B4256" stroke-width="1.5" marker-end="url(#a)"/>
+    <text x="640" y="292">6a commit OK</text>
+    <line x1="576" y1="330" x2="94" y2="330" stroke="#3B4256" stroke-width="1.5" marker-end="url(#a)"/>
+    <text x="300" y="322">7a 201 ProspectDetail → "✓ Saved"</text>
+  </g>
+  <!-- failure -->
+  <g font-size="13" fill="#A62B47">
+    <rect x="600" y="360" width="380" height="64" rx="4" fill="#FDE8EC" stroke="#A62B47"/>
+    <text x="612" y="382">6b unique index uq_leads_company_key violated</text>
+    <text x="612" y="400">(same company saved via its other listing,</text>
+    <text x="612" y="416">or a parallel save) → rollback, nothing saved</text>
+    <line x1="576" y1="450" x2="94" y2="450" stroke="#A62B47" stroke-width="1.5" marker-end="url(#r)"/>
+    <text x="110" y="442">7b 409 company_already_saved (or 200 for the same prospect)</text>
+    <text x="110" y="476">Browser shows the message next to the button.</text>
+    <text x="110" y="494">The button is enabled again, so the user can retry.</text>
+  </g>
+  <text x="24" y="540" font-size="12" fill="#5C6478">Saved state: one leads row with status new. GAF data and the score are not changed. A network failure leaves nothing saved; the user clicks Save again.</text>
+</svg>
+</div>
+
+<h2 id="api">4. API inventory and request walkthroughs</h2>
+<p>All application routes are in <code>backend/app/api/__init__.py</code>, registered under <code>/api/v1</code> in <code>create_app</code>. Flask adds its static route; the app does not use it. Every frontend call has a matching route. The health route has no frontend caller. Every error uses <code>{"error": {"code", "message", "details"}}</code>.</p>
+<table><thead><tr><th>Method</th><th>Path</th><th>Purpose</th><th>Frontend caller</th></tr></thead><tbody><tr><td><code>GET</code></td><td><code>/api/v1/health</code></td><td>Liveness and database check</td><td>None (manual checks only)</td></tr><tr><td><code>GET</code></td><td><code>/api/v1/overview</code></td><td>Pipeline summary for one directory or both</td><td><code>frontend/app/page.tsx</code> <code>OverviewView.load</code></td></tr><tr><td><code>GET</code></td><td><code>/api/v1/prospects</code></td><td>Filtered, sorted, paged prospects</td><td><code>frontend/app/prospects/page.tsx</code> <code>ProspectsView</code> via <code>useLoad</code></td></tr><tr><td><code>GET</code></td><td><code>/api/v1/prospects/stats</code></td><td>Counts for KPI cards, charts and the sidebar</td><td><code>app/prospects/page.tsx</code>, <code>components/ui/layout/Sidebar.tsx</code></td></tr><tr><td><code>GET</code></td><td><code>/api/v1/prospects/{id}</code></td><td>Prospect detail</td><td><code>frontend/app/prospects/[id]/page.tsx</code></td></tr><tr><td><code>POST</code></td><td><code>/api/v1/prospects/{id}/save</code></td><td>Save as lead</td><td><code>components/leads/SaveButton.tsx</code></td></tr><tr><td><code>GET</code></td><td><code>/api/v1/leads</code></td><td>Saved leads, call lists and counts</td><td><code>frontend/app/leads/page.tsx</code> <code>LeadsView</code></td></tr><tr><td><code>PATCH</code></td><td><code>/api/v1/leads/{id}/status</code></td><td>Change lead status</td><td><code>components/leads/StatusSelect.tsx</code>; Mark contacted in <code>app/page.tsx</code> and <code>app/leads/page.tsx</code></td></tr></tbody></table><details id='ep0'><summary><code>GET /api/v1/health</code> — Liveness and database check</summary><table><tr><th>Input</th><td>—</td></tr><tr><th>Output</th><td>{"status":"ok"}</td></tr><tr><th>Status codes</th><td>200; 500 if the database query fails</td></tr><tr><th>Frontend caller</th><td>None (manual checks only)</td></tr><tr><th>Auth</th><td>None (no login in the MVP)</td></tr></table><p><strong>Path through the code</strong></p><ol><li>api/__init__.py:22 <code>health()</code> runs <code>SELECT 1</code> through <code>get_session()</code>.</li></ol></details><details id='ep1'><summary><code>GET /api/v1/overview</code> — Pipeline summary for one directory or both</summary><table><tr><th>Input</th><td>query <code>directory</code> (optional)</td></tr><tr><th>Output</th><td><code>Overview</code>: saved, not_contacted, contacted, qualified, dismissed, contacted_pct, follow_up_days, call_next[], follow_up[], top_unsaved[], snapshot_retrieved_at</td></tr><tr><th>Status codes</th><td>200; 422 for an unknown directory</td></tr><tr><th>Frontend caller</th><td><code>frontend/app/page.tsx</code> <code>OverviewView.load</code></td></tr><tr><th>Auth</th><td>None (no login in the MVP)</td></tr></table><p><strong>Path through the code</strong></p><ol><li>Toggle or page load → <code>api.GET('/overview', {query:{directory}})</code>.</li><li>api/__init__.py:28 <code>overview()</code> validates with <code>DirectoryQuery</code> (empty values dropped by <code>QueryModel</code>).</li><li>services.py:203 <code>overview()</code> loads leads with <code>queries.all_leads(directory)</code> (SQL filter), builds <code>_lead_summary</code> rows, counts statuses, picks Call next (status New, by score) and Follow up (<code>is_follow_up_due</code>).</li><li>Top prospects come from <code>queries.top_unsaved</code>: High score, no lead, and no saved lead with the same phone digits.</li><li>The page renders KPI cards, the pipeline bar and three panels. All links keep the directory.</li></ol><p><strong>Example</strong></p><pre>GET /api/v1/overview?directory=residential
+{"saved": 2, "not_contacted": 1, "contacted": 1, "contacted_pct": 50, "follow_up_days": 14, ...}</pre></details><details id='ep2'><summary><code>GET /api/v1/prospects</code> — Filtered, sorted, paged prospects</summary><table><tr><th>Input</th><td>query q, directory, tier, max_distance (10/25/50), state, cert_tier (top/certified/none), hide_saved, sort (score/distance/name), page, page_size ≤ 100</td></tr><tr><th>Output</th><td><code>ProspectList</code>: items[] (<code>ProspectSummary</code>), total, page, page_size</td></tr><tr><th>Status codes</th><td>200; 422 with field messages</td></tr><tr><th>Frontend caller</th><td><code>frontend/app/prospects/page.tsx</code> <code>ProspectsView</code> via <code>useLoad</code></td></tr><tr><th>Auth</th><td>None (no login in the MVP)</td></tr></table><p><strong>Path through the code</strong></p><ol><li>A filter change writes the URL with <code>router.replace</code>; <code>useLoad</code> starts a new request and aborts the old one.</li><li>api/__init__.py:34 validates with <code>ProspectQuery</code>.</li><li>queries.py:23 <code>prospect_page</code> joins prospects, scores and leads, applies each filter in SQL (tier = score range; cert_tier = JSONB containment on the breakdown; hide_saved excludes saved prospects and saved companies), counts, orders with <code>_order</code>, and pages.</li><li>services.py:53 <code>summarize_prospects</code> adds <code>top_reason</code>, <code>also_listed_in</code> (<code>queries.twins</code>) and <code>saved_via</code>.</li><li>The table shows score meters, reason chips, distance dots and Save buttons.</li></ol><p><strong>Example</strong></p><pre>GET /api/v1/prospects?tier=high&amp;max_distance=10&amp;page_size=1
+{"items":[{"id":145,"name":"American Siding Construction Corp","score":95,"tier":"high","top_reason":"6.5 mi, GAF Master Elite®, phone listed", ...}],"total":..., "page":1,"page_size":1}</pre></details><details id='ep3'><summary><code>GET /api/v1/prospects/stats</code> — Counts for KPI cards, charts and the sidebar</summary><table><tr><th>Input</th><td>query <code>directory</code> (optional)</td></tr><tr><th>Output</th><td><code>ProspectStats</code>: total, high, saved, high_unsaved, tiers, directories (always both), distance_bands, states, snapshot_retrieved_at</td></tr><tr><th>Status codes</th><td>200; 422</td></tr><tr><th>Frontend caller</th><td><code>app/prospects/page.tsx</code>, <code>components/ui/layout/Sidebar.tsx</code></td></tr><tr><th>Auth</th><td>None (no login in the MVP)</td></tr></table><p><strong>Path through the code</strong></p><ol><li>services.py:197 <code>prospect_stats</code> → queries.py:103 <code>stats</code> (all counts in SQL with <code>_in_directory</code>) and queries.py:139 <code>count_high_unsaved</code>.</li></ol></details><details id='ep4'><summary><code>GET /api/v1/prospects/{id}</code> — Prospect detail</summary><table><tr><th>Input</th><td>path id</td></tr><tr><th>Output</th><td><code>ProspectDetail</code>: GAF facts, score, score_breakdown[], unknown_fields[], not_in_public_sources[], also_listed_in, saved_via, lead</td></tr><tr><th>Status codes</th><td>200; 404 not_found</td></tr><tr><th>Frontend caller</th><td><code>frontend/app/prospects/[id]/page.tsx</code></td></tr><tr><th>Auth</th><td>None (no login in the MVP)</td></tr></table><p><strong>Path through the code</strong></p><ol><li>services.py:73 <code>prospect_detail</code> loads the prospect with score and lead, finds the other-directory listing, and lists missing fields with <code>FIELD_LABELS</code>.</li><li>The page shows Source facts, Why this priority and What we don't know.</li></ol></details><details id='ep5'><summary><code>POST /api/v1/prospects/{id}/save</code> — Save as lead</summary><table><tr><th>Input</th><td>path id</td></tr><tr><th>Output</th><td><code>ProspectDetail</code> with <code>lead</code></td></tr><tr><th>Status codes</th><td>201 created; 200 already saved (no new row); 404; 409 company_already_saved with details.prospect_id</td></tr><tr><th>Frontend caller</th><td><code>components/leads/SaveButton.tsx</code></td></tr><tr><th>Auth</th><td>None (no login in the MVP)</td></tr></table><p><strong>Path through the code</strong></p><ol><li>The button is disabled while the request runs.</li><li>services.py:98 <code>save_prospect</code>: return 200 if a lead exists; else insert a lead with <code>company_key = phone_digits</code> and commit.</li><li>On <code>IntegrityError</code> (unique <code>prospect_id</code> or <code>uq_leads_company_key</code>) the transaction rolls back. A different prospect's lead → 409; the same prospect (parallel save) → 200.</li><li>The UI shows ✓ Saved, or the error next to the button.</li></ol><p><strong>Example</strong></p><pre>POST /api/v1/prospects/418/save
+409 {"error":{"code":"company_already_saved","message":"This company is already saved through its other GAF listing.","details":{"prospect_id":1,"directory":"residential"}}}</pre></details><details id='ep6'><summary><code>GET /api/v1/leads</code> — Saved leads, call lists and counts</summary><table><tr><th>Input</th><td>query q, scope (active/all/dismissed), status (new/contacted/qualified), queue (first_contact/follow_up_due), directory, tier, sort (priority/recently_saved/oldest_status_change), page, page_size</td></tr><tr><th>Output</th><td><code>LeadList</code>: items[] (<code>LeadSummary</code> with distance_mi, top_reason, follow_up_due), total (matching), status_counts, queue_counts, total_saved (all, for the chosen directory)</td></tr><tr><th>Status codes</th><td>200; 422</td></tr><tr><th>Frontend caller</th><td><code>frontend/app/leads/page.tsx</code> <code>LeadsView</code></td></tr><tr><th>Auth</th><td>None (no login in the MVP)</td></tr></table><p><strong>Path through the code</strong></p><ol><li>api/__init__.py:57 validates with <code>LeadQuery</code>.</li><li>services.py:165 <code>list_leads</code>: SQL directory filter in <code>queries.all_leads</code>; then scope, queue, status, search and tier in Python; sort with <code>LEAD_SORTS</code> (each ends with lead_id); slice the page.</li><li>The page shows call-list tabs, status cards labeled 'All saved leads', 'X matching leads', a table (wide screens) or cards (below 768 px).</li></ol></details><details id='ep7'><summary><code>PATCH /api/v1/leads/{id}/status</code> — Change lead status</summary><table><tr><th>Input</th><td>body {"status": "new"|"contacted"|"qualified"|"dismissed"}</td></tr><tr><th>Output</th><td><code>ProspectDetail</code></td></tr><tr><th>Status codes</th><td>200; 404; 422</td></tr><tr><th>Frontend caller</th><td><code>components/leads/StatusSelect.tsx</code>; Mark contacted in <code>app/page.tsx</code> and <code>app/leads/page.tsx</code></td></tr><tr><th>Auth</th><td>None (no login in the MVP)</td></tr></table><p><strong>Path through the code</strong></p><ol><li>StatusSelect shows the new value at once and returns to the old value on failure.</li><li>services.py:128 <code>update_status</code> sets <code>status_changed_at</code> only when the status changes, so a repeat does not reset the 14-day follow-up clock.</li></ol></details>
+
+<h2 id="data">5. Where data lives</h2>
+<table><thead><tr><th>Data</th><th>Location</th><th>Kind</th><th>Written by</th><th>Read by</th></tr></thead><tbody>
+<tr><td>GAF snapshot</td><td><code>data/snapshot/gaf_*_10013_50mi.json</code></td><td>Real, collected 2026-11-05</td><td>Manual browser collection</td><td><code>collection/snapshot.load_snapshot</code></td></tr>
+<tr><td>Prospects</td><td><code>prospects</code> table</td><td>Real (normalized)</td><td><code>importer.import_file</code></td><td><code>queries.*</code></td></tr>
+<tr><td>Scores</td><td><code>prospect_scores</code></td><td>Calculated</td><td><code>importer.rescore_all</code></td><td>services, UI breakdown</td></tr>
+<tr><td>Leads and statuses</td><td><code>leads</code></td><td>User-entered</td><td><code>save_prospect</code>, <code>update_status</code></td><td>Overview, Saved leads, details</td></tr>
+<tr><td>Filters, sort, page</td><td>Browser URL</td><td>UI state</td><td><code>setFilters</code> in each page</td><td>Page loaders</td></tr>
+<tr><td>Loading/error/row messages</td><td>React state</td><td>Memory only</td><td>Components</td><td>Components</td></tr>
+<tr><td>Configuration</td><td><code>.env</code> (not in git): POSTGRES_*, DATABASE_URL, SNAPSHOT_DIR</td><td>Config</td><td>Developer</td><td><code>config.load_config</code></td></tr>
+</tbody></table>
+<p>Snapshot record example (shortened): <code>{"gaf_source_id":"1141159","name":"Jersey Roofing LLC","phone":"(201) 982-2718","distance_mi":11.7,"rating":5.0,"review_count":473,"distinctions":["GAF Master Elite® - Certification","President's Club - Award"],"retrieved_at":"2026-11-05T…"}</code></p>
+
+<h2 id="rules">6. Deterministic rules</h2>
+<table><thead><tr><th>Rule</th><th>Where</th><th>Exact behavior</th></tr></thead><tbody>
+<tr><td>Distance</td><td><code>scoring._geographic</code></td><td>≤10 mi → 35; ≤25 → 22; ≤50 → 10; unknown → 0 (marked unknown)</td></tr><tr><td>Certification tier</td><td><code>scoring._certification</code></td><td>Top (President's Club, Master Elite, Chairman's Circle, PlatinumElite) → 20; Certified (Certified, GoldElite, CoatingsPro) → 12; none → 0. Substring match, top tier checked first.</td></tr><tr><td>Roof systems</td><td><code>scoring._roof_systems</code></td><td>Residential listing → 10; commercial with technologies → 10; else 0</td></tr><tr><td>Specialty</td><td><code>scoring._specialty</code></td><td>Any value containing fortified, metal, solar or coating → 5</td></tr><tr><td>Readiness</td><td><code>scoring._readiness</code></td><td>Phone 10; website 10; street+city+state 5; retrieved ≤30 days before the effective time 5</td></tr><tr><td>Tier</td><td><code>scoring.tier_for</code></td><td>High ≥70; Medium 45–69; Low &lt;45</td></tr><tr><td>Prospect order</td><td><code>queries._order</code></td><td>score desc, distance asc (nulls last), name, id</td></tr><tr><td>Phone normalization</td><td><code>importer.phone_digits</code></td><td>Digits only; drop a leading 1 from 11 digits; keep only 10 digits, else None</td></tr><tr><td>Listing identity</td><td><code>uq_prospect_listing</code></td><td>(directory, gaf_source_id) unique; import upserts on it</td></tr><tr><td>One lead per company</td><td><code>uq_leads_company_key</code></td><td>Partial unique index on leads.company_key where not null</td></tr><tr><td>Follow-up due</td><td><code>services.is_follow_up_due</code></td><td>status = contacted and now − status_changed_at ≥ 14 days</td></tr><tr><td>Lead order</td><td><code>services.LEAD_SORTS</code></td><td>priority: score desc, name, id; recently_saved: saved_at desc, id; oldest_status_change: status_changed_at asc, id</td></tr>
+</tbody></table>
+<h3>Worked example: prospect 20, Redline Enterprises LLC</h3>
+<p>Inputs: residential, 38.0 mi, phone listed, no website, full address, distinctions FORTIFIED Roof™, GAF Master Elite®, President's Club; retrieved the same day.</p>
+<pre>distance 10 + certification 20 + roof systems 10 + specialty 5 + phone 10 + website 0 + address 5 + freshness 5 = 65 → Medium</pre>
+<p>This matches the API response for prospect 20. <strong>Repeatability:</strong> the score depends only on the prospect row and the effective time. Freshness points change only when <code>flask rescore</code> runs after 30 days. Saving a lead or changing status never changes the score. <strong>Search relevance vs. priority:</strong> GAF's own result order is not stored or used; priority is this score only.</p>
+
+<h2 id="decisions">7. Key design decisions</h2>
+<table><thead><tr><th>Decision</th><th>Why it fits the MVP</th><th>Alternative and trade-off</th></tr></thead><tbody>
+<tr><td>One-time browser snapshot (D1)</td><td>gaf.com returns HTTP 403 to plain HTTP clients; a browser shows the data.</td><td>Headless scraping or GAF's search key: can break and works against GAF's block.</td></tr><tr><td>Three tables by field group (D4)</td><td>Source data, derived scores and representative work change for different reasons.</td><td>One wide table: simpler, but every rescore or import touches representative data.</td></tr><tr><td>Constraints for duplicates (D8)</td><td>Correct under parallel requests and repeated imports.</td><td>Application-only checks: race conditions.</td></tr><tr><td>Directory filter in SQL (D19)</td><td>Counts and lists agree for the chosen directory.</td><td>Filter after loading: wasteful and easy to make inconsistent.</td></tr><tr><td>Leads filtered in Python (inferred)</td><td>Small saved set and time-based rules; simple code.</td><td>SQL filters: needed when saved leads grow.</td></tr><tr><td>Same-origin proxy (D15)</td><td>No CORS; one URL for users.</td><td>Direct calls with CORS headers.</td></tr><tr><td>No Alembic (D5)</td><td>Less setup for the MVP, as the user asked.</td><td>Alembic: needed before the schema changes with real data.</td></tr>
+</tbody></table>
+<p>Recorded rationale is in <code>docs/DECISION_LOG.md</code>. Rows marked "inferred" are the writer's reading of the code.</p>
+
+<h2 id="prod">8. Translation to production <span class="tag plan">Proposed</span></h2>
+<table><thead><tr><th>Change</th><th>Current limit</th><th>Trigger</th><th>Modules affected</th></tr></thead><tbody>
+<tr><td>Authentication and lead ownership</td><td>Anyone can change any lead</td><td>Before real users</td><td>New middleware; <code>leads.owner_id</code>; <code>services</code>, <code>queries</code></td></tr>
+<tr><td>Migrations, backups, restore tests</td><td><code>create_all()</code>, local volume</td><td>First schema change with real data</td><td><code>db.py</code>, deployment</td></tr>
+<tr><td>Scheduled, approved data refresh</td><td>Manual one-time snapshot</td><td>Data older than 30 days</td><td><code>collection/</code>, job runner</td></tr>
+<tr><td>SQL filtering for leads; keyset pagination</td><td>Leads filtered in Python</td><td>Measured slow lists</td><td><code>services.list_leads</code>, <code>queries</code></td></tr>
+<tr><td>Connection limits, caching, rate limits</td><td>Pool 5+5 per worker; no cache</td><td>More workers or users</td><td><code>db.py</code>, gateway</td></tr>
+<tr><td>Durable queue with retries and idempotent jobs</td><td>No background work</td><td>A slow step such as AI insights</td><td>New worker; <code>additional/insights</code></td></tr>
+<tr><td>Logs, metrics, alerts, CI/CD</td><td>Container logs only</td><td>Before launch</td><td>All services</td></tr>
+</tbody></table>
+<p>Full plan: <code>docs/operations/production-readiness.md</code> and <code>production-extensibility.md</code>.</p>
+
+<h2 id="verify">9. Verification and limitations</h2>
+<p><strong>Automated tests:</strong> none written or run (the user decides when; plan in <code>docs/TEST_PLAN.md</code>).</p>
+<p><strong>Manual checks on 2026-11-05</strong> (details in <code>docs/BUILD_PROGRESS.md</code>): complete imports (176/176, 233/233); re-import adds 0 rows; save 201 → repeat 200 → other listing 409; 404 and 422 responses; empty query values accepted; the 14-day follow-up boundary; a repeated status keeps its timestamp; directory filter counts; restart persistence; <code>tsc --noEmit</code> passes.</p>
+<p><strong>Limitations:</strong> snapshot data from one day; no login; no status history; phone-based company matching can miss or merge companies; 209 of 233 commercial listings have no website on GAF, so they lose 10 points; local Git metadata is not present in the folder.</p>
+
+<h2 id="guide">10. How to walk through the code</h2>
+<ol>
+<li>Show the <a href="#arch">system boundary</a>, then <code>docker-compose.yml</code>.</li>
+<li>Open <code>backend/app/models.py</code>: three tables and the two unique rules that prevent duplicates.</li>
+<li>Open <code>backend/app/scoring.py</code> and use the <a href="#rules">worked example</a>.</li>
+<li>Follow <a href="#ep5">Save as lead</a> from <code>SaveButton.tsx</code> to <code>services.save_prospect</code>, including the 409 path.</li>
+<li>Show <code>services.list_leads</code> and the call lists, then <code>queries._in_directory</code> for the directory filter.</li>
+<li>Close with <a href="#prod">production changes</a> and the <a href="#verify">limits</a>.</li>
+</ol>
+</main></body></html>

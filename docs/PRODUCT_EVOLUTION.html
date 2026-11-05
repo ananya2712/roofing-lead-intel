@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Roofing Lead Intel · Product evolution</title>
+  <style>
+    :root { --ink:#19283b; --muted:#4b5e73; --line:#d8e0e9; --soft:#f5f7fa; --blue:#124ca0; }
+    * { box-sizing:border-box; }
+    html { scroll-padding-top:1rem; }
+    body { margin:0; background:white; color:var(--ink); font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    a { color:var(--blue); text-underline-offset:3px; }
+    a:focus-visible, summary:focus-visible { outline:3px solid #124ca0; outline-offset:4px; }
+    .wrap { max-width:1140px; margin:auto; padding:40px 28px 80px; }
+    header { border-bottom:2px solid var(--ink); padding-bottom:26px; }
+    .eyebrow { text-transform:uppercase; letter-spacing:.12em; font-size:.77rem; font-weight:700; color:var(--muted); }
+    h1 { font-size:clamp(2rem,5vw,3.4rem); line-height:1.12; letter-spacing:-.035em; margin:.5rem 0 1rem; }
+    h2 { font-size:1.65rem; margin:0 0 1rem; line-height:1.25; }
+    h3 { font-size:1.1rem; margin:1.2rem 0 .4rem; }
+    p { max-width:85ch; margin:.6rem 0 1rem; }
+    .muted, .meta { color:var(--muted); }
+    .meta { font-size:.9rem; }
+    nav { display:flex; flex-wrap:wrap; gap:8px 20px; margin:22px 0; }
+    nav a { font-size:.95rem; }
+    section { border-top:1px solid var(--line); padding-top:28px; margin-top:32px; }
+    .notice { border-left:4px solid var(--blue); background:var(--soft); padding:16px 20px; margin:22px 0; }
+    .notice p:last-child { margin-bottom:0; }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+    .card { border:1px solid var(--line); padding:16px; border-radius:6px; }
+    .card strong { display:block; font-size:1.2rem; }
+    .badge { display:inline-block; font-size:.78rem; font-weight:650; padding:2px 8px; border:1px solid #c2cddd; border-radius:4px; background:var(--soft); }
+    .table-scroll { overflow-x:auto; border:1px solid var(--line); border-radius:5px; margin:16px 0; }
+    table { width:100%; border-collapse:collapse; text-align:left; font-size:.92rem; }
+    th,td { padding:12px 14px; border-bottom:1px solid var(--line); vertical-align:top; min-width:140px; }
+    th { background:var(--soft); font-weight:650; }
+    tr:last-child td { border-bottom:0; }
+    code { font-family:ui-monospace,SFMono-Regular,Consolas,monospace; font-size:.88em; overflow-wrap:anywhere; }
+    pre { padding:18px; background:var(--soft); border:1px solid var(--line); overflow:auto; line-height:1.6; font-size:.87rem; }
+    details { border:1px solid var(--line); border-radius:5px; margin:12px 0; padding:14px 18px; }
+    summary { cursor:pointer; font-weight:650; }
+    dl { margin:16px 0 0; }
+    dt { font-weight:650; margin-top:12px; }
+    dd { margin:3px 0 10px; max-width:88ch; }
+    figure { margin:20px 0; }
+    .diagram { border:1px solid var(--line); padding:16px; overflow-x:auto; }
+    svg { width:100%; min-width:690px; display:block; }
+    figcaption { font-size:.9rem; color:var(--muted); margin-top:10px; }
+    ul,ol { padding-left:24px; }
+    li { margin:6px 0; }
+    footer { border-top:2px solid var(--ink); margin-top:36px; padding-top:18px; font-size:.9rem; color:var(--muted); }
+    @media(max-width:650px) { .wrap { padding:24px 18px 48px; } .grid { grid-template-columns:1fr; } th,td { padding:10px; } }
+    @media print { .wrap { max-width:none; padding:0; } nav { display:none; } details { break-inside:avoid; } .table-scroll { overflow:visible; } svg { min-width:0; } }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Roofing Lead Intel / Repository record</div>
+    <h1>Product evolution</h1>
+    <p>What changed, why it changed, and how the product fits together. This record follows the source files and keeps unknowns visible.</p>
+    <p class="meta">Latest update: <time datetime="2026-11-05">5 November 2026</time>, Entry 005 (complete data, Saved-leads redesign, directory filter, 106 passing tests and 4 fixed bugs) · Repository: <code>roofing-lead-intel</code></p>
+  </header>
+  <nav aria-label="Contents">
+    <a href="CODE_WALKTHROUGH.html">Current code walkthrough</a><a href="#tests-update">Latest update (Entry 005)</a><a href="#walkthrough-update">Walkthrough update</a><a href="#latest-review">Earlier slide review</a><a href="#changes">Change history</a><a href="#architecture">Earlier architecture snapshot</a><a href="#decisions">Earlier decisions</a><a href="#files">Earlier file map</a><a href="#gaps">Earlier open questions</a><a href="#verification">Earlier verification</a><a href="#maintenance">How this stays current</a>
+  </nav>
+
+  <section id="tests-update">
+    <h2>5 November 2026 · Entry 005 · Complete data, Saved-leads redesign, directory filter, tests and fixes</h2>
+    <h3>Before and after</h3>
+    <div class="table-scroll"><table>
+      <thead><tr><th scope="col">Area</th><th scope="col">Before</th><th scope="col">After</th><th scope="col">Reason</th><th scope="col">Evidence</th></tr></thead>
+      <tbody>
+        <tr><td>Data</td><td>176 residential prospects</td><td>409 prospects: 176 residential + 233 commercial, each file equal to the GAF total</td><td>User scope (D3)</td><td>Observed import output "233 valid of 233 shown by GAF (complete)"; re-import "0 new"</td></tr>
+        <tr><td>Saved leads</td><td>Table with status cards; overlapping dismissed controls; fixed score order</td><td>Call lists (Needs first contact, Follow-up due); "All saved leads" vs. "X matching leads"; one Leads selector; three sorts; reason chips; card layout below 768 px</td><td>User request (D18)</td><td>Dashboard and follow-up tests pass</td></tr>
+        <tr><td>Directory filter</td><td>Select on Prospects and Saved leads; Saved leads filtered in Python</td><td>Toggle on all three views; SQL filter for prospects, leads, stats and the dashboard</td><td>User request (D19)</td><td>Directory count tests and toggle browser test pass</td></tr>
+        <tr><td>Home page name</td><td>Overview</td><td>Sales dashboard</td><td>User request (D23)</td><td>Browser workflow test</td></tr>
+        <tr><td>Mark contacted</td><td>Button in each Saved-leads row</td><td>On the lead page (New leads) and in the dashboard's Call next list; not in the Saved-leads table</td><td>User request (D23)</td><td>Browser test</td></tr>
+        <tr><td>Import scoring</td><td>Import rescored all prospects</td><td>Import rescores only imported rows; <code>flask rescore</code> rescores all</td><td>Isolation of test rows (D21)</td><td>Test: real scores untouched by a test import</td></tr>
+        <tr><td>Tests</td><td>None</td><td>106 automated tests (96 pytest API/database, 10 Playwright)</td><td>User approved the plan (D22)</td><td>Observed: 106 passed in about 21 s</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Bugs found by the tests and fixed</h3>
+    <div class="table-scroll"><table>
+      <thead><tr><th scope="col">#</th><th scope="col">Observed failure</th><th scope="col">Root cause</th><th scope="col">Fix (file)</th><th scope="col">Kind</th></tr></thead>
+      <tbody>
+        <tr><td>F1</td><td><code>max_distance=25</code> returned 422; the UI distance filter never worked</td><td><code>Literal[10, 25, 50]</code> does not convert query text</td><td>Integer plus allowed-value check (<code>backend/app/schemas.py</code>)</td><td>App</td></tr>
+        <tr><td>F2</td><td>Save returned 201 with <code>lead: null</code>; Save button stayed on the lead page</td><td>Session kept the prospect loaded before the insert (<code>expire_on_commit</code> off)</td><td><code>session.expire_all()</code> after commit (<code>backend/app/services.py</code>)</td><td>App</td></tr>
+        <tr><td>F3</td><td><code>ResourceClosedError</code> in a test</td><td>Test helper read rows from an UPDATE</td><td><code>backend/tests/conftest.py</code></td><td>Test</td></tr>
+        <tr><td>F4</td><td>Restart test failed</td><td>Container ran code from before F2</td><td>Rebuilt the backend container</td><td>Environment</td></tr>
+        <tr><td>F5</td><td>"Failed to fetch" shown to users</td><td>Network exception passed to the UI</td><td>Clear fallback message (<code>frontend/lib/api.ts</code> <code>unwrap</code>)</td><td>App</td></tr>
+        <tr><td>F6</td><td>Playwright strict-mode error</td><td>"Search" label also on a filter chip</td><td>Test uses the searchbox role</td><td>Test</td></tr>
+        <tr><td>F7</td><td>Pages wider than a 390 px screen (Prospects by 522 px)</td><td>Non-wrapping navigation and toggle; hidden table label outside the scroll area</td><td><code>Sidebar.tsx</code>, <code>DirectoryToggle.tsx</code>, <code>app/prospects/page.tsx</code></td><td>App</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Changed files</h3>
+    <div class="table-scroll"><table>
+      <thead><tr><th scope="col">Component</th><th scope="col">Files</th></tr></thead>
+      <tbody>
+        <tr><td>Data</td><td><code>data/snapshot/gaf_commercial_10013_50mi.json</code></td></tr>
+        <tr><td>Backend</td><td><code>schemas.py</code>, <code>services.py</code>, <code>queries.py</code>, <code>api/__init__.py</code>, <code>collection/importer.py</code>, <code>cli.py</code>; removed stray <code>app/insights/generator.py</code></td></tr>
+        <tr><td>Contract</td><td><code>openapi.yaml</code>, <code>frontend/lib/api-types.ts</code> (generated)</td></tr>
+        <tr><td>Frontend</td><td><code>app/page.tsx</code>, <code>app/leads/page.tsx</code>, <code>app/prospects/page.tsx</code>, <code>app/prospects/[id]/page.tsx</code>, <code>components/leads/DirectoryToggle.tsx</code>, <code>ReasonChips.tsx</code>, <code>Sidebar.tsx</code>, <code>lib/api.ts</code></td></tr>
+        <tr><td>Tests</td><td><code>backend/tests/*</code>, <code>backend/tests/e2e/test_browser.py</code>, <code>backend/pytest.ini</code>, <code>backend/requirements-test.txt</code></td></tr>
+        <tr><td>Records</td><td><code>CODE_WALKTHROUGH.html</code> (rewritten), <code>TEST_RESULTS.md</code>, <code>TEST_PLAN.md</code>, <code>DEMO_GUIDE.md</code>, <code>DECISION_LOG.md</code> (D17–D24), <code>BUILD_PROGRESS.md</code>, <code>ARCHITECTURE_AND_DESIGN.md</code>, <code>README.md</code></td></tr>
+      </tbody>
+    </table></div>
+    <h3>Current architecture</h3>
+    <div class="table-scroll"><table>
+      <thead><tr><th scope="col">Part</th><th scope="col">Current state</th></tr></thead>
+      <tbody>
+        <tr><td>Views</td><td>Sales dashboard (<code>/</code>), Prospects, Prospect details, Saved leads; directory toggle on Sales dashboard, Prospects and Saved leads</td></tr>
+        <tr><td>API</td><td>8 routes under <code>/api/v1</code>; full inventory in <a href="CODE_WALKTHROUGH.html#api">CODE_WALKTHROUGH.html</a></td></tr>
+        <tr><td>Tables</td><td><code>prospects</code>, <code>prospect_scores</code>, <code>leads</code></td></tr>
+        <tr><td>Deferred</td><td>Notes, AI insights (<code>additional/insights/</code>, not connected), login</td></tr>
+        <tr><td>Database after tests</td><td>Observed: 0 test rows, 409 prospects, 2 real leads unchanged</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="file-control-update">
+    <h2>5 November 2026 · Initial-open and save control flow</h2>
+    <div class="table-scroll"><table>
+      <thead><tr><th scope="col">Update</th><th scope="col">Source-traced result</th></tr></thead>
+      <tbody>
+        <tr><td>Format</td><td>Every subsection in <a href="CODE_WALKTHROUGH.html">CODE_WALKTHROUGH.html</a> now uses table content, including diagram frames.</td></tr>
+        <tr><td>First opening</td><td>Separate startup from GET /. RootLayout and OverviewPage mount the UI; OverviewView and Sidebar independently request overview and prospect statistics. File/function references and response paths are included.</td></tr>
+        <tr><td>Save from Prospects</td><td>SaveButton → typed HTTP client → Next.js rewrite → Flask route → service → SQLAlchemy commit → expire_all → refreshed detail response → onSaved → concurrent list/statistics GETs.</td></tr>
+        <tr><td>Limits</td><td>Sidebar counts depend on pathname, so a same-page save does not directly refresh the badge. OpenAPI/types are build-time artifacts; neither flow imports snapshots, recalculates scores, or calls providers.</td></tr>
+        <tr><td>Evidence boundary</td><td>Source and document checks only. No new application tests, database writes, or browser-runtime observations.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="technical-table-update">
+    <h2>5 November 2026 · Technical comparison tables</h2>
+    <div class="table-scroll"><table>
+      <thead><tr><th scope="col">Change</th><th scope="col">Result</th></tr></thead>
+      <tbody>
+        <tr><td>Requested format</td><td><a href="CODE_WALKTHROUGH.html">CODE_WALKTHROUGH.html</a> now uses tables throughout. The demo sequence is removed.</td></tr>
+        <tr><td>Decision depth</td><td>Current choice, technical rationale, limitation, alternative, and reason the alternative is not used. Recorded reasons and inferred comparisons are distinct.</td></tr>
+        <tr><td>Production and future work</td><td>Extension triggers, affected modules, data/API changes, compatibility checks, and prioritized follow-up work. Proposals remain unimplemented.</td></tr>
+        <tr><td>Retained evidence</td><td>Database relationship diagram, request-flow diagram, all eight API endpoints, testing status, and source references.</td></tr>
+        <tr><td>Scope and checks</td><td>Documentation only. Table structure, anchors/links, SVG XML, and route coverage checked. No application writes or tests; browser rendering remains unverified.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="concise-demo-update">
+    <h2>5 November 2026 · Short demo guide</h2>
+    <ul>
+      <li><strong>Changed:</strong> <a href="CODE_WALKTHROUGH.html">CODE_WALKTHROUGH.html</a> now follows the user's notebook order with essential bullets and a compact eight-endpoint API table.</li>
+      <li><strong>Database diagram:</strong> three ownership groups, PK/FK fields, uniqueness constraints, and one-to-zero-or-one relationships. The SVG is embedded in the HTML; <a href="architecture/demo-data-model.svg">editable source</a> and <a href="architecture/demo-data-model.png">PNG preview</a> are available.</li>
+      <li><strong>Updated evidence:</strong> local stats returned 409 prospects: 176 residential + 233 commercial. Both snapshot files exist. The earlier residential-only observations below are historical.</li>
+      <li><strong>Limit:</strong> the distance-filter request still returned 422. Automated tests and browser page review were not performed in this revision.</li>
+      <li><strong>Scope:</strong> documentation only; no application code or saved data changed.</li>
+    </ul>
+  </section>
+
+  <section id="walkthrough-update">
+    <h2>5 November 2026 · Complete repository walkthrough</h2>
+    <p><a href="CODE_WALKTHROUGH.html">Open CODE_WALKTHROUGH.html</a> for the current source-based explanation. It follows <code>.agents/skills/documentation/references/html-code-walkthrough.md</code> and the writing skill. This new reference supersedes the current-state claims in the earlier dated snapshots below; the history is preserved.</p>
+    <p><strong>Before:</strong> the running record contained partial, dated architecture snapshots. <strong>After:</strong> the standalone walkthrough covers requirements, startup, all eight API endpoints with individual request sequences, the three-table model, data ownership, exact scoring and matching rules, dashboard KPIs, failures, decisions, production proposals, and verification limits. All diagrams and styling are embedded.</p>
+    <p><strong>Newly reviewed implementation:</strong> Saved leads now uses <code>scope</code>, <code>queue</code>, and <code>sort</code>, with Needs first contact and Follow-up due, global counts separate from matching totals, distance/reasons, row contact actions, and narrow-screen cards. Notes and AI insights remain deferred.</p>
+    <p><strong>Observed read-only result:</strong> health, overview, prospect stats/list/detail, and saved-lead list returned HTTP 200. The API reports 176 residential prospects. Invalid tier returned 422; a missing prospect returned 404. A valid-looking <code>max_distance=10</code> filter returned 422, a discrepancy recorded in the walkthrough. No save, status update, import, rescore, or automated application test was performed.</p>
+    <p><strong>Documentation checks:</strong> source links, unique anchors, SVG XML, and the eight-operation route/OpenAPI inventory passed. Browser tooling reported that its access host was unavailable, so browser layout and full user flow are not claimed. This task changed documentation only.</p>
+  </section>
+
+  <section id="latest-review">
+    <h2>Earlier review · First two presentation slides</h2>
+    <p><a href="PROJECT_DEMO.pptx">Open the editable PowerPoint draft</a>. The user requested the first two slides from the supplied notebook: project/problem, then demo. The deck contains exactly two slides with speaker notes. It does not include later architecture, stack, requirements, or testing slides.</p>
+    <div class="notice"><strong>This update supersedes the earlier current-state sections below.</strong><p>The product progressed during concurrent implementation. Earlier observations remain dated history. The four-table versus one-table mismatch is now resolved in the current decision log: D4 records three tables. Notes and AI insights are deferred under D10 and D11. D17 defers automated tests until the user requests them.</p></div>
+    <h3>Current architecture in inspected code</h3>
+    <p>The Next.js frontend has Overview, Prospects, Saved leads, and Prospect details. It calls the same-origin <code>/api/v1</code> path, which Next.js forwards to Flask. Flask routes call services and queries. SQLAlchemy models separate GAF facts (<code>prospects</code>), derived scores (<code>prospect_scores</code>), and representative status (<code>leads</code>). Notes and insights are absent from the active model.</p>
+    <p><strong>Data flow:</strong> browser-collected JSON in <code>data/snapshot/</code> → <code>flask import-snapshot</code> validation and import → prospect rows and deterministic score rows → filtered API results → frontend views → saved lead/status mutations. Current data is a recorded GAF snapshot, not a live directory query for each request. Commercial collection is still in progress.</p>
+    <p><strong>Current API surface:</strong> <code>GET /api/v1/health</code>, <code>GET /api/v1/overview</code>, <code>GET /api/v1/prospects</code>, <code>GET /api/v1/prospects/stats</code>, <code>GET /api/v1/prospects/{id}</code>, <code>POST /api/v1/prospects/{id}/save</code>, <code>GET /api/v1/leads</code>, and <code>PATCH /api/v1/leads/{id}/status</code>. The earlier planned note route is not active.</p>
+    <p><strong>Priority rule v1:</strong> distance 35, certification 20, roof systems 10, specialty 5, phone 10, website 10, full address 5, and freshness 5. High starts at 70, Medium at 45. Missing data receives zero points with an unknown flag. Ratings and reviews do not score. The score does not establish buying intent.</p>
+    <h3>Presentation decisions and observed evidence</h3>
+    <p><strong>Before:</strong> no deck existed. <strong>After:</strong> <code>docs/PROJECT_DEMO.pptx</code> explains the business problem and a four-step demo. Detailed source references and caveats are in speaker notes. A native editable table presents the API example. The user's notebook order overrides the repository skill's default seven-slide sequence for this incremental draft.</p>
+    <p><strong>Why:</strong> review the opening story before adding the rest of the deck. <strong>Alternative:</strong> a full deck would introduce unrequested slides. <strong>Affected files:</strong> the PowerPoint, this running record, <a href="BUILD_PROGRESS.md">BUILD_PROGRESS.md</a>, and <a href="DEMO_GUIDE.md">DEMO_GUIDE.md</a>. No application code or lead data changed in this presentation task.</p>
+    <div class="table-scroll"><table>
+      <thead><tr><th scope="col">Check</th><th scope="col">Action</th><th scope="col">Observed result</th><th scope="col">Limit</th></tr></thead>
+      <tbody>
+        <tr><td>Local services</td><td><code>docker compose ps</code></td><td>Frontend and backend up; PostgreSQL healthy. Frontend port 3000; backend port 5001.</td><td>Service status alone does not verify the full user flow.</td></tr>
+        <tr><td>API health and data</td><td>Read-only GET requests to health, prospect stats, and prospects with page_size=1</td><td>Health ok. 176 residential prospects. Example: American Siding Construction Corp, Newark NJ, 6.5 mi, score 95, High. Snapshot retrieval time returned: 2026-11-05T19:07:47.766000Z.</td><td>No new save, status mutation, restart, provider call, or automated application test was performed.</td></tr>
+        <tr><td>Presentation package</td><td>Bundled presentation finalizer, then import/render inspection</td><td>Two slides, two speaker-note parts, one native table. Package, geometry, font, slide-count, and import checks passed. Rendered slides inspected.</td><td>Native PowerPoint execution was not checked.</td></tr>
+        <tr><td>Browser rehearsal</td><td>Attempted browser connection to local Prospects view</td><td>Browser tool reported its access host was unavailable.</td><td>Demo still needs browser rehearsal. No app screenshot was fabricated.</td></tr>
+      </tbody>
+    </table></div>
+    <p><strong>Revisit:</strong> refresh slide counts and source evidence as more slides are requested. Update the residential count only after querying the current imported data. The local demo link requires the services to remain running.</p>
+  </section>
+
+  <section id="state">
+    <h2>Earlier state · 5 November 2026, 14:00:04 EST</h2>
+    <div class="notice"><strong>Backend scaffolding is now present; application behavior is not verified.</strong><p>The repository changed during this review. It started with empty application folders and no commits. At 14:00:04 EST, backend dependency files, a Dockerfile, a WSGI entry point, and four SQLAlchemy models were present. The frontend and replay directory remained empty.</p><p><strong>Design mismatch:</strong> the model defines four tables, while D4 in the inspected decision log specifies one. The approval and rationale for this change were not available in the inspected records.</p></div>
+    <div class="grid">
+      <div class="card"><strong>Recorded</strong>Product workflow, scope, 16 product decisions, stack, UI direction, and implementation rules.</div>
+      <div class="card"><strong>Present in code</strong>Four ORM models and their constraints; backend dependency declarations; container and WSGI startup instructions.</div>
+      <div class="card"><strong>Not verified</strong>Startup, routes, imports, scoring, insight execution, database creation, UI, and complete user workflow.</div>
+    </div>
+    <p><strong>Product problem:</strong> sales representatives at a roofing-materials distributor need one place to find nearby contractors, understand their fit, save leads, track a note and status, and read a short AI insight with source links. This intent is now recorded in <a href="BUILD_PROGRESS.md">BUILD_PROGRESS.md</a>. At the first snapshot it was unknown; the project records appeared during this review.</p>
+    <p><strong>Intended user flow:</strong> Overview → filter Prospects → open Lead details → Save as lead → read or retry the insight → edit the note and status → return to Saved leads. <a href="DEMO_GUIDE.md">DEMO_GUIDE.md</a> is explicitly a draft. None of these steps has been observed in an application.</p>
+    <p><strong>Read the evidence labels:</strong> <span class="badge">Documented intent</span> means a repository instruction or comment. <span class="badge">Present file</span> means an artifact exists. <span class="badge">Implemented</span> requires application code. <span class="badge">Observed</span> requires a recorded check. <span class="badge">Inference</span> is an explanation, not recorded developer rationale. <span class="badge">Proposed</span> means future work.</p>
+  </section>
+
+  <section id="changes">
+    <h2>Change history</h2>
+    <p>There is no committed before/after comparison at baseline. The initial files were untracked when inspected. Their creation order and author intent cannot be reconstructed from Git history.</p>
+    <article>
+      <h3>5 November 2026 · Entry 001 · Initial repository snapshot</h3>
+      <p><span class="badge">Observed files</span> <span class="badge">Application not implemented</span></p>
+      <div class="table-scroll"><table>
+        <caption>Files already present when this record started</caption>
+        <thead><tr><th scope="col">Files</th><th scope="col">What they establish</th><th scope="col">Product / architecture effect</th></tr></thead>
+        <tbody>
+          <tr><td><a href="../AGENTS.md"><code>AGENTS.md</code></a></td><td>Approved stack, UI direction, scope controls, and verification rules.</td><td>Constrains future implementation. It does not start services or create features.</td></tr>
+          <tr><td><a href="../.agents/skills/documentation/SKILL.md"><code>skills/</code></a>, <code>.agents/skills/</code>, <code>.claude/skills/</code></td><td>Task workflows and tool discovery copies.</td><td>Guides contributors. These are instructions, not application modules.</td></tr>
+          <tr><td><a href="../.env.example"><code>.env.example</code></a></td><td>Example database, optional provider, and replay-directory settings.</td><td>Declares configuration names. No code was present to read or use them.</td></tr>
+          <tr><td><a href="../.gitignore"><code>.gitignore</code></a></td><td>Excludes local secrets and generated files.</td><td>Reduces accidental inclusion in normal Git staging. It does not secure application runtime behavior.</td></tr>
+          <tr><td><a href="../architecture/PROMPT.md"><code>architecture/PROMPT.md</code></a>, <a href="../architecture/DIAGRAMS_PROMPT.md"><code>architecture/DIAGRAMS_PROMPT.md</code></a></td><td>Specifications for future architecture documentation.</td><td>Defines documentation output. These files are not an architecture implementation.</td></tr>
+        </tbody>
+      </table></div>
+    </article>
+    <article>
+      <h3>5 November 2026 · Entry 002 · Start the running explanation</h3>
+      <p><span class="badge">Documentation change</span> Requested by the user in this session.</p>
+      <p><strong>Before:</strong> no running HTML explanation existed. <strong>After:</strong> <code>docs/PRODUCT_EVOLUTION.html</code> records the baseline, intended architecture, decisions, and verification limits. The “Running HTML record” section in <code>AGENTS.md</code> instructs future contributors to update this file with relevant changes.</p>
+      <p><strong>Why:</strong> keep the explanation beside the code as the product evolves. <strong>Affected behavior:</strong> contributor documentation workflow. Application behavior is unchanged. No application dependencies were installed.</p>
+      <p><strong>Verification:</strong> source inspection established the baseline. Document integrity and browser review are recorded below. This entry is not evidence of a working application.</p>
+    </article>
+    <article>
+      <h3>5 November 2026 · Entry 003 · Product records appear during review</h3>
+      <p><span class="badge">Documented intent</span> These files were added by concurrent work and then inspected for this record.</p>
+      <p><strong>Before:</strong> only the general stack and workflow were recorded. <strong>After:</strong> <a href="BUILD_PROGRESS.md"><code>docs/BUILD_PROGRESS.md</code></a> states the user problem, approved scope, and milestones; <a href="DECISION_LOG.md"><code>docs/DECISION_LOG.md</code></a> records D1–D16; <a href="DEMO_GUIDE.md"><code>docs/DEMO_GUIDE.md</code></a> describes the intended demo.</p>
+      <p><strong>Why:</strong> the records connect implementation work to a concrete sales workflow. <strong>Architecture effect:</strong> a snapshot import path, one <code>prospects</code> table, deterministic scoring, saved-lead mutations, and insight services are now specified. Their named code paths are targets, not present modules.</p>
+      <p><strong>Observed:</strong> the records exist; backend, frontend, and replay directories remain empty. The progress record labels snapshot collection “In progress.” This review has not observed collection, confirmed provider claims, or verified user approvals outside the decision log.</p>
+    </article>
+    <article>
+      <h3>5 November 2026, 14:00:04 EST · Entry 004 · Backend scaffold and four-table model</h3>
+      <p><span class="badge">Code present</span> <span class="badge">Static inspection only</span> Files appeared during concurrent implementation.</p>
+      <p><strong>Before:</strong> the backend folder was empty. <strong>After:</strong> dependency manifests, a container recipe, <code>wsgi.py</code>, and <code>app/models.py</code> exist. There are still no observed API handlers or frontend callers in this snapshot.</p>
+      <div class="table-scroll"><table>
+        <thead><tr><th scope="col">File</th><th scope="col">What changed / why it matters</th><th scope="col">Verification boundary</th></tr></thead>
+        <tbody>
+          <tr><td><a href="../backend/requirements.txt"><code>backend/requirements.txt</code></a></td><td>Pins Flask 3.0.3, SQLAlchemy 2.0.36, psycopg 3.2.3, Pydantic 2.9.2, Gunicorn 23.0.0, requests, Beautiful Soup, and PyYAML. Establishes API, persistence, HTTP/HTML parsing, and YAML dependencies.</td><td>Declarations inspected. Installation, compatibility, and provider use not checked.</td></tr>
+          <tr><td><a href="../backend/requirements-test.txt"><code>backend/requirements-test.txt</code></a></td><td>Includes runtime dependencies, pytest 8.3.3, and pytest-playwright 0.5.2.</td><td>No tests were present or run.</td></tr>
+          <tr><td><a href="../backend/Dockerfile"><code>backend/Dockerfile</code></a></td><td>Uses Python 3.12 slim, installs runtime requirements, copies the app, and starts Gunicorn on port 5000 with two workers, four threads, and a 60-second timeout.</td><td>Recipe inspected; image not built or started. EXPOSE does not establish a host port or a local app URL.</td></tr>
+          <tr><td><a href="../backend/wsgi.py"><code>backend/wsgi.py</code></a></td><td>Imports <code>create_app</code> from <code>app</code> and calls it to expose the WSGI application.</td><td>No <code>app/__init__.py</code> or <code>create_app</code> definition was present in this snapshot. This is incomplete startup scaffolding.</td></tr>
+          <tr><td><a href="../backend/app/models.py"><code>backend/app/models.py</code></a></td><td>Separates source facts, derived scores, representative work, and generated insight into four models.</td><td>Definitions inspected. Tables, constraints, transactions, and application behavior were not exercised.</td></tr>
+        </tbody>
+      </table></div>
+      <p><strong>Architectural rationale — inference:</strong> separate ownership lets source refreshes avoid overwriting representative work and keeps scores and AI output distinct from source facts. <strong>Alternative:</strong> the single-table D4 design uses fewer joins and matches the current written decision. <strong>Production limit:</strong> the split still has no per-user ownership or note history.</p>
+      <p><strong>Required record reconciliation:</strong> D4 and the progress scope describe one table. The implementation now uses four. This review reports the inconsistency without changing application code or claiming approval. The baseline history above remains a record of earlier observations.</p>
+    </article>
+  </section>
+
+  <section id="git-removal">
+    <h2>5 November 2026 · Local Git metadata removed</h2>
+    <p>At the user's request, <code>roofing-lead-intel/.git</code> was removed. The project files remain. This folder no longer has its own Git history, index, branches, or remote configuration. Earlier Git observations on this page describe the historical snapshots before removal. The separate sibling <code>skills/</code> repository was left unchanged.</p>
+    <p><strong>Observed check:</strong> the project's <code>.git</code> path is absent; <code>AGENTS.md</code>, this HTML record, and the backend and frontend directories remain present. This operation did not reverify application behavior.</p>
+  </section>
+
+  <section id="architecture">
+    <h2>Earlier architecture snapshot · 14:00:04 EST</h2>
+    <h3>What exists now</h3>
+    <p>The backend now contains dependency declarations, container/startup scaffolding, and ORM model definitions. There are no route handlers, complete request paths, scoring functions, or provider callers in the 14:00:04 EST snapshot. No database creation or running service was observed.</p>
+    <h3>Current model definitions <span class="badge">Code present</span></h3>
+    <p>In <a href="../backend/app/models.py"><code>backend/app/models.py</code></a>, <code>Prospect</code> has an optional one-to-one <code>ProspectScore</code> and an optional one-to-one <code>Lead</code>. A <code>Lead</code> has an optional one-to-one <code>LeadInsight</code>. These relationships are declared in code; no persisted rows were inspected.</p>
+    <div class="table-scroll"><table>
+      <thead><tr><th scope="col">Model / table</th><th scope="col">Ownership and data</th><th scope="col">Constraints and important limits</th></tr></thead>
+      <tbody>
+        <tr><td><code>Prospect / prospects</code></td><td>GAF listing identity, name, phone/digits, website, address, about text, distance, rating/reviews, distinctions/specialties, retrieval and update timestamps.</td><td>Unique <code>(directory, gaf_source_id)</code>; directory restricted to residential/commercial; phone-digits index. Different listings for the same company can exist.</td></tr>
+        <tr><td><code>ProspectScore / prospect_scores</code></td><td>Calculated score, JSONB breakdown, rule version, and scoring timestamp.</td><td><code>prospect_id</code> is the primary/foreign key; score constrained to 0–100; descending-score index. No scoring function is implemented in this snapshot.</td></tr>
+        <tr><td><code>Lead / leads</code></td><td>Saved prospect, company key, status and change time, one note and edit time.</td><td>Unique prospect; unique non-null company key; status restricted to new/contacted/qualified/dismissed. Null company keys can repeat. Check allows NULL notes or trimmed nonempty text.</td></tr>
+        <tr><td><code>LeadInsight / lead_insights</code></td><td>Generation status/mode, JSONB content, error, attempts, start and generation times.</td><td><code>lead_id</code> is the primary/foreign key; statuses generating/ready/failed. No insight row represents no insight yet. Generation/retry behavior is not implemented.</td></tr>
+      </tbody>
+    </table></div>
+    <p><strong>Deletion rules in the schema:</strong> deleting a prospect cascades to its score but a saved lead's foreign key restricts deleting that prospect. Deleting a lead cascades to its insight. These constraints do not imply any delete or unsave API exists.</p>
+    <p><strong>Note protection gap:</strong> the note constraint rejects empty text but allows NULL. It therefore cannot, by itself, prevent replacing an existing note with NULL. The future update handler must enforce the recorded “cannot clear” rule. No such handler is present yet.</p>
+    <h3>Recorded target structure <span class="badge">Documented intent</span></h3>
+    <figure>
+      <div class="diagram">
+        <svg viewBox="0 0 1000 330" role="img" aria-labelledby="arch-title arch-desc" xmlns="http://www.w3.org/2000/svg">
+          <title id="arch-title">Intended frontend, API, and database boundaries</title>
+          <desc id="arch-desc">All boxes and arrows are dashed to show unimplemented intent. A Next.js interface would call a Flask API under /api/v1. Route validation, services, and database queries remain separate. SQLAlchemy connects to PostgreSQL. Provider configuration exists, but provider callers are absent.</desc>
+          <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#4b5e73"/></marker></defs>
+          <g fill="#f5f7fa" stroke="#718299" stroke-width="1.5" stroke-dasharray="6 5">
+            <rect x="20" y="65" width="215" height="130" rx="8"/>
+            <rect x="340" y="30" width="360" height="200" rx="8"/>
+            <rect x="800" y="65" width="180" height="130" rx="8"/>
+          </g>
+          <g fill="#19283b" font-family="system-ui,sans-serif" text-anchor="middle">
+            <text x="127" y="100" font-size="20" font-weight="650">Next.js interface</text>
+            <text x="127" y="131" font-size="15">React · TypeScript · Tailwind</text>
+            <text x="127" y="162" font-size="14">frontend/ — empty</text>
+            <text x="520" y="65" font-size="20" font-weight="650">Flask API · /api/v1</text>
+            <text x="520" y="103" font-size="15">Routes + Pydantic validation</text>
+            <text x="520" y="135" font-size="15">Business service modules</text>
+            <text x="520" y="167" font-size="15">Feature queries + SQLAlchemy 2</text>
+            <text x="520" y="203" font-size="14">Models only; API not implemented</text>
+            <text x="890" y="107" font-size="20" font-weight="650">PostgreSQL</text>
+            <text x="890" y="141" font-size="15">Four ORM definitions</text>
+            <text x="890" y="169" font-size="14">No running check</text>
+          </g>
+          <g fill="none" stroke="#4b5e73" stroke-width="1.5" stroke-dasharray="6 5" marker-end="url(#arrow)">
+            <path d="M 235 126 L 337 126"/><path d="M 700 126 L 797 126"/>
+          </g>
+          <g fill="#4b5e73" font-family="system-ui,sans-serif" text-anchor="middle" font-size="13">
+            <text x="286" y="111">REST JSON</text><text x="750" y="111">SQL</text>
+            <text x="500" y="275">Docker Compose is the intended local runtime; no Compose file exists yet.</text>
+            <text x="500" y="305">Dashed boxes and arrows = documented intent, not running components.</text>
+          </g>
+        </svg>
+      </div>
+      <figcaption>Sources: <code>AGENTS.md</code>, approved stack and module rules; <code>skills/backend/SKILL.md</code>, architecture and persistence sections. No runtime arrow has been verified.</figcaption>
+    </figure>
+    <p><strong>API contract:</strong> instructions require <code>openapi.yaml</code>, Pydantic schemas, and a generated TypeScript client using <code>openapi-typescript</code> and <code>openapi-fetch</code>. None exists in the latest inspected snapshot. Client generation would be a build step; requests would run through the generated client and HTTP API.</p>
+    <p><strong>Possible integrations:</strong> <code>.env.example</code> names OpenAI and Perplexity settings. Its comments describe template insights when the OpenAI key is empty and skipped source discovery when the Perplexity key is empty. These are documented expectations only. No provider adapter, fallback implementation, replay reader, or saved replay data exists.</p>
+    <h3>Recorded product data flow <span class="badge">Documented intent</span></h3>
+    <ol>
+      <li><strong>Collect:</strong> use the user's Chrome browser to collect full GAF residential and commercial profiles for ZIP 10013 within 50 miles into two JSON snapshots. D3 records source-displayed counts of 176 residential and 233 commercial listings on 5 November 2026. These are documented counts, not downloaded or unique-company counts verified here.</li>
+      <li><strong>Import:</strong> a future CLI imports the snapshots. The recorded one-table plan conflicts with the four-table model now present. No snapshot, CLI, or import result exists in this snapshot.</li>
+      <li><strong>Score:</strong> use GAF facts for geographic points (35), product fit (35), and contact/data readiness (30). The complete subcriteria and missing-field behavior are not specified in the inspected decision table.</li>
+      <li><strong>Browse and save:</strong> display prospects and score reasons. D4 specifies <code>saved_at</code> on the prospect; current code instead puts it on a separate <code>Lead</code> row. A unique non-null company key supports deduplication, but the normalization and save policy are not implemented.</li>
+      <li><strong>Generate insight:</strong> persist the save first, then use GAF facts, up to four contractor website pages, and conditional Perplexity discovery. Keep a discovered person's name only if a fetched page contains it. Show Generating, Ready, or Failed with Retry. Use template mode only when no OpenAI key is configured.</li>
+      <li><strong>Track work:</strong> edit one non-clearable note and change status. A Contacted lead reaches Follow up after at least 14 days without a status change. Store times in UTC and display America/New_York.</li>
+    </ol>
+    <p><strong>Failure boundary:</strong> D11 requires the saved lead to survive insight failure. The execution mechanism for generation, retries, concurrent saves, and duplicate effects is not implemented or fully specified. Queues are outside the recorded scope.</p>
+    <p><strong>API inventory:</strong> there are no implemented endpoints. D10 names an intended <code>PUT /prospects/{id}/note</code> route; the stack requires the <code>/api/v1</code> prefix. Registration, full request/response shapes, status codes, and callers remain unimplemented. No request example can be verified yet.</p>
+  </section>
+
+  <section id="decisions">
+    <h2>Earlier design decision snapshot · 14:00:04 EST</h2>
+    <p>Product decisions D1–D16 are summarized from <a href="DECISION_LOG.md">DECISION_LOG.md</a>. “Approved” below means the log records approval; this review did not observe the earlier approval conversation. F01–F09 below explain the foundation guidance separately.</p>
+    <div class="table-scroll"><table>
+      <caption>Product decision register — documented intent, not implemented behavior</caption>
+      <thead><tr><th scope="col">ID / status in source</th><th scope="col">Choice and reason</th><th scope="col">Alternative / impact / revisit condition</th></tr></thead>
+      <tbody>
+        <tr><td>D1 · Approved</td><td>Browser-collected GAF snapshots and CLI import. The log reports plain HTTP was blocked while browser access worked.</td><td>Server scraping was not selected. Affects planned collection/import modules. Replace with an authorized feed when available. Access claims were not rechecked here.</td></tr>
+        <tr><td>D2 · Approved (observed, per log)</td><td>Include <code>countryCode=us</code> so the postal-code search uses the intended country.</td><td>Affects collection URLs. The log reports a location comparison; this review did not repeat it. Revisit if GAF changes URL behavior.</td></tr>
+        <tr><td>D3 · Approved</td><td>Both directories, ZIP 10013, 50 miles, full profiles. The log says the user requested wider coverage.</td><td>Replaces 25-mile residential-only scope. Affects collection size and time. Revisit for new territories.</td></tr>
+        <tr><td>D4 · Approved in log; code differs</td><td>The log specifies one <code>prospects</code> table with <code>saved_at</code>. Current <code>models.py</code> defines prospects, prospect_scores, leads, and lead_insights.</td><td>Reconcile the recorded design with the implementation. Approval for the split was not observed. Separate ownership is a plausible rationale, marked as inference in Entry 004. Revisit for multi-user ownership/history.</td></tr>
+        <tr><td>D5 · Approved</td><td>No Alembic; intended startup <code>create_all()</code> initializes the table.</td><td>Versioned migrations deferred. Initialization does not upgrade existing tables. Revisit before schema changes must preserve data.</td></tr>
+        <tr><td>D6 · Approved</td><td>No fictional fixtures; tests will use a real-snapshot copy and separate test database.</td><td>Synthetic seed data was not selected. Affects future <code>backend/tests/</code>. Snapshot contents and test handling remain unverified.</td></tr>
+        <tr><td>D7 · Approved</td><td>GAF-only score: 35 geographic + 35 product fit + 30 readiness. High ≥70; Medium 45–69; Low &lt;45. Saving must not change the score.</td><td>AI scoring and post-save contact bonuses excluded. Rating, review count, and search rank do not contribute. Tie-break uses score, distance, name, id; directions are not fully stated. Affects future <code>scoring.py</code>. Revisit using measured sales outcomes.</td></tr>
+        <tr><td>D8 · Approved</td><td>One saved lead per company; match listings across directories by normalized phone.</td><td>Duplicate saved listings were not selected. Affects save endpoint and UI. Missing phones, shared phones, normalization, and concurrency need explicit handling. Revisit with a stable company identifier.</td></tr>
+        <tr><td>D9 · Approved</td><td>No unsave action; use Dismissed status. The log says this protects notes.</td><td>Unsave excluded. Affects actions and status behavior. No revisit condition is recorded.</td></tr>
+        <tr><td>D10 · Approved</td><td>One note per lead; add or edit it, but do not clear it. Recorded as a user request.</td><td>Note history deferred. Affects intended note mutation. Revisit for authorship or history requirements.</td></tr>
+        <tr><td>D11 · Approved</td><td>Generate insight on save; save first. Failures remain Failed with Retry. Template mode only without an OpenAI key.</td><td>Bulk generation at import was not selected to control cost and expose failures. Affects save and insight services. Revisit if insights are needed before save.</td></tr>
+        <tr><td>D12 · Approved</td><td>GAF + up to four website pages; respect robots.txt and use an eight-second timeout. Use Perplexity only when the website has no decision-maker; verify a name in a fetched page.</td><td>Trusting Perplexity answer text alone was not selected. Affects insight fetching and validation. Complete request limits and recovery behavior remain unspecified.</td></tr>
+        <tr><td>D13 · Approved</td><td>Follow up when status is Contacted and unchanged for ≥14 days.</td><td>Seven days was not selected. Affects overview queries and time handling. Revisit if sales managers change policy.</td></tr>
+        <tr><td>D14 · My call</td><td>Any status can change to any other, to let representatives correct mistakes.</td><td>Fixed transitions deferred. Affects status validation. Revisit when a sales process requires stages. Complete allowed status values are not listed.</td></tr>
+        <tr><td>D15 · My call</td><td>Store UTC; display America/New_York for the New York territory.</td><td>Browser-local time was not selected. Affects persistence and formatting. Revisit for multiple territories.</td></tr>
+        <tr><td>D16 · My call</td><td>The log selects <code>gpt-5.4-mini</code> and Structured Outputs, configurable via <code>OPENAI_MODEL</code>.</td><td>The log gives cost and schema validation as rationale; pricing, model availability, quality, and calls were not verified here. Affects future insight client. Revisit after quality checks.</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Foundation decisions</h3>
+    <p>Where guidance gives no rationale, the explanation is marked as an inference. Alternatives here are comparisons, not a claim that a prior author evaluated and rejected them.</p>
+    <details open>
+      <summary>F01 · Next.js UI, Flask API, PostgreSQL database</summary>
+      <dl>
+        <dt>Status and evidence</dt><dd>Documented approved stack in <code>AGENTS.md</code>, “Approved stack.” Backend requirements and model definitions now exist. Installed packages and a live schema were not verified.</dd>
+        <dt>Why this fits</dt><dd><strong>Inference:</strong> a typed browser UI, Python business logic, and relational persistence have distinct responsibilities.</dd>
+        <dt>Alternative and trade-off</dt><dd>A single full-stack framework would reduce service setup. The recorded stack instead keeps a separate Python API. The original selection rationale is not recorded.</dd>
+        <dt>Affected code and architecture</dt><dd>Future <code>frontend/</code>, <code>backend/</code>, API client, schemas, and local service wiring.</dd>
+        <dt>Production limit / revisit trigger</dt><dd>No capacity has been measured. Revisit service placement or scaling after measuring traffic, latency, and database demand.</dd>
+      </dl>
+    </details>
+    <details>
+      <summary>F02 · Separate routes, business services, and feature queries</summary>
+      <dl>
+        <dt>Status and evidence</dt><dd>Documented intent in <code>AGENTS.md</code> and <code>skills/backend/SKILL.md</code>. The backend skill specifies a modular monolith.</dd>
+        <dt>Why this fits</dt><dd><strong>Inference:</strong> validation and HTTP handling can change without mixing them into business rules and persistence.</dd>
+        <dt>Alternative and trade-off</dt><dd>A single route file is quicker initially but mixes responsibilities. Microservices add deployment and failure boundaries. Guidance defers them and generic repository abstractions until requirements justify them.</dd>
+        <dt>Affected code and architecture</dt><dd>Future Flask app factory, blueprints, service modules, query modules, and provider boundaries.</dd>
+        <dt>Production limit / revisit trigger</dt><dd>Module separation does not provide independent scaling. Split a service only when workload or ownership evidence justifies the operational cost.</dd>
+      </dl>
+    </details>
+    <details>
+      <summary>F03 · Versioned REST contract and typed client</summary>
+      <dl>
+        <dt>Status and evidence</dt><dd>Documented intent in <code>AGENTS.md</code> and the backend skill's API contract section. Endpoint names are not yet defined.</dd>
+        <dt>Why this fits</dt><dd><strong>Inference:</strong> explicit schemas make request and response shapes reviewable across Python and TypeScript.</dd>
+        <dt>Alternative and trade-off</dt><dd>Handwritten client types reduce generation setup but can drift from the API. Generated types also drift if the contract does not match runtime behavior.</dd>
+        <dt>Affected code and architecture</dt><dd>Future <code>openapi.yaml</code>, Pydantic schemas, routes, generated types, and frontend callers must change together.</dd>
+        <dt>Production limit / revisit trigger</dt><dd>Compilation cannot prove runtime contract agreement. Verify real successful and failed responses before release; define compatibility policy when consumers depend on the API.</dd>
+      </dl>
+    </details>
+    <details>
+      <summary>F04 · Structured main records; no migration tooling for the MVP</summary>
+      <dl>
+        <dt>Status and evidence</dt><dd>Documented scope in <code>AGENTS.md</code>. Four models and constraints now exist, contrary to the one-table product decision. No schema initialization or migration implementation was present in the inspected snapshot.</dd>
+        <dt>Why this fits</dt><dd><strong>Inference:</strong> keep initial persistence focused on the approved records. Guidance excludes optional history, raw provider payloads, and provenance tables by default.</dd>
+        <dt>Alternative and trade-off</dt><dd>Alembic would provide versioned schema changes but adds setup. The MVP explicitly defers it; this is not evidence that schema evolution is solved.</dd>
+        <dt>Affected code and architecture</dt><dd>Future models, feature queries, initialization, uniqueness constraints, and transaction boundaries.</dd>
+        <dt>Production limit / revisit trigger</dt><dd>Before changing a schema that contains important saved data, define a reviewed upgrade, backup, and recovery process. Migration tooling remains a proposal requiring a changed scope decision.</dd>
+      </dl>
+    </details>
+    <details>
+      <summary>F05 · Environment configuration and optional provider settings</summary>
+      <dl>
+        <dt>Status and evidence</dt><dd><code>.env.example</code> exists. <code>.gitignore</code> excludes <code>.env</code>. Configuration loading and provider behavior are not implemented.</dd>
+        <dt>Why this fits</dt><dd>Guidance explicitly requires keeping secrets out of source control. <strong>Inference:</strong> environment settings allow deployments to use different credentials without editing code.</dd>
+        <dt>Alternative and trade-off</dt><dd>Hardcoded settings are simple but couple configuration to code and risk credential exposure. A managed secret store is a possible production addition; none is configured.</dd>
+        <dt>Affected code and architecture</dt><dd>Future app configuration, database connection, backend provider adapters, and local runtime environment. Variable names include <code>DATABASE_URL</code>, <code>OPENAI_API_KEY</code>, <code>OPENAI_MODEL</code>, <code>PERPLEXITY_API_KEY</code>, <code>PERPLEXITY_MODEL</code>, and <code>SNAPSHOT_DIR</code>.</dd>
+        <dt>Production limit / revisit trigger</dt><dd>Example model names and paths do not prove provider availability, successful calls, or replay behavior. Before real use, verify the app's integration path and credential handling. Secret values are excluded from this record.</dd>
+      </dl>
+    </details>
+    <details>
+      <summary>F06 · Docker Compose for local development</summary>
+      <dl>
+        <dt>Status and evidence</dt><dd>Recorded choice in <code>AGENTS.md</code>. A backend Dockerfile now exists. No Compose configuration was present in the latest inspected snapshot.</dd>
+        <dt>Why this fits</dt><dd><strong>Inference:</strong> start the frontend, API, and database through one documented local setup.</dd>
+        <dt>Alternative and trade-off</dt><dd>Separate host processes avoid container overhead but need consistent runtime versions and connection settings on each machine.</dd>
+        <dt>Affected code and architecture</dt><dd>Future Dockerfiles, Compose services, volume persistence, environment wiring, and port mapping.</dd>
+        <dt>Production limit / revisit trigger</dt><dd>A local Compose run will not establish production readiness. Report a local application URL only after reading the actual port mapping and observing the app.</dd>
+      </dl>
+    </details>
+    <details>
+      <summary>F07 · Summary-first dashboard and visible supported actions</summary>
+      <dl>
+        <dt>Status and evidence</dt><dd><code>AGENTS.md</code>, “Project decisions,” records the Closr layout reference, compact filters, table, semantic palette, and IBM Plex Sans preference. No UI is implemented.</dd>
+        <dt>Why this fits</dt><dd><strong>Inference:</strong> place summary information before supporting views and detailed records so users can scan the dashboard.</dd>
+        <dt>Alternative and trade-off</dt><dd>A table-only interface would be smaller but provide less summary context. The guidance chooses the dashboard hierarchy and restricts visible actions to supported behavior.</dd>
+        <dt>Affected code and architecture</dt><dd>Future page layout, shared components, design tokens, filters, and visible loading/error/empty states. This documentation page uses system fonts to stay offline.</dd>
+        <dt>Production limit / revisit trigger</dt><dd>Visual direction does not prove usability or accessibility. Review real data, keyboard behavior, contrast, and small-screen layouts once the UI exists.</dd>
+      </dl>
+    </details>
+    <details>
+      <summary>F08 · Integration and browser tests after approved functionality</summary>
+      <dl>
+        <dt>Status and evidence</dt><dd>Explicit workflow in <code>AGENTS.md</code>: pytest API/database integration tests and Playwright Python browser tests after functionality. No unit or smoke tests by default; no test-driven development.</dd>
+        <dt>Why this fits</dt><dd>The timing and test types are recorded project choices. The original rationale for that timing is not recorded.</dd>
+        <dt>Alternative and trade-off</dt><dd>Earlier automated tests could catch defects sooner. The recorded workflow instead permits manual checks during implementation and delays automated application tests.</dd>
+        <dt>Affected code and architecture</dt><dd>Future API/database tests, browser tests, separate test database, and release verification. Document inspection is distinct from application testing.</dd>
+        <dt>Production limit / revisit trigger</dt><dd>No tests exist or passed at baseline. Before handoff, record observed API, UI, persistence, and applicable provider results; revisit coverage if defects reveal gaps.</dd>
+      </dl>
+    </details>
+    <details>
+      <summary>F09 · One maintained, offline HTML explanation</summary>
+      <dl>
+        <dt>Status and evidence</dt><dd>User request in this session. This HTML file and the new <code>AGENTS.md</code> section establish the record.</dd>
+        <dt>Why this fits</dt><dd>Keep changes, decisions, and architecture together in a page that can be read without running the product.</dd>
+        <dt>Alternative and trade-off</dt><dd>Separate records provide more room for implementation detail. This page should summarize and link those records when they exist; it does not replace them.</dd>
+        <dt>Affected code and architecture</dt><dd>Contributor workflow and <code>docs/PRODUCT_EVOLUTION.html</code>. No application execution path changes.</dd>
+        <dt>Production limit / revisit trigger</dt><dd>This file does not watch the repository. Contributors must update it with relevant work. Split detailed appendices only if the page becomes hard to navigate.</dd>
+      </dl>
+    </details>
+  </section>
+
+  <section id="files">
+    <h2>Earlier file map and reading order · 14:00:04 EST</h2>
+    <pre aria-label="Annotated repository tree">roofing-lead-intel/
+├── AGENTS.md                  Stack, decisions, and contributor rules
+├── .env.example               Placeholder configuration; no integration proof
+├── .gitignore                 Local secrets and generated-file exclusions
+├── skills/                    Canonical task instructions
+├── .agents/skills/            Codex discovery copies
+├── .claude/skills/            Claude Code discovery copies
+├── architecture/
+│   ├── PROMPT.md              Future architecture guide specification
+│   └── DIAGRAMS_PROMPT.md     Optional separate diagram guide specification
+├── backend/                   Empty at baseline; now contains initial files
+│   ├── requirements.txt       Runtime dependencies
+│   ├── requirements-test.txt  Test dependency declarations
+│   ├── Dockerfile            Python image and Gunicorn startup recipe
+│   ├── wsgi.py               Calls a not-yet-present create_app factory
+│   └── app/models.py         Four tables, relationships, and constraints
+├── frontend/                  Empty at baseline
+├── data/replay/               Empty at baseline; data format unknown
+└── docs/
+    ├── PRODUCT_EVOLUTION.html This running record
+    ├── BUILD_PROGRESS.md      Goal, scope, milestones; collection marked in progress
+    ├── DECISION_LOG.md        Product decisions D1–D16
+    ├── DEMO_GUIDE.md          Intended demo flow; draft, not runtime-verified
+    ├── architecture/          Empty at baseline
+    └── operations/            Empty at baseline</pre>
+    <p>Read <a href="../AGENTS.md">AGENTS.md</a> first, then the relevant <a href="../.agents/skills/backend/SKILL.md">backend</a>, <a href="../.agents/skills/frontend/SKILL.md">frontend</a>, or <a href="../.agents/skills/documentation/SKILL.md">documentation</a> skill. Use <a href="../.agents/skills/full-stack-project/SKILL.md">the consolidated workflow</a> for the approval and implementation sequence.</p>
+    <p>The workspace also contains sibling skill repositories. This record covers <code>roofing-lead-intel</code>. Local secret files and Git internals are intentionally omitted from the tree.</p>
+  </section>
+
+  <section id="gaps">
+    <h2>Earlier open questions and production limits · 14:00:04 EST</h2>
+    <p>These are unresolved design inputs, not approved features or evidence of a defect.</p>
+    <div class="table-scroll"><table>
+      <thead><tr><th scope="col">Unknown</th><th scope="col">Why it matters</th><th scope="col">When to resolve</th></tr></thead>
+      <tbody>
+        <tr><td>One-table decision versus four-table implementation</td><td>The current architecture and approval record disagree.</td><td>Before describing the schema as the approved design.</td></tr>
+        <tr><td>Scoring subcriteria, null behavior, tie-break directions, and note-clearing enforcement</td><td>The model now lists fields and allowed statuses, but it does not implement business behavior.</td><td>Before scoring and mutation handlers.</td></tr>
+        <tr><td>Phone normalization, missing/shared phones, duplicate conflict handling, and concurrent saves</td><td>A normalized-phone rule alone does not establish safe company identity or retry behavior.</td><td>Before import and write endpoints.</td></tr>
+        <tr><td>Snapshot format, source timestamps, completeness, and refresh policy</td><td>Two planned files and source-displayed counts do not establish actual imported coverage or freshness.</td><td>Before import and freshness claims.</td></tr>
+        <tr><td>Insight execution mechanism, total duration, retry limits, and repeated side effects</td><td>Save-first and visible failure are recorded; the recovery implementation still needs a contract.</td><td>Before save and insight integration.</td></tr>
+        <tr><td>Users, access boundaries, sensitive fields, and launch environment</td><td>No login is the default MVP scope; external access needs its own review.</td><td>Before real users or external deployment.</td></tr>
+        <tr><td>Traffic, data volume, reliability targets, backups, and schema upgrades</td><td>No evidence supports capacity claims or additional infrastructure.</td><td>Before production commitments; measure before scaling.</td></tr>
+      </tbody>
+    </table></div>
+    <p><strong>Next documentation step:</strong> follow the milestones in <a href="BUILD_PROGRESS.md">BUILD_PROGRESS.md</a>. As code lands, replace intent-only diagrams with verified paths, record each endpoint and caller, and add exact rules and data lifecycles. Do not invent those details to fill empty sections.</p>
+  </section>
+
+  <section id="verification">
+    <h2>Earlier verification and limitations · 14:00:04 EST</h2>
+    <p class="meta">Baseline checks: 5 November 2026 · local macOS checkout · inputs: repository instructions, example configuration, directory inventory, and Git metadata. No live or synthetic product data was exercised.</p>
+    <div class="table-scroll"><table>
+      <thead><tr><th scope="col">Check</th><th scope="col">Command or action</th><th scope="col">Result</th><th scope="col">Not checked</th></tr></thead>
+      <tbody>
+        <tr><td>Working tree</td><td><code>git status --short --untracked-files=all</code></td><td>Initial guidance/configuration files were untracked. No tracked implementation diff existed.</td><td>—</td></tr>
+        <tr><td>Commit history</td><td><code>git log -8 --oneline</code></td><td>Git reported that branch <code>main</code> did not have any commits. This limits historical comparison.</td><td>—</td></tr>
+        <tr><td>Application and data inventory</td><td><code>find docs data backend frontend -maxdepth 5 -print</code>; root listing</td><td>Application and replay directories were empty. No Compose file, models, routes, package manifests, or tests were present.</td><td>—</td></tr>
+        <tr><td>Concurrent project records</td><td>Read <code>BUILD_PROGRESS.md</code>, <code>DECISION_LOG.md</code>, and <code>DEMO_GUIDE.md</code>; repeat directory inventory</td><td>Product goal, scope, decisions, and draft demo are now recorded. Application directories remain empty.</td><td>Earlier approval conversations, collection results, GAF counts, and reported location tests were not independently verified.</td></tr>
+        <tr><td>Configuration handling</td><td>Read <code>.env.example</code> and <code>.gitignore</code>; <code>git check-ignore .env</code></td><td>Example configuration exists. Git confirms <code>.env</code> is ignored. Secret contents were not inspected.</td><td>Runtime configuration loading: no application exists.</td></tr>
+        <tr id="integrity-result"><td>HTML integrity</td><td>Python standard-library HTML parser; check IDs, anchors, relative file links, and external asset dependencies</td><td>Passed: unique IDs, section anchors, existing repository file links, and no external asset dependencies. This is a document integrity check, not full HTML standards validation.</td><td>Browser layout is a separate check.</td></tr>
+        <tr id="browser-result"><td>HTML rendering</td><td>Attempted to open the local document through browser tooling</td><td>No visual result: the tool reported “The browser access host is unavailable.”</td><td>Desktop/narrow layout and keyboard interaction were not checked. Application UI: no frontend exists.</td></tr>
+        <tr><td>Backend scaffold snapshot</td><td>Read backend manifests, Dockerfile, WSGI entry, and model source; enumerate files at 14:00:04 EST</td><td>Five backend files inspected. Four table definitions and startup scaffolding present. No route handlers, app factory, frontend files, or replay data observed.</td><td>Imports, database constraints, image build, startup, and API behavior were not exercised.</td></tr>
+        <tr><td>Application runtime, persistence, providers, and tests</td><td>No application checks run</td><td>No runtime success claim.</td><td>Backend scaffolding is incomplete; the approved user flow is not implemented in this snapshot.</td></tr>
+      </tbody>
+    </table></div>
+    <p>This page reports repository evidence at the times stated in its entries. Concurrent implementation can advance beyond the latest snapshot. The optional providers, database, UI, and Docker services have not been exercised by this review. A document check cannot prove application behavior.</p>
+  </section>
+
+  <section id="maintenance">
+    <h2>How this stays current</h2>
+    <p>This is a contributor-maintained record. It has no polling, background process, external scripts, or network dependency. The date at the top identifies the latest source inspection.</p>
+    <ol>
+      <li>Inspect the actual change and its callers. Compare with the previous version when Git history exists.</li>
+      <li>Append a dated entry: files, before/after behavior, reason, affected components, related decision IDs, and observed checks.</li>
+      <li>Update the current state, diagram, endpoint inventory, and data/rule explanations only where affected. Keep old entries as history.</li>
+      <li>Add or revise a decision with its status, evidence, rationale, alternative, affected code, production limit, and revisit trigger.</li>
+      <li>Keep proposals separate from implemented behavior. Refresh verification claims only after rerunning the relevant check.</li>
+      <li>Keep links to <a href="BUILD_PROGRESS.md">BUILD_PROGRESS.md</a>, <a href="DECISION_LOG.md">DECISION_LOG.md</a>, and <a href="DEMO_GUIDE.md">DEMO_GUIDE.md</a> current. Link the architecture guide when it exists. Preserve the canonical decision IDs and summarize rather than copying entire records.</li>
+    </ol>
+    <!-- Maintainers: append change entries before closing #changes; preserve history.
+         Refresh the top inspection date, current-state claims, diagram, decisions, and
+         verification evidence together. Never read or copy local secret values. -->
+  </section>
+  <footer>Source-based explanation · One offline HTML file · No application behavior changed by this documentation task</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,329 @@
+openapi: 3.0.3
+info:
+  title: Roofing Lead Intelligence API
+  version: 1.0.0
+  description: >
+    REST API for GAF roofing-contractor prospects and saved leads.
+    This file mirrors the Pydantic schemas in backend/app/schemas.py.
+servers:
+  - url: /api/v1
+paths:
+  /health:
+    get:
+      operationId: health
+      responses:
+        "200":
+          description: The API and the database answer.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [status]
+                properties:
+                  status: { type: string, enum: [ok] }
+  /overview:
+    get:
+      operationId: getOverview
+      parameters:
+        - { name: directory, in: query, description: "Limit to one GAF directory", schema: { $ref: "#/components/schemas/Directory" } }
+      responses:
+        "200":
+          description: Pipeline summary for the representative, for one directory or both.
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Overview" }
+        "422": { $ref: "#/components/responses/ValidationError" }
+  /prospects:
+    get:
+      operationId: listProspects
+      parameters:
+        - { name: q, in: query, schema: { type: string, maxLength: 100 } }
+        - { name: directory, in: query, schema: { $ref: "#/components/schemas/Directory" } }
+        - { name: tier, in: query, schema: { $ref: "#/components/schemas/Tier" } }
+        - { name: max_distance, in: query, schema: { type: integer, enum: [10, 25, 50] } }
+        - { name: state, in: query, schema: { type: string, maxLength: 4 } }
+        - { name: cert_tier, in: query, schema: { type: string, enum: [top, certified, none] } }
+        - { name: hide_saved, in: query, schema: { type: boolean, default: false } }
+        - { name: sort, in: query, schema: { type: string, enum: [score, distance, name], default: score } }
+        - { name: page, in: query, schema: { type: integer, minimum: 1, default: 1 } }
+        - { name: page_size, in: query, schema: { type: integer, minimum: 1, maximum: 100, default: 25 } }
+      responses:
+        "200":
+          description: One page of prospects in a stable order.
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ProspectList" }
+        "422": { $ref: "#/components/responses/ValidationError" }
+  /prospects/stats:
+    get:
+      operationId: getProspectStats
+      parameters:
+        - { name: directory, in: query, description: "Limit counts to one GAF directory. directories always covers both.", schema: { $ref: "#/components/schemas/Directory" } }
+      responses:
+        "200":
+          description: Counts for the Prospects KPI cards and charts.
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ProspectStats" }
+        "422": { $ref: "#/components/responses/ValidationError" }
+  /prospects/{prospect_id}:
+    get:
+      operationId: getProspect
+      parameters:
+        - { name: prospect_id, in: path, required: true, schema: { type: integer } }
+      responses:
+        "200":
+          description: Prospect facts, score breakdown, unknowns and lead state.
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ProspectDetail" }
+        "404": { $ref: "#/components/responses/NotFound" }
+  /prospects/{prospect_id}/save:
+    post:
+      operationId: saveProspect
+      description: Saves the prospect as a lead. A second call for the same prospect returns 200 and changes nothing.
+      parameters:
+        - { name: prospect_id, in: path, required: true, schema: { type: integer } }
+      responses:
+        "201":
+          description: The lead was created.
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ProspectDetail" }
+        "200":
+          description: The prospect was already saved.
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ProspectDetail" }
+        "404": { $ref: "#/components/responses/NotFound" }
+        "409":
+          description: The same company is already saved through its other GAF listing (code company_already_saved).
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Error" }
+  /leads:
+    get:
+      operationId: listLeads
+      parameters:
+        - { name: q, in: query, schema: { type: string, maxLength: 100 } }
+        - { name: scope, in: query, description: "active excludes dismissed leads", schema: { type: string, enum: [active, all, dismissed], default: active } }
+        - { name: status, in: query, schema: { type: string, enum: [new, contacted, qualified] } }
+        - { name: queue, in: query, description: "first_contact = status new; follow_up_due = contacted 14+ days ago", schema: { type: string, enum: [first_contact, follow_up_due] } }
+        - { name: directory, in: query, schema: { $ref: "#/components/schemas/Directory" } }
+        - { name: tier, in: query, schema: { $ref: "#/components/schemas/Tier" } }
+        - { name: sort, in: query, schema: { type: string, enum: [priority, recently_saved, oldest_status_change], default: priority } }
+        - { name: page, in: query, schema: { type: integer, minimum: 1, default: 1 } }
+        - { name: page_size, in: query, schema: { type: integer, minimum: 1, maximum: 100, default: 25 } }
+      responses:
+        "200":
+          description: One page of matching saved leads. status_counts, queue_counts and total_saved describe all saved leads.
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/LeadList" }
+        "422": { $ref: "#/components/responses/ValidationError" }
+  /leads/{lead_id}/status:
+    patch:
+      operationId: updateLeadStatus
+      parameters:
+        - { name: lead_id, in: path, required: true, schema: { type: integer } }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [status]
+              properties:
+                status: { $ref: "#/components/schemas/LeadStatus" }
+      responses:
+        "200":
+          description: The status is saved.
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ProspectDetail" }
+        "404": { $ref: "#/components/responses/NotFound" }
+        "422": { $ref: "#/components/responses/ValidationError" }
+components:
+  responses:
+    NotFound:
+      description: The record does not exist (code not_found).
+      content:
+        application/json:
+          schema: { $ref: "#/components/schemas/Error" }
+    ValidationError:
+      description: The request is not valid (code validation_error). details.fields maps each field to its error.
+      content:
+        application/json:
+          schema: { $ref: "#/components/schemas/Error" }
+  schemas:
+    Directory: { type: string, enum: [residential, commercial] }
+    Tier: { type: string, enum: [high, medium, low] }
+    LeadStatus: { type: string, enum: [new, contacted, qualified, dismissed] }
+    Error:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: object
+          required: [code, message, details]
+          properties:
+            code: { type: string }
+            message: { type: string }
+            details: { type: object, additionalProperties: true }
+    ScoreItem:
+      type: object
+      required: [key, label, points, max, reason, unknown]
+      properties:
+        key: { type: string }
+        label: { type: string }
+        points: { type: integer }
+        max: { type: integer }
+        reason: { type: string }
+        unknown: { type: boolean }
+    LinkedListing:
+      type: object
+      required: [prospect_id, directory]
+      properties:
+        prospect_id: { type: integer }
+        directory: { $ref: "#/components/schemas/Directory" }
+    ProspectSummary:
+      type: object
+      required: [id, directory, name, city, state, phone, distance_mi, rating, review_count, score, tier,
+                 top_reason, has_website, saved_lead_id, also_listed_in, saved_via]
+      properties:
+        id: { type: integer }
+        directory: { $ref: "#/components/schemas/Directory" }
+        name: { type: string }
+        city: { type: string, nullable: true }
+        state: { type: string, nullable: true }
+        phone: { type: string, nullable: true }
+        distance_mi: { type: number, nullable: true }
+        rating: { type: number, nullable: true }
+        review_count: { type: integer, nullable: true }
+        score: { type: integer }
+        tier: { $ref: "#/components/schemas/Tier" }
+        top_reason: { type: string }
+        has_website: { type: boolean }
+        saved_lead_id: { type: integer, nullable: true }
+        also_listed_in:
+          allOf: [{ $ref: "#/components/schemas/LinkedListing" }]
+          nullable: true
+        saved_via:
+          allOf: [{ $ref: "#/components/schemas/LinkedListing" }]
+          nullable: true
+    ProspectList:
+      type: object
+      required: [items, total, page, page_size]
+      properties:
+        items: { type: array, items: { $ref: "#/components/schemas/ProspectSummary" } }
+        total: { type: integer }
+        page: { type: integer }
+        page_size: { type: integer }
+    LeadInfo:
+      type: object
+      required: [id, status, saved_at, status_changed_at]
+      properties:
+        id: { type: integer }
+        status: { $ref: "#/components/schemas/LeadStatus" }
+        saved_at: { type: string, format: date-time }
+        status_changed_at: { type: string, format: date-time }
+    ProspectDetail:
+      type: object
+      required: [id, directory, gaf_source_id, profile_url, name, phone, website_url, address, city, state,
+                 about_text, years_in_business, distance_mi, rating, review_count, distinctions, specialties,
+                 retrieved_at, score, tier, score_breakdown, scored_at, unknown_fields, not_in_public_sources,
+                 also_listed_in, saved_via, lead]
+      properties:
+        id: { type: integer }
+        directory: { $ref: "#/components/schemas/Directory" }
+        gaf_source_id: { type: string }
+        profile_url: { type: string }
+        name: { type: string }
+        phone: { type: string, nullable: true }
+        website_url: { type: string, nullable: true }
+        address: { type: string, nullable: true }
+        city: { type: string, nullable: true }
+        state: { type: string, nullable: true }
+        about_text: { type: string, nullable: true }
+        years_in_business: { type: string, nullable: true }
+        distance_mi: { type: number, nullable: true }
+        rating: { type: number, nullable: true }
+        review_count: { type: integer, nullable: true }
+        distinctions: { type: array, items: { type: string } }
+        specialties: { type: array, items: { type: string } }
+        retrieved_at: { type: string, format: date-time }
+        score: { type: integer }
+        tier: { $ref: "#/components/schemas/Tier" }
+        score_breakdown: { type: array, items: { $ref: "#/components/schemas/ScoreItem" } }
+        scored_at: { type: string, format: date-time }
+        unknown_fields: { type: array, items: { type: string } }
+        not_in_public_sources: { type: array, items: { type: string } }
+        also_listed_in:
+          allOf: [{ $ref: "#/components/schemas/LinkedListing" }]
+          nullable: true
+        saved_via:
+          allOf: [{ $ref: "#/components/schemas/LinkedListing" }]
+          nullable: true
+        lead:
+          allOf: [{ $ref: "#/components/schemas/LeadInfo" }]
+          nullable: true
+    LeadSummary:
+      type: object
+      required: [lead_id, prospect_id, name, city, state, directory, phone, score, tier, status,
+                 status_changed_at, saved_at, distance_mi, top_reason, follow_up_due]
+      properties:
+        lead_id: { type: integer }
+        prospect_id: { type: integer }
+        name: { type: string }
+        city: { type: string, nullable: true }
+        state: { type: string, nullable: true }
+        directory: { $ref: "#/components/schemas/Directory" }
+        phone: { type: string, nullable: true }
+        score: { type: integer }
+        tier: { $ref: "#/components/schemas/Tier" }
+        status: { $ref: "#/components/schemas/LeadStatus" }
+        status_changed_at: { type: string, format: date-time }
+        saved_at: { type: string, format: date-time }
+        distance_mi: { type: number, nullable: true }
+        top_reason: { type: string }
+        follow_up_due: { type: boolean }
+    LeadList:
+      type: object
+      required: [items, total, page, page_size, status_counts, queue_counts, total_saved]
+      properties:
+        items: { type: array, items: { $ref: "#/components/schemas/LeadSummary" } }
+        total: { type: integer }
+        page: { type: integer }
+        page_size: { type: integer }
+        status_counts: { type: object, additionalProperties: { type: integer } }
+        queue_counts: { type: object, additionalProperties: { type: integer } }
+        total_saved: { type: integer }
+    ProspectStats:
+      type: object
+      required: [total, high, saved, high_unsaved, tiers, directories, distance_bands, states, snapshot_retrieved_at]
+      properties:
+        total: { type: integer }
+        high: { type: integer }
+        saved: { type: integer }
+        high_unsaved: { type: integer }
+        tiers: { type: object, additionalProperties: { type: integer } }
+        directories: { type: object, additionalProperties: { type: integer } }
+        distance_bands: { type: object, additionalProperties: { type: integer } }
+        states: { type: array, items: { type: string } }
+        snapshot_retrieved_at: { type: string, format: date-time, nullable: true }
+    Overview:
+      type: object
+      required: [saved, not_contacted, contacted, qualified, dismissed, contacted_pct, follow_up_days,
+                 call_next, follow_up, top_unsaved, snapshot_retrieved_at]
+      properties:
+        saved: { type: integer }
+        not_contacted: { type: integer }
+        contacted: { type: integer }
+        qualified: { type: integer }
+        dismissed: { type: integer }
+        contacted_pct: { type: integer }
+        follow_up_days: { type: integer }
+        call_next: { type: array, items: { $ref: "#/components/schemas/LeadSummary" } }
+        follow_up: { type: array, items: { $ref: "#/components/schemas/LeadSummary" } }
+        top_unsaved: { type: array, items: { $ref: "#/components/schemas/ProspectSummary" } }
+        snapshot_retrieved_at: { type: string, format: date-time, nullable: true }

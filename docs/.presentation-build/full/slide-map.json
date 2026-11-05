@@ -1,0 +1,128 @@
+[
+  {
+    "slide": 1,
+    "title": "Product and scope",
+    "htmlSections": [
+      "project"
+    ]
+  },
+  {
+    "slide": 2,
+    "title": "Technology choices",
+    "htmlSections": [
+      "stack"
+    ]
+  },
+  {
+    "slide": 3,
+    "title": "Requirements",
+    "htmlSections": [
+      "requirements"
+    ]
+  },
+  {
+    "slide": 4,
+    "title": "Architecture and data flow",
+    "htmlSections": [
+      "flow"
+    ]
+  },
+  {
+    "slide": 5,
+    "title": "Opening the app: file control",
+    "htmlSections": [
+      "control"
+    ]
+  },
+  {
+    "slide": 6,
+    "title": "Saving from Prospects: file control",
+    "htmlSections": [
+      "control"
+    ]
+  },
+  {
+    "slide": 7,
+    "title": "Database model",
+    "htmlSections": [
+      "database"
+    ]
+  },
+  {
+    "slide": 8,
+    "title": "Scoring and business rules",
+    "htmlSections": [
+      "rules"
+    ]
+  },
+  {
+    "slide": 9,
+    "title": "API contract: reads",
+    "htmlSections": [
+      "api"
+    ]
+  },
+  {
+    "slide": 10,
+    "title": "API contract: mutations",
+    "htmlSections": [
+      "api"
+    ]
+  },
+  {
+    "slide": 11,
+    "title": "Frontend behavior",
+    "htmlSections": [
+      "frontend"
+    ]
+  },
+  {
+    "slide": 12,
+    "title": "Dashboard KPI semantics",
+    "htmlSections": [
+      "frontend"
+    ]
+  },
+  {
+    "slide": 13,
+    "title": "Reliability and trade-offs",
+    "htmlSections": [
+      "reliability"
+    ]
+  },
+  {
+    "slide": 14,
+    "title": "Production extensibility: data",
+    "htmlSections": [
+      "extensibility"
+    ]
+  },
+  {
+    "slide": 15,
+    "title": "Production extensibility: workflow",
+    "htmlSections": [
+      "extensibility"
+    ]
+  },
+  {
+    "slide": 16,
+    "title": "Future work and rollout priorities",
+    "htmlSections": [
+      "future"
+    ]
+  },
+  {
+    "slide": 17,
+    "title": "Testing: 106 recorded passes",
+    "htmlSections": [
+      "verification"
+    ]
+  },
+  {
+    "slide": 18,
+    "title": "Evidence boundaries and next checks",
+    "htmlSections": [
+      "verification"
+    ]
+  }
+]

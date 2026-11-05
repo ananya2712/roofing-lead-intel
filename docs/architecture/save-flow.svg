@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="1000" height="560" font-family="Helvetica, Arial, sans-serif" font-size="14">
+  <title>Main data flow: save a prospect as a lead, with failure paths</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#3B4256"/></marker>
+    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#A62B47"/></marker>
+  </defs>
+  <rect width="1000" height="560" fill="#FFFFFF"/>
+  <text x="24" y="34" font-size="20" font-weight="bold" fill="#1E2333">Main data flow: Save as lead</text>
+  <!-- lanes -->
+  <g font-weight="bold" fill="#5C6478">
+    <text x="90" y="70" text-anchor="middle">Browser</text>
+    <text x="330" y="70" text-anchor="middle">Next.js proxy</text>
+    <text x="580" y="70" text-anchor="middle">Flask</text>
+    <text x="860" y="70" text-anchor="middle">PostgreSQL</text>
+  </g>
+  <g stroke="#E5E8EF" stroke-width="2">
+    <line x1="90" y1="80" x2="90" y2="540"/><line x1="330" y1="80" x2="330" y2="540"/>
+    <line x1="580" y1="80" x2="580" y2="540"/><line x1="860" y1="80" x2="860" y2="540"/>
+  </g>
+  <!-- steps -->
+  <g font-size="13" fill="#1E2333">
+    <line x1="90" y1="110" x2="326" y2="110" stroke="#3B4256" stroke-width="1.5" marker-end="url(#a)"/>
+    <text x="100" y="102">1 SaveButton: POST /api/v1/prospects/{id}/save</text>
+    <line x1="330" y1="140" x2="576" y2="140" stroke="#3B4256" stroke-width="1.5" marker-end="url(#a)"/>
+    <text x="340" y="132">2 forward to backend:5000</text>
+    <line x1="580" y1="175" x2="856" y2="175" stroke="#3B4256" stroke-width="1.5" marker-end="url(#a)"/>
+    <text x="590" y="167">3 load prospect, score, lead</text>
+    <rect x="470" y="195" width="220" height="44" rx="4" fill="#E3F1FD" stroke="#1F5F96"/>
+    <text x="580" y="214" text-anchor="middle" fill="#1F5F96">4 Lead exists for this prospect?</text>
+    <text x="580" y="231" text-anchor="middle" fill="#1F5F96">yes → 200, no new row</text>
+    <line x1="580" y1="270" x2="856" y2="270" stroke="#3B4256" stroke-width="1.5" marker-end="url(#a)"/>
+    <text x="590" y="262">5 INSERT leads (company_key = phone digits)</text>
+    <line x1="856" y1="300" x2="584" y2="300" stroke="#3B4256" stroke-width="1.5" marker-end="url(#a)"/>
+    <text x="640" y="292">6a commit OK</text>
+    <line x1="576" y1="330" x2="94" y2="330" stroke="#3B4256" stroke-width="1.5" marker-end="url(#a)"/>
+    <text x="300" y="322">7a 201 ProspectDetail → "✓ Saved"</text>
+  </g>
+  <!-- failure -->
+  <g font-size="13" fill="#A62B47">
+    <rect x="600" y="360" width="380" height="64" rx="4" fill="#FDE8EC" stroke="#A62B47"/>
+    <text x="612" y="382">6b unique index uq_leads_company_key violated</text>
+    <text x="612" y="400">(same company saved via its other listing,</text>
+    <text x="612" y="416">or a parallel save) → rollback, nothing saved</text>
+    <line x1="576" y1="450" x2="94" y2="450" stroke="#A62B47" stroke-width="1.5" marker-end="url(#r)"/>
+    <text x="110" y="442">7b 409 company_already_saved (or 200 for the same prospect)</text>
+    <text x="110" y="476">Browser shows the message next to the button.</text>
+    <text x="110" y="494">The button is enabled again, so the user can retry.</text>
+  </g>
+  <text x="24" y="540" font-size="12" fill="#5C6478">Saved state: one leads row with status new. GAF data and the score are not changed. A network failure leaves nothing saved; the user clicks Save again.</text>
+</svg>

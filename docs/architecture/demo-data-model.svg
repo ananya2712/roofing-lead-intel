@@ -1,0 +1,37 @@
+<svg id="db-model" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 730" role="img" aria-labelledby="db-title db-desc" font-family="Arial, sans-serif">
+<title id="db-title">Database model: source facts, calculated priority, and saved work</title>
+<desc id="db-desc">Prospects is the parent table. Each prospect can have zero or one score row and zero or one saved lead. Both child tables reference prospects.id. The lead's prospect_id is unique, and company_key is unique when present.</desc>
+<rect width="1200" height="730" fill="#ffffff"/>
+<g stroke="#ccd6e1" fill="#ffffff" stroke-width="1.5">
+<rect x="360" y="20" width="480" height="270" rx="8"/>
+<rect x="20" y="418" width="530" height="275" rx="8"/>
+<rect x="650" y="418" width="530" height="300" rx="8"/>
+</g>
+<path d="M368 20 H832 Q840 20 840 28 V78 H360 V28 Q360 20 368 20" fill="#0e2a47"/>
+<path d="M28 418 H542 Q550 418 550 426 V476 H20 V426 Q20 418 28 418" fill="#2157a4"/>
+<path d="M658 418 H1172 Q1180 418 1180 426 V476 H650 V426 Q650 418 658 418" fill="#16734d"/>
+<g fill="#ffffff" font-size="25" font-weight="700">
+<text x="384" y="59">prospects</text><text x="44" y="457">prospect_scores</text><text x="674" y="457">leads</text>
+</g>
+<g fill="#53667a" font-size="17"><text x="384" y="107">GAF SOURCE FACTS</text><text x="44" y="507">CALCULATED PRIORITY</text><text x="674" y="507">REPRESENTATIVE WORK</text></g>
+<g fill="#172b42" font-size="20">
+<text x="384" y="145" font-weight="700">id</text><text x="793" y="145" text-anchor="end" font-size="16" fill="#53667a">PK</text>
+<text x="384" y="180">directory + gaf_source_id</text><text x="816" y="180" text-anchor="end" font-size="15" fill="#53667a">UNIQUE</text>
+<text x="384" y="215">name, phone_digits, location</text><text x="384" y="250">distance, certifications, retrieved_at</text>
+<text x="44" y="548" font-weight="700">prospect_id</text><text x="526" y="548" text-anchor="end" font-size="16" fill="#2157a4">PK + FK</text>
+<text x="44" y="587">score</text><text x="526" y="587" text-anchor="end" font-size="16" fill="#53667a">CHECK 0–100</text>
+<text x="44" y="626">breakdown (JSONB)</text><text x="44" y="665">rule_version, scored_at</text>
+<text x="674" y="548" font-weight="700">id</text><text x="1156" y="548" text-anchor="end" font-size="16" fill="#53667a">PK</text>
+<text x="674" y="587" font-weight="700">prospect_id</text><text x="1156" y="587" text-anchor="end" font-size="16" fill="#16734d">FK + UNIQUE</text>
+<text x="674" y="626">company_key</text><text x="1156" y="626" text-anchor="end" font-size="15" fill="#53667a">UNIQUE if present</text>
+<text x="674" y="665">status</text><text x="674" y="698" font-size="18">saved_at, status_changed_at</text>
+</g>
+<g fill="none" stroke="#596f86" stroke-width="2.2">
+<path d="M475 290 V335 H285 V418"/><path d="M725 290 V335 H915 V418"/>
+<path d="M467 301 H483 M717 301 H733"/>
+<circle cx="285" cy="398" r="5" fill="#ffffff"/><path d="M277 412 H293"/>
+<circle cx="915" cy="398" r="5" fill="#ffffff"/><path d="M907 412 H923"/>
+</g>
+<g fill="#ffffff"><rect x="95" y="354" width="380" height="30"/><rect x="715" y="354" width="400" height="30"/></g>
+<g fill="#324b65" font-size="18" text-anchor="middle"><text x="285" y="376">One prospect → zero or one score</text><text x="915" y="376">One prospect → zero or one saved lead</text></g>
+</svg>

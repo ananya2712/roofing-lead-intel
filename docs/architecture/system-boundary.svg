@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 460" width="1000" height="460" font-family="Helvetica, Arial, sans-serif" font-size="14">
+  <title>System boundary: Roofing Lead Intel</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#3B4256"/></marker>
+  </defs>
+  <rect width="1000" height="460" fill="#FFFFFF"/>
+  <text x="24" y="34" font-size="20" font-weight="bold" fill="#1E2333">System boundary (current MVP)</text>
+  <!-- Docker Compose boundary -->
+  <rect x="250" y="70" width="720" height="250" rx="6" fill="#F6F7FB" stroke="#5B4BC4" stroke-dasharray="6 4" stroke-width="1.5"/>
+  <text x="264" y="92" fill="#5B4BC4" font-weight="bold">Docker Compose on the local computer</text>
+  <!-- User -->
+  <rect x="24" y="150" width="170" height="80" rx="6" fill="#E3F1FD" stroke="#1F5F96"/>
+  <text x="109" y="182" text-anchor="middle" font-weight="bold" fill="#1F5F96">Sales representative</text>
+  <text x="109" y="204" text-anchor="middle" fill="#1F5F96">web browser</text>
+  <!-- Frontend -->
+  <rect x="280" y="140" width="200" height="100" rx="6" fill="#EFEBFE" stroke="#5B3FC4"/>
+  <text x="380" y="172" text-anchor="middle" font-weight="bold" fill="#5B3FC4">frontend (Next.js)</text>
+  <text x="380" y="194" text-anchor="middle" fill="#5B3FC4">port 3000</text>
+  <text x="380" y="214" text-anchor="middle" fill="#5B3FC4">pages + /api/v1 proxy</text>
+  <!-- Backend -->
+  <rect x="530" y="140" width="200" height="100" rx="6" fill="#E3F7EC" stroke="#16774A"/>
+  <text x="630" y="172" text-anchor="middle" font-weight="bold" fill="#16774A">backend (Flask)</text>
+  <text x="630" y="194" text-anchor="middle" fill="#16774A">port 5001 → 5000</text>
+  <text x="630" y="214" text-anchor="middle" fill="#16774A">routes, services, scoring</text>
+  <!-- DB -->
+  <rect x="780" y="140" width="170" height="100" rx="6" fill="#FEEEE2" stroke="#A44A12"/>
+  <text x="865" y="172" text-anchor="middle" font-weight="bold" fill="#A44A12">db (PostgreSQL)</text>
+  <text x="865" y="194" text-anchor="middle" fill="#A44A12">volume pgdata</text>
+  <text x="865" y="214" text-anchor="middle" fill="#A44A12">3 tables</text>
+  <!-- Files -->
+  <rect x="530" y="360" width="200" height="70" rx="6" fill="#FDF6D8" stroke="#7C5E05"/>
+  <text x="630" y="388" text-anchor="middle" font-weight="bold" fill="#7C5E05">data/snapshot/*.json</text>
+  <text x="630" y="410" text-anchor="middle" fill="#7C5E05">GAF snapshot, read-only mount</text>
+  <!-- GAF -->
+  <rect x="24" y="360" width="250" height="70" rx="6" fill="#FFFFFF" stroke="#9AA1B2" stroke-dasharray="4 4"/>
+  <text x="149" y="388" text-anchor="middle" font-weight="bold" fill="#5C6478">GAF directory (gaf.com)</text>
+  <text x="149" y="410" text-anchor="middle" fill="#5C6478">external, not called by the app</text>
+  <!-- arrows -->
+  <line x1="194" y1="190" x2="276" y2="190" stroke="#3B4256" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="235" y="180" text-anchor="middle" font-size="12" fill="#3B4256">HTTP</text>
+  <line x1="480" y1="190" x2="526" y2="190" stroke="#3B4256" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="503" y="180" text-anchor="middle" font-size="12" fill="#3B4256">/api/v1</text>
+  <line x1="730" y1="190" x2="776" y2="190" stroke="#3B4256" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="753" y="180" text-anchor="middle" font-size="12" fill="#3B4256">SQL</text>
+  <line x1="630" y1="356" x2="630" y2="244" stroke="#3B4256" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="640" y="300" font-size="12" fill="#3B4256">flask import-snapshot (one time)</text>
+  <line x1="274" y1="395" x2="526" y2="395" stroke="#9AA1B2" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="400" y="385" text-anchor="middle" font-size="12" fill="#5C6478">manual browser collection, 2026-11-05</text>
+  <text x="24" y="450" font-size="12" fill="#5C6478">Solid arrow: runs in the app. Dashed arrow: a manual step outside the app. Trust boundary: the dashed purple box. No login is implemented.</text>
+</svg>
