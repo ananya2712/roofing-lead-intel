@@ -59,11 +59,57 @@
     <div class="eyebrow">Roofing Lead Intel / Repository record</div>
     <h1>Product evolution</h1>
     <p>What changed, why it changed, and how the product fits together. This record follows the source files and keeps unknowns visible.</p>
-    <p class="meta">Latest update: <time datetime="2026-11-05">5 November 2026</time>, Entry 009 (Git history, GitHub remote and record corrections) · Repository: <code>roofing-lead-intel</code></p>
+    <p class="meta">Latest update: <time datetime="2026-11-05">5 November 2026</time>, Entry 010 (page-by-page code walkthrough in deck order) · Repository: <code>roofing-lead-intel</code></p>
   </header>
   <nav aria-label="Contents">
-    <a href="CODE_WALKTHROUGH.html">Current code walkthrough</a><a href="#entry-009">Latest update (Entry 009)</a><a href="#dark-walkthrough">Dark walkthrough (Entry 008)</a><a href="#entry-007">Pastel deck (Entry 007)</a><a href="#entry-006">PATCH and deck update (Entry 006)</a><a href="#granular-architecture">Granular architecture (Entry 007)</a><a href="#presentation-update">Presentation (Entry 006)</a><a href="#tests-update">Tests (Entry 005)</a><a href="#walkthrough-update">Walkthrough update</a><a href="#latest-review">Earlier slide review</a><a href="#changes">Change history</a><a href="#architecture">Earlier architecture snapshot</a><a href="#decisions">Earlier decisions</a><a href="#files">Earlier file map</a><a href="#gaps">Earlier open questions</a><a href="#verification">Earlier verification</a><a href="#maintenance">How this stays current</a>
+    <a href="CODE_WALKTHROUGH.html">Current code walkthrough</a><a href="#entry-010">Latest update (Entry 010)</a><a href="#entry-008">Presentation restyle (Entry 008)</a><a href="#entry-009">Git history (Entry 009)</a><a href="#dark-walkthrough">Dark walkthrough (Entry 008)</a><a href="#entry-007">Pastel deck (Entry 007)</a><a href="#entry-006">PATCH and deck update (Entry 006)</a><a href="#granular-architecture">Granular architecture (Entry 007)</a><a href="#presentation-update">Presentation (Entry 006)</a><a href="#tests-update">Tests (Entry 005)</a><a href="#walkthrough-update">Walkthrough update</a><a href="#latest-review">Earlier slide review</a><a href="#changes">Change history</a><a href="#architecture">Earlier architecture snapshot</a><a href="#decisions">Earlier decisions</a><a href="#files">Earlier file map</a><a href="#gaps">Earlier open questions</a><a href="#verification">Earlier verification</a><a href="#maintenance">How this stays current</a>
   </nav>
+
+  <section id="entry-010">
+    <h2>5 November 2026 · Entry 010 · Code walkthrough split into 28 pages in deck order</h2>
+    <div class="table-scroll"><table>
+      <thead><tr><th scope="col">Area</th><th scope="col">Before</th><th scope="col">After</th><th scope="col">Reason</th><th scope="col">Evidence</th></tr></thead>
+      <tbody>
+        <tr><td>Structure</td><td>One long page with 14 sections (dark theme, <a href="#dark-walkthrough">Entry 008</a>).</td><td><a href="CODE_WALKTHROUGH.html">28 pages</a>. Page N follows slide N of <a href="PROJECT_DEMO.pptx"><code>docs/PROJECT_DEMO.pptx</code></a>: same order, group labels and titles. One page shows at a time. The dark theme stays.</td><td>User request: "split it into a page by page flow, same as the PPT"</td><td>Observed: all 28 titles and group labels match the deck text read after the 16:06 EST restyle (<a href="#entry-008">Entry 008, presentation restyle</a>)</td></tr>
+        <tr><td>Navigation</td><td>Scrolling and a contents list.</td><td>Previous and Next buttons, a page list, arrow keys, and Previous / Next links at the end of each page. "Show all pages" restores one long page. The URL names the page, so links and the Back button work. Without JavaScript and in print, all pages show.</td><td>Keep search, print and existing links usable</td><td>Chromium checks (below)</td></tr>
+        <tr><td>Content</td><td>Walkthrough tables only.</td><td>Each page holds the slide's facts as tables, the walkthrough's detailed tables for that topic, and a "Sources and evidence" table from the slide notes. New pages cover topics that only the deck had: traffic changes, storage policies, the keep-all policy, scheduling options, the proposed <code>lead_events</code> table, more capabilities, test strategy and results by area.</td><td>Same content flow as the deck</td><td>Deck slide text and notes; build-time source checks</td></tr>
+        <tr><td>Required walkthrough content</td><td>—</td><td>Kept: startup and first-open control flow (page 3), save control flow and branches (page 4), database diagram (page 13), complete API inventory (page 16, anchor <code>#api</code>), alternatives with reasons, and future work. The demo scenario in the slide 1 notes is left out (no demo sequence).</td><td><code>AGENTS.md</code> rules for this file</td><td>All 23 earlier section and subsection anchors still exist</td></tr>
+        <tr><td>Corrections</td><td>GET / named "Overview page"; incomplete query inputs; no mention of PATCH 405; "links preserve directory, queue, sort, page"; KPI names that the UI does not use; D19 credited with in-memory filtering; "browser rendering unverified"; outdated concurrency and accessibility limits.</td><td>Sales dashboard (D23) and Mark contacted placement; all inputs, including <code>page_size</code>; PATCH returns 405 (D25); filters, sort and page in the URL, with the directory on dashboard links; UI labels, a note that "Saved leads" means two counts, and the rounded percentage; D19 limited to the SQL directory filter; D20 and D21 cited; the status control restores the old value on failure.</td><td>A read-only audit compared each claim with the code and records</td><td>Each correction checked against the cited file and line</td></tr>
+        <tr><td>Generator</td><td><code>docs/.walkthrough-build/build_technical_tables.py</code> (the other session's dark version, not committed)</td><td>New <code>docs/.walkthrough-build/build_walkthrough_pages.py</code>. The old script is unchanged. If it runs, it replaces the paged file with the old one-page layout.</td><td>Do not overwrite the other session's script</td><td>—</td></tr>
+        <tr><td>Scope</td><td>—</td><td>Documentation only: the walkthrough, its generator and this record.</td><td>—</td><td>No application code, data or tests changed. Application tests were not rerun.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="table-scroll"><table>
+      <thead><tr><th scope="col">Record item</th><th scope="col">State</th></tr></thead>
+      <tbody>
+        <tr><td>Merge</td><td>This record combines the other session's 16:06 EST copy (with <a href="#entry-008">Entry 008, presentation restyle</a>) with <a href="#entry-009">Entry 009</a> and this entry. No entry text from either copy was removed. Only the header line and the contents links changed.</td></tr>
+        <tr><td>Entry numbers</td><td>Number 008 now names two entries: <a href="#dark-walkthrough">dark walkthrough</a> and <a href="#entry-008">presentation restyle</a>. The restyle entry was written at 16:06 EST, after Entry 009. The old headings stay as history.</td></tr>
+        <tr><td>Open record issue</td><td><code>docs/BUILD_PROGRESS.md</code> still states 106 passing tests in places; <code>docs/TEST_RESULTS.md</code> records 107. Not changed in this entry.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="table-scroll"><table>
+      <thead><tr><th scope="col">Check</th><th scope="col">Command or action</th><th scope="col">Result</th><th scope="col">Not checked</th></tr></thead>
+      <tbody>
+        <tr><td>Source references</td><td><code>python3 docs/.walkthrough-build/build_walkthrough_pages.py</code></td><td>Built 28 pages and 86 tables. Every cited function, class, text and path exists; the build stops otherwise.</td><td>—</td></tr>
+        <tr><td>HTML integrity</td><td>Python standard-library HTML parser on the walkthrough</td><td>Passed: 97 unique IDs; all 314 links resolve; 0 external assets</td><td>Full HTML standards validation</td></tr>
+        <tr><td>Old anchors</td><td>Compare section and subsection IDs with the previous walkthrough</td><td>23 of 23 kept, including <code>#api</code>, which this record links to</td><td>—</td></tr>
+        <tr><td>Deck match</td><td>Extract slide text from <code>docs/PROJECT_DEMO.pptx</code> (16:06 EST version); compare with page titles and group labels</td><td>28 of 28 titles and 28 of 28 group labels match</td><td>Slide charts and diagrams appear as tables, not as images</td></tr>
+        <tr><td>Paged behavior</td><td>Headless Chromium (Playwright), 35 checks</td><td>All passed: one page at a time; Previous, Next, arrow keys and page list; deep links to <code>#startup-control</code>, <code>#test-findings</code> and <code>#api</code>; Show all pages; print and no-JavaScript views show all 28 pages; focus moves to the page heading; no page-level overflow at 1280 px and 390 px; at 390 px the heading shows below the sticky bar; 0 script errors</td><td>Firefox, Safari and screen readers</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="entry-008">
+    <h2>5 November 2026 · Entry 008 · Presentation restyle: white boxes, mixed visuals</h2>
+    <div class="table-scroll"><table>
+      <thead><tr><th scope="col">Area</th><th scope="col">Before</th><th scope="col">After</th><th scope="col">Evidence</th></tr></thead>
+      <tbody>
+        <tr><td>Boxes</td><td>Pastel fills</td><td>White boxes with thin colored accent bars or borders</td><td>Rendered previews</td></tr>
+        <tr><td>Layouts</td><td>A table on almost every slide</td><td>Tables on 13 of 28 slides; diagrams, checklists, card grids, a Flask vs FastAPI comparison, a positioning matrix, a rollout timeline and 3 native charts on the others</td><td>Package check pass; 0 layout findings</td></tr>
+        <tr><td>Source</td><td><code>build_pastel.mjs</code></td><td><code>build_clean.mjs</code> (local only, not in git)</td><td>—</td></tr>
+      </tbody>
+    </table></div>
+  </section>
 
   <section id="entry-009">
     <h2>5 November 2026 · Entry 009 · Git history, GitHub remote and record corrections</h2>
