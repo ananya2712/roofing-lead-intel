@@ -10,3 +10,6 @@ playwright-report/
 .venv/
 .DS_Store
 tsconfig.tsbuildinfo
+
+# Local deck build files (previews, drafts, build scripts)
+docs/.presentation-build/
