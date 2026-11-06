@@ -14,6 +14,7 @@ from pydantic import BaseModel, Field, field_validator
 
 
 class SnapshotRecord(BaseModel):
+    """One contractor record as collected from GAF. Invalid records are reported, not imported."""
     gaf_source_id: str = Field(min_length=1, max_length=32)
     profile_url: str
     name: str = Field(min_length=1)
@@ -35,6 +36,7 @@ class SnapshotRecord(BaseModel):
     @field_validator("profile_url")
     @classmethod
     def _gaf_url(cls, v: str) -> str:
+        """Accept only gaf.com profile links."""
         if not v.startswith("https://www.gaf.com/"):
             raise ValueError("profile_url must be a gaf.com URL")
         return v
@@ -42,6 +44,7 @@ class SnapshotRecord(BaseModel):
     @field_validator("website_url")
     @classmethod
     def _http_url(cls, v: str | None) -> str | None:
+        """Keep only http(s) website links. Other values become unknown."""
         if v and not v.lower().startswith(("http://", "https://")):
             return None
         return v
@@ -49,10 +52,12 @@ class SnapshotRecord(BaseModel):
     @field_validator("rating")
     @classmethod
     def _rating(cls, v: float | None) -> float | None:
+        """Keep a rating only from 0 to 5. Other values become unknown."""
         return v if v is None or 0 <= v <= 5 else None
 
 
 class Snapshot(BaseModel):
+    """One snapshot file: search parameters, GAF total, collection time and records."""
     directory: str
     postal_code: str
     radius_mi: int
@@ -65,6 +70,7 @@ class Snapshot(BaseModel):
     @field_validator("directory")
     @classmethod
     def _directory(cls, v: str) -> str:
+        """Accept only residential or commercial."""
         if v not in ("residential", "commercial"):
             raise ValueError("directory must be residential or commercial")
         return v

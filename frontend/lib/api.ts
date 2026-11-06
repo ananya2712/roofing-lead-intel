@@ -1,3 +1,4 @@
+// Typed API client generated from openapi.yaml, plus error helpers.
 import createClient from "openapi-fetch";
 import type { components, paths } from "./api-types";
 

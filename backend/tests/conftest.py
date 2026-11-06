@@ -19,6 +19,7 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 def _env() -> dict:
+    """Read KEY=VALUE pairs from the repository .env file (for the database password)."""
     values = {}
     for line in (ROOT / ".env").read_text().splitlines():
         if "=" in line and not line.lstrip().startswith("#"):
@@ -76,7 +77,8 @@ RESIDENTIAL = [
     ("T45", dict(distance_mi=5.0, retrieved_at=STALE.isoformat()), 45, "medium"),
     ("T44", dict(distance_mi=20.0, distinctions=["GAF Certified™ - Certification"], retrieved_at=STALE.isoformat()), 44, "low"),
     ("ZERO", dict(distance_mi=12.0, rating=0.0, review_count=0, phone="(212) 555-0104"), 22 + 10 + 10 + 5, "medium"),
-    ("TWINR", dict(distance_mi=8.0, phone="(212) 555-0190", **{k: v for k, v in FULL.items() if k != "phone"}), 35 + 10 + 10 + 10 + 5 + 5, "high"),
+    # TWINR and TWINC are one company: GAF gives it the same ID in both directories (D26).
+    ("TWINR", dict(gaf_source_id="TEST-TWIN", distance_mi=8.0, phone="(212) 555-0190", **{k: v for k, v in FULL.items() if k != "phone"}), 35 + 10 + 10 + 10 + 5 + 5, "high"),
     ("SAVE1", dict(distance_mi=9.0, phone="(212) 555-0111"), 35 + 10 + 10 + 5, "medium"),
     ("SAVE2", dict(distance_mi=9.0, phone="(212) 555-0112"), 60, "medium"),
     ("SAVE3", dict(distance_mi=9.0, phone="(212) 555-0113"), 60, "medium"),
@@ -90,11 +92,12 @@ RESIDENTIAL = [
 COMMERCIAL = [
     ("CNOTECH", dict(distance_mi=30.0), 10 + 0 + 5, "low"),
     ("CTECH", dict(distance_mi=30.0, specialties=["Single-Ply Roofer"], distinctions=["GAF GoldElite™ Commercial Contractor"]), 10 + 12 + 10 + 5, "low"),
-    ("TWINC", dict(distance_mi=8.0, phone="(212) 555-0190", specialties=["Asphaltic Roofer"]), 35 + 10 + 10 + 5, "medium"),
+    ("TWINC", dict(gaf_source_id="TEST-TWIN", distance_mi=8.0, phone="(212) 555-0190", specialties=["Asphaltic Roofer"]), 35 + 10 + 10 + 5, "medium"),
 ]
 
 
 def snapshot(directory: str, records: list[dict], expected: int | None = None) -> dict:
+    """Build a snapshot file body around the given test records."""
     return {
         "source": "TEST", "directory": directory, "postal_code": "10013", "radius_mi": 50,
         "search_url": "https://example.com/test", "expected_total": expected if expected is not None else len(records),
@@ -104,6 +107,7 @@ def snapshot(directory: str, records: list[dict], expected: int | None = None) -
 
 @pytest.fixture(scope="session")
 def engine():
+    """Database engine for the demo database. Deletes TEST- rows before and after the run."""
     eng = create_engine(DB_URL)
     with eng.begin() as c:
         for q in CLEANUP_SQL:
@@ -117,6 +121,7 @@ def engine():
 
 @pytest.fixture(scope="session")
 def app(engine):
+    """Flask app connected to the demo database."""
     from app import create_app
     from app.config import Config
 
@@ -125,6 +130,7 @@ def app(engine):
 
 @pytest.fixture()
 def client(app):
+    """Flask test client for in-process API calls."""
     return app.test_client()
 
 
@@ -144,9 +150,13 @@ def test_prospects(app, engine, tmp_path_factory) -> dict[str, int]:
     with app.app_context(), session_scope() as s:
         ids = import_file(s, res).prospect_ids + import_file(s, com).prospect_ids
         rescore_all(s, NOW, ids)
+    # Map each record label to its prospect id. The twin labels share one GAF ID,
+    # so the lookup uses directory + GAF ID.
+    labels = {("residential", rec(s, **f)["gaf_source_id"]): s for s, f, _, _ in RESIDENTIAL}
+    labels |= {("commercial", rec(s, **f)["gaf_source_id"]): s for s, f, _, _ in COMMERCIAL}
     with engine.connect() as c:
-        rows = c.execute(text("SELECT gaf_source_id, id FROM prospects WHERE gaf_source_id LIKE 'TEST-%'")).all()
-    return {sid.removeprefix("TEST-"): pid for sid, pid in rows}
+        rows = c.execute(text("SELECT directory, gaf_source_id, id FROM prospects WHERE gaf_source_id LIKE 'TEST-%'")).all()
+    return {labels[(d, sid)]: pid for d, sid, pid in rows if (d, sid) in labels}
 
 
 @pytest.fixture(autouse=True)
@@ -160,6 +170,7 @@ def _clean_test_leads(engine):
 
 
 def sql(engine, query: str, **params):
+    """Run one SQL statement in its own transaction. Return rows only when it returns rows."""
     with engine.begin() as c:
         result = c.execute(text(query), params)
         return result.all() if result.returns_rows else []
@@ -171,6 +182,7 @@ OPENAPI = yaml.safe_load((ROOT / "openapi.yaml").read_text())
 
 
 def _resolve(schema: dict) -> dict:
+    """Follow $ref links until a real OpenAPI schema is found."""
     while "$ref" in schema:
         schema = OPENAPI["components"]["schemas"][schema["$ref"].split("/")[-1]]
     return schema
@@ -219,6 +231,7 @@ def check_schema(value, schema: dict, path: str = "$") -> list[str]:
 
 
 def response_schema(path: str, method: str, status: int) -> dict:
+    """Return the openapi.yaml JSON schema for one path, method and status."""
     op = OPENAPI["paths"][path][method]
     resp = op["responses"][str(status)]
     if "$ref" in resp:

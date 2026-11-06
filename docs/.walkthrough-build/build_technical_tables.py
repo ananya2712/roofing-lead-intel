@@ -9,9 +9,22 @@ target=root/'docs/CODE_WALKTHROUGH.html'
 old=target.read_text()
 archive=root/'docs/.walkthrough-build/archive/walkthrough-before-technical-tables.html'
 if not archive.exists():archive.write_text(old)
-svgs=re.findall(r'<svg\b.*?</svg>',old,re.S)
-flow=next(s for s in svgs if 'id="request-flow"' in s)
-db=next(s for s in svgs if 'id="db-model"' in s)
+flow=(root/'docs/architecture/request-flow.svg').read_text()
+db=(root/'docs/architecture/demo-data-model.svg').read_text()
+# Embedded copies use dark colors. The standalone diagram sources remain editable.
+for old,new in {
+    '#FFFFFF':'#0B1220','#F5F7FA':'#142238','#EAF5EF':'#12362F',
+    '#DCE3EC':'#35485F','#0E2A47':'#E9F2FF','#172B42':'#DFE9F6',
+    '#53667A':'#A9BBD0','#2157A4':'#78B7FF','#16734D':'#65D8AA',
+}.items():flow=flow.replace(old,new)
+db=db.replace('<g fill="#ffffff" font-size="25"','<g fill="#f6f9ff" font-size="25"')
+for old,new in {
+    '#ffffff':'#0B1220','#ccd6e1':'#35485F','#172b42':'#DFE9F6',
+    '#53667a':'#A9BBD0','#324b65':'#C7D9EE','#596f86':'#8CA3BD',
+    '#2157a4':'#78B7FF','#16734d':'#65D8AA',
+}.items():db=db.replace(old,new)
+# Preserve high-contrast colored headers while keeping their labels white.
+db=db.replace('fill="#0e2a47"','fill="#173B64"',1).replace('fill="#78B7FF"','fill="#2157A4"',1).replace('fill="#65D8AA"','fill="#16734D"',1)
 
 def c(value):return '<code>'+escape(value)+'</code>'
 def link(path,label=None):return f'<a href="../{path}">{label or c(path)}</a>'
@@ -67,6 +80,14 @@ section('flow','Architecture and data flow',diagram_table('System request path',
  ('Save/status mutation','Validate → service write → commit → response → reconcile UI.','Commit defines persisted truth; UI pending/error state is not persistence.','Optimistic UI alone cannot enforce identity or recover an ambiguous commit.'),
  ('Service layout','Modular monolith: routes, services, queries, models.','Keeps HTTP, policy, and persistence responsibilities separate.','Microservices introduce distributed failures and deployment boundaries without a measured need.'),
 ]))
+
+section('collection','Collection pipeline',table('One-time recorded GAF collection on 5 November 2026; not a live in-app scraper.',['Stage','Implemented / observed','Production extension'],[
+ ('Access and territory','Plain HTTP received 403. A normal Chrome session read GAF search results. ZIP 10013 with countryCode=us and a 50-mile radius produced 176 residential and 233 commercial listings.','Obtain approved feed or partner access; define refresh cadence and territory coverage.'),
+ ('Result and profile reads','Read every result page, then each profile about 1.5 seconds apart. Captured listing IDs, contact/location facts, distinctions and timestamps. Raw HTML was not stored.','Record run ID, source timestamp, completeness, failures and rate limits; alert on partial runs.'),
+ ('Validation and storage','Two JSON snapshots → load_snapshot → normalize → upsert by (directory, gaf_source_id). Lead rows remain independent.','Add a source reader interface; stage a complete run before publication and preserve existing lead status.'),
+ ('Priority publication','rescore_all calculates stored scores for imported IDs after source import; source and score commits are separate.','Publish refreshed facts and scores consistently; make retries safe after either stage fails.'),
+]))
+
 
 startup=table('Source-traced control flow, not an instrumented browser trace. Startup occurs when services launch, not every time a page opens.',['Phase','File / function','Control and result'],[
  ('Backend worker start',ref('backend/wsgi.py',needle='app = create_app()')+' → '+ref('backend/app/__init__.py','create_app'),'Gunicorn imports wsgi:app. create_app calls load_config, init_db, then registers session cleanup, JSON error handlers, /api/v1 blueprint, and CLI commands.'),
@@ -132,7 +153,12 @@ section('rules','Scoring and business rules',table('D7–D9/D12; comparisons are
  ('New / Contacted / Qualified / Dismissed; any transition allowed.','D13: representatives can correct status mistakes.','Finite-state workflow with restricted transitions','No required stage-gating policy. Current last-writer-wins edits have no version check or audit history.'),
  ('Follow-up: Contacted and unchanged for ≥14 days.','D12: uses the approved interval and existing timestamp.','Reminder date / last-contact event','Requires additional workflow/data. Current timestamp measures status age, not verified call history.'),
  ('No unsave; Dismissed removes work from active lists.','D9: retain saved work.','Delete/unsave endpoint','Would discard the saved-work boundary. UI/API currently expose no such action.'),
-]))
+])+subsection('ideal-customer-profile','Ideal customer profile',table('D7 uses public GAF signals, not measured purchase intent. The current weights are uncalibrated against sales outcomes.',['Trait','Signal and points','Reason'],[
+ ('Territory fit','Distance: 35','Delivery cost and representative travel.'),
+ ('Product fit','Certification: 20; roof systems: 10; specialty: 5','Manufacturer standing and roof segment match.'),
+ ('Contact readiness','Phone: 10; website: 10; address: 5; freshness: 5','A representative can act on reachable, recent information.'),
+ ('Excluded','Ratings, reviews, search rank, size: 0','These do not establish buying need.'),
+])))
 
 api=[
  ('GET','/health','None','Database connectivity','200 '+c('{"status":"ok"}')),
@@ -172,15 +198,23 @@ section('reliability','Reliability and current limitations',table('Recorded choi
  ('No queue, cache, or status history','No active slow provider path; no measured need or approved audit requirement.','Durable jobs, cache, event history','Adds recovery/invalidation/schema complexity. Introduce each only for a defined requirement.'),
 ]))
 
-section('extensibility','Production extensibility — proposed',table('Extension map; these modules exist, but the additions below are not implemented',['Addition / trigger','Affected boundary','Data / contract change','Compatibility / proof needed'],[
- ('Approved new data source','collection/snapshot.py, importer.py, cli.py','Map provider data to validated records; extract reader/upsert boundary because import_file currently calls load_snapshot directly.','Keep listing identity explicit; validate fields, provenance, empty/failure states, and duplicate handling.'),
- ('Periodic refresh / stale data','Importer + rescore command; future scheduler','Define source access, refresh interval, complete-ingest publication, freshness policy.','Preserve lead status; prove retry/reimport safety and consistent score coverage.'),
- ('New score version','scoring.py + prospect_scores + detail response','New rule version/weights; rescore stored results.','Version score meaning; check breakdown compatibility and boundary examples. Do not silently change historical interpretation.'),
- ('Login / representative ownership','Lead model, API access checks, queries, UI session','owner_id/territory policy; revise global company-key uniqueness as needed.','Potentially breaking access semantics; prove isolation and define who can save the same company.'),
- ('Additional territories','Snapshot reader, prospect/territory queries, scoring','Model per-territory distance and search origin rather than assuming one fixed ZIP.','Identity remains company/listing based; validate distance, counts, and scores per territory.'),
- ('Status history / trends','update_status + new status-event table','Write event and status in the same transaction.','Additive response fields; prove one event per real transition before reporting historical conversion.'),
- ('Notes / AI insight, only after approval','Lead services/UI; disconnected additional/insights draft','Note schema/history or insight table + durable job state; provider timeouts/retries.','Additive APIs where possible; preserve saved leads on failure; validate sources/claims and bound cost.'),
-]))
+section('extensibility','Production extensibility — proposed',
+    subsection('production-collection','Collection and refresh pipeline',table('Current importer reads local JSON. Live collection requires approved source access.',['Change','Code boundary','Why / proof needed'],[
+        ('Approved source reader','collection/snapshot.py, importer.py, cli.py','Extract a reader interface: import_file currently calls load_snapshot directly. Preserve directory + source ID and reject invalid or duplicate records.'),
+        ('Scheduled refresh','CLI + future job runner','Run one refresh per source with run ID, completeness checks, bounded retry, alerts, and source timestamps. Verify that repeat imports preserve lead status.'),
+        ('Publish scores with facts','importer.py, scoring.py, prospect_scores','Current source and score writes commit separately. Stage or publish a complete run so a scoring failure cannot expose mismatched facts and scores.'),
+    ]))+
+    subsection('production-database','Database and query path',table('Change the schema before real data needs upgrading; scale queries only after measuring them.',['Change','Code boundary','Why / proof needed'],[
+        ('Versioned migrations + recovery','db.py, models.py, new migration files','create_all creates missing tables but cannot upgrade existing columns. Test an upgrade and a backup restore before production use.'),
+        ('Ownership and uniqueness','leads, services.py, queries.py','Define whether company uniqueness applies per representative or territory; then migrate the unique key and prove users cannot read or edit each other’s leads.'),
+        ('SQL filtering and indexes','services.list_leads, services.overview, queries.py','Move Python filtering/counting to SQL after measured row, memory or latency growth. Keep total counts distinct from visible-page counts.'),
+    ]))+
+    subsection('production-llm','LLM research and insight jobs',table('The disconnected additional/insights draft has not run or been tested. It must stay separate from deterministic scoring.',['Change','Code boundary','Why / proof needed'],[
+        ('Durable insight job','additional/insights/service.py; proposed lead_insights table','Save the lead first. Enqueue an idempotent job with generating, ready, failed and stale states. A process-local thread pool cannot recover work after a worker restart.'),
+        ('Safe page fetch','additional/insights/website.py','Check resolved addresses and each redirect, restrict domains/response size, and respect robots and approved data access. Redirects currently follow without destination checks.'),
+        ('Grounded output','additional/insights/generator.py','Validate each claim against a source passage. A URL in the input alone does not prove the claim. Treat page text as untrusted and review generated advice before use.'),
+        ('Control cost and change','proposed job records and monitoring','Version model/prompt/schema, bound tokens and retries, record cost, latency and failures. AI never changes the rule-based priority score.'),
+    ])))
 
 section('future','Future work and rollout priorities',table('Suggested order; proposals do not change the approved application scope',['When','Work','Why / acceptance condition','Why not build it all now'],[
  ('First: correctness','Retain regression coverage for distance coercion, API contracts, uniqueness, time boundaries, and mutation refresh; add CI.','Allowed filters work; contract success/null/error shapes agree; repeat/concurrent saves preserve identity.','Tests have run under D22. CI, broader browser coverage, and production verification remain separate work.'),
@@ -193,23 +227,47 @@ section('future','Future work and rollout priorities',table('Suggested order; pr
 section('verification','Testing and evidence',table('This revision changes documentation only; it does not rerun application tests',['Check / test','Purpose','Current evidence / status'],[
  ('Source inventory','Compare route decorators, schemas, models, decision log.','Eight endpoints and three tables inspected. Notes/AI remain deferred.'),
  ('Last manual data check','Confirm imported data and a known filter issue.','Prior review: stats 200 with 409 prospects. The former max_distance=10 failure is fixed by an integer parser/allowed-band validator; TEST_RESULTS.md records the regression passing.'),
- ('API/database integration tests','Save/repeat/race/conflict, reimport preservation, scoring boundaries, API validation.','TEST_RESULTS.md records 106 passes across API/database/browser coverage on 2026-11-05. D22 authorizes isolated marker-scoped rows in the demo database; not rerun for this presentation.'),
+ ('API/database integration tests','Save/repeat/race/conflict, reimport preservation, scoring boundaries, API validation.','TEST_RESULTS.md records 107 passes across API/database/browser coverage on 2026-11-05. D22 authorizes isolated marker-scoped rows in the demo database; not rerun for this presentation.'),
  ('Playwright browser tests','Filter/detail/save/status/counts/reload; keyboard, narrow layout, network errors.','Recorded: 10 Chromium browser tests pass, including recovery, keyboard save, directory navigation and narrow layouts. Other browsers and a full accessibility audit remain uncovered.'),
  ('Build/type checks','Catch TypeScript/build regressions.','The test report records typecheck/build passing. Compilation is supporting evidence, not proof of persistence or the full user flow.'),
  ('HTML review','Unique anchors, local links, well-formed embedded SVGs, complete route inventory.','Checked at handoff. Browser rendering remains unverified because the browser host was unavailable.'),
-]))
+])+subsection('test-findings','Seven failures found during testing',table('The 107-test report records four application bugs, two test bugs and one stale-container failure.',['Finding','Cause','Fix'],[
+ ('F1 Distance filter returned 422','Query text was declared as Literal integers.','Parse an integer, then check 10/25/50.'),
+ ('F2 Save returned lead: null','ORM kept a pre-insert relationship in the session.','Expire loaded state after commit.'),
+ ('F5 Raw network error; F7 phone overflow','Network text reached the UI; navigation and a hidden table label widened the page.','Use action-specific errors; wrap controls and contain the table label.'),
+ ('F3 and F6 test errors','UPDATE helper expected rows; Search locator matched two controls.','Fix the SQL helper and searchbox locator.'),
+ ('F4 restart test','Container still ran code from before F2.','Rebuild backend and rerun.'),
+])))
 
 references=[
  ('backend/app/models.py','Tables, constraints, relationships'),('backend/app/scoring.py','Priority rules'),
  ('backend/app/services.py','Workflow and queue logic'),('backend/app/queries.py','SQL filtering and aggregates'),
  ('backend/app/api/__init__.py','Route handlers'),('backend/app/schemas.py','Validation / response types'),
  ('openapi.yaml','API contract'),('frontend/app/leads/page.tsx','Saved-lead UI'),
- ('docs/DECISION_LOG.md','Recorded choices'),('docs/TEST_PLAN.md','Coverage plan and execution status'),('docs/TEST_RESULTS.md','Recorded 106-pass run, fixes, and limits'),
- ('docs/operations/production-extensibility.md','Extension proposals'),('docs/operations/production-readiness.md','Production handoff'),
+ ('docs/DECISION_LOG.md','Recorded choices'),('docs/TEST_PLAN.md','Coverage plan and execution status'),('docs/TEST_RESULTS.md','Recorded 107-pass run, fixes, and limits'),
+ ('docs/operations/production-extensibility.md','Extension proposals'),('docs/operations/production-readiness.md','Production handoff'),('additional/insights/README.md','Disconnected LLM draft'),
 ]
 refs='<details><summary>Source references</summary>'+table('Repository sources',['File','Responsibility'],[(link(p),label) for p,label in references])+'</details>'
 css='''
-:root{--ink:#172b42;--muted:#53667a;--line:#dce3ec;--blue:#2157a4;--soft:#f5f7fa}*{box-sizing:border-box}body{margin:0;background:#fff;color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}main{max-width:1280px;margin:auto;padding:32px 26px 60px}h1{font-size:clamp(2rem,4.5vw,3rem);line-height:1.15;margin:0 0 14px;letter-spacing:-.03em}h2{font-size:1.4rem;margin:0 0 12px}h3{font-size:1.07rem;color:var(--blue);margin:23px 0 10px}.figure-table{min-width:0}.figure-table td{padding:0;font-weight:400}.figure-table .diagram{border:0;margin:0}section{border-top:1px solid var(--line);margin-top:25px;padding-top:22px}nav{display:flex;flex-wrap:wrap;gap:8px 17px;padding:15px 0 4px;font-size:.9rem}a{color:var(--blue);text-underline-offset:3px}a:focus-visible,summary:focus-visible,.scroll:focus-visible{outline:3px solid var(--blue);outline-offset:4px}code{font:0.88em/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;overflow-wrap:anywhere}.scroll{overflow:auto;margin:13px 0 20px}table{border-collapse:collapse;width:100%;min-width:760px;table-layout:auto}caption{text-align:left;color:var(--muted);font-size:.85rem;padding:0 0 9px;max-width:100ch}th,td{border:1px solid var(--line);padding:11px 12px;text-align:left;vertical-align:top;overflow-wrap:break-word}th{background:var(--soft);font-weight:650}td:first-child{font-weight:550;min-width:135px}table:has(th:nth-child(5)){min-width:1050px}th:nth-child(n+2){min-width:150px}.meta table{min-width:0}.meta td:first-child{width:130px}.meta td{font-size:.86rem;padding:7px 10px}.diagram{overflow:auto;border:1px solid var(--line);border-radius:5px;margin:16px 0}.diagram svg{width:100%;height:auto;min-width:760px;display:block}details{border-top:1px solid var(--line);margin-top:26px;padding-top:16px}summary{font-weight:600;cursor:pointer}.num{color:var(--blue);font-size:.9em;margin-right:8px}@media(max-width:650px){main{padding:22px 14px 40px}th,td{padding:9px}h2{font-size:1.2rem}}@media print{nav{display:none}main{padding:0;max-width:none}table{min-width:0!important;font-size:10px}th,td{padding:5px;min-width:0!important}.diagram svg{min-width:0}tr{break-inside:avoid}a{color:inherit}}
+:root{color-scheme:dark;--bg:#0B1220;--panel:#101C2D;--soft:#17263B;--ink:#E4EDF8;--muted:#A9BBD0;--line:#31445A;--blue:#80BFFF;--green:#70DBB0}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse 900px 420px at 15% -5%,#19345C 0%,transparent 70%),var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:1280px;margin:auto;padding:34px 26px 68px}
+header{padding:20px 0 22px;border-bottom:1px solid var(--line)}
+h1{font-size:clamp(2.2rem,4.7vw,3.5rem);line-height:1.1;margin:0 0 20px;letter-spacing:-.035em;color:#F2F7FF}
+h2{font-size:1.55rem;line-height:1.2;margin:0 0 15px;color:#F2F7FF}
+h3{font-size:1.15rem;color:var(--blue);margin:28px 0 10px}
+section{border-top:1px solid var(--line);margin-top:30px;padding-top:27px;scroll-margin-top:20px}
+nav{display:flex;flex-wrap:wrap;gap:8px 18px;padding:20px 0 2px;font-size:.92rem}
+a{color:var(--blue);text-underline-offset:3px}a:hover{color:#B8DDFF}a:focus-visible,summary:focus-visible,.scroll:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+code{font:0.88em/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;overflow-wrap:anywhere;color:#B5DBFF}
+.scroll{overflow:auto;margin:13px 0 20px;border-radius:8px}table{border-collapse:collapse;width:100%;min-width:760px;table-layout:auto;background:var(--panel)}caption{text-align:left;color:var(--muted);font-size:.87rem;padding:0 0 10px;max-width:105ch;background:var(--bg)}th,td{border:1px solid var(--line);padding:12px 13px;text-align:left;vertical-align:top;overflow-wrap:break-word}th{background:var(--soft);color:#F0F6FF;font-weight:650}tbody tr:nth-child(even){background:#132137}td:first-child{font-weight:590;min-width:135px}table:has(th:nth-child(5)){min-width:1050px}th:nth-child(n+2){min-width:150px}
+.meta table{min-width:0}.meta td:first-child{width:130px}.meta td{font-size:.86rem;padding:8px 10px}
+.figure-table{min-width:0}.figure-table td{padding:0;font-weight:400}.figure-table .diagram{border:0;margin:0}.diagram{overflow:auto;border:1px solid var(--line);border-radius:7px;margin:16px 0;background:var(--bg)}.diagram svg{width:100%;height:auto;min-width:760px;display:block}
+details{border-top:1px solid var(--line);margin-top:28px;padding-top:18px}summary{font-weight:650;cursor:pointer}.num{color:var(--green);font-size:.76em;margin-right:12px;font-variant-numeric:tabular-nums}
+@media(max-width:650px){main{padding:20px 14px 42px}th,td{padding:9px}h2{font-size:1.25rem}h3{font-size:1.06rem}}
+@media print{body{background:#fff;color:#111}header,section,details{border-color:#888}nav{display:none}main{padding:0;max-width:none}table{min-width:0!important;font-size:10px;background:#fff}th,td{padding:5px;min-width:0!important;border-color:#999;color:#111}th{background:#eee}tbody tr:nth-child(even){background:#fafafa}.diagram svg{min-width:0}tr{break-inside:avoid}a,code,h1,h2,h3{color:#111}}
 '''
 date=datetime.now().astimezone().strftime('%d %B %Y, %H:%M %Z')
 metadata='<div class="meta">'+table('',['Reference','Status'],[('Updated',date),('Format','Technical tables, embedded diagrams; one offline HTML file.'),('Decision evidence','Recorded choices are attributed by ID. Unrecorded alternative comparisons are explicitly inferred. Future additions are proposals.')])+'</div>'

@@ -1,4 +1,5 @@
 "use client";
+// Prospects (/prospects): KPI cards, charts, filters and the paged prospect table.
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useCallback, useEffect, useState } from "react";
@@ -33,6 +34,7 @@ const CHIP_LABELS: Partial<Record<keyof Filters, (v: string) => string>> = {
   hide_saved: () => "Hiding saved",
 };
 
+/** Prospects view. Filters, sort and page are kept in the URL. */
 function ProspectsView() {
   const router = useRouter();
   const pathname = usePathname();
@@ -58,6 +60,7 @@ function ProspectsView() {
     [sp, router, pathname],
   );
 
+  // Wait 300 ms after typing, so each keystroke does not start a request.
   useEffect(() => {
     const t = setTimeout(() => {
       if (search !== filters.q) setFilters({ q: search });
@@ -225,8 +228,10 @@ function ProspectsView() {
   );
 }
 
+/** Route component for /prospects. */
 export default function ProspectsPage() {
   return (
+    // useSearchParams needs a Suspense boundary for the static build.
     <Suspense fallback={<SkeletonRows />}>
       <ProspectsView />
     </Suspense>

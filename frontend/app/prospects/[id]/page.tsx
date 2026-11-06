@@ -1,4 +1,5 @@
 "use client";
+// Prospect details: GAF facts, score breakdown, unknowns, save and status actions.
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
@@ -14,6 +15,7 @@ import { useLoad } from "@/lib/useLoad";
 
 const UNKNOWN = <span className="text-ink-faint">Unknown</span>;
 
+/** Titled card section of the prospect page. */
 function Card({ title, label, children }: { title: string; label?: string; children: React.ReactNode }) {
   return (
     <section className="overflow-hidden rounded-md border border-line bg-surface shadow-card" aria-label={title}>
@@ -26,6 +28,7 @@ function Card({ title, label, children }: { title: string; label?: string; child
   );
 }
 
+/** One label and value row in a fact list. */
 function Fact({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="grid grid-cols-[140px_1fr] gap-3 py-1.5 text-sm">
@@ -35,6 +38,7 @@ function Fact({ label, children }: { label: string; children: React.ReactNode })
   );
 }
 
+/** About text, cut to 320 characters with a "Read more" toggle. */
 function About({ text }: { text: string }) {
   const [open, setOpen] = useState(false);
   const long = text.length > 320;
@@ -50,6 +54,7 @@ function About({ text }: { text: string }) {
   );
 }
 
+/** Prospect details: facts, score breakdown, unknown fields, save and status. */
 export default function ProspectPage() {
   const { id } = useParams<{ id: string }>();
   const router = useRouter();
@@ -64,6 +69,7 @@ export default function ProspectPage() {
   const update = (d: ProspectDetail) => detail.setData(() => d);
   const [marking, setMarking] = useState(false);
 
+  // Shown only for New leads; the server response replaces the page data.
   async function markContacted(leadId: number) {
     setMarking(true);
     try {

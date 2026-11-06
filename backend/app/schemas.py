@@ -20,12 +20,14 @@ class QueryModel(BaseModel):
     @model_validator(mode="before")
     @classmethod
     def _drop_empty(cls, data):
+        """Treat an empty query value (?tier=) as no filter."""
         if isinstance(data, dict):
             return {k: v for k, v in data.items() if v != ""}
         return data
 
 
 class ProspectQuery(QueryModel):
+    """Query parameters for GET /prospects."""
     q: str | None = Field(default=None, max_length=100)
     directory: Directory | None = None
     tier: Tier | None = None
@@ -40,6 +42,7 @@ class ProspectQuery(QueryModel):
     @field_validator("max_distance")
     @classmethod
     def _band(cls, v: int | None) -> int | None:
+        """Allow only the distance bands 10, 25 and 50 miles."""
         if v is not None and v not in (10, 25, 50):
             raise ValueError("max_distance must be 10, 25 or 50")
         return v
@@ -48,6 +51,7 @@ class ProspectQuery(QueryModel):
 
 
 class LeadQuery(QueryModel):
+    """Query parameters for GET /leads."""
     q: str | None = Field(default=None, max_length=100)
     # scope replaces the old status=dismissed / show_dismissed overlap.
     scope: Literal["active", "all", "dismissed"] = "active"
@@ -61,16 +65,19 @@ class LeadQuery(QueryModel):
 
 
 class DirectoryQuery(QueryModel):
+    """Optional directory filter for the dashboard and the stats."""
     directory: Directory | None = None
 
 
 class StatusUpdate(BaseModel):
+    """Request body for POST /leads/{id}/status."""
     status: LeadStatus
 
 
 # ---------- responses ----------
 
 class ScoreItem(BaseModel):
+    """One scoring category in a score breakdown."""
     key: str
     label: str
     points: int
@@ -80,11 +87,13 @@ class ScoreItem(BaseModel):
 
 
 class LinkedListing(BaseModel):
+    """A link to another listing of the same company."""
     prospect_id: int
     directory: Directory
 
 
 class ProspectSummary(BaseModel):
+    """One row of the Prospects table."""
     id: int
     directory: Directory
     name: str
@@ -104,16 +113,19 @@ class ProspectSummary(BaseModel):
 
 
 class Page_(BaseModel):
+    """Paging fields shared by list responses."""
     total: int
     page: int
     page_size: int
 
 
 class ProspectList(Page_):
+    """One page of Prospects table rows."""
     items: list[ProspectSummary]
 
 
 class LeadInfo(BaseModel):
+    """Lead state shown on the prospect page."""
     id: int
     status: LeadStatus
     saved_at: datetime
@@ -121,6 +133,7 @@ class LeadInfo(BaseModel):
 
 
 class ProspectDetail(BaseModel):
+    """All data that the prospect page shows."""
     id: int
     directory: Directory
     gaf_source_id: str
@@ -151,6 +164,7 @@ class ProspectDetail(BaseModel):
 
 
 class LeadSummary(BaseModel):
+    """One saved-lead row, with its top reason and follow-up flag."""
     lead_id: int
     prospect_id: int
     name: str
@@ -169,6 +183,7 @@ class LeadSummary(BaseModel):
 
 
 class LeadList(Page_):
+    """One page of leads, plus counts for all saved leads in the directory."""
     items: list[LeadSummary]
     status_counts: dict[str, int]
     queue_counts: dict[str, int]
@@ -176,6 +191,7 @@ class LeadList(Page_):
 
 
 class ProspectStats(BaseModel):
+    """Counts for the Prospects KPI cards and charts."""
     total: int
     high: int
     saved: int
@@ -188,6 +204,7 @@ class ProspectStats(BaseModel):
 
 
 class Overview(BaseModel):
+    """Counts and lists for the Sales dashboard."""
     saved: int
     not_contacted: int
     contacted: int

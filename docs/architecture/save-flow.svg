@@ -29,7 +29,7 @@
     <text x="580" y="214" text-anchor="middle" fill="#1F5F96">4 Lead exists for this prospect?</text>
     <text x="580" y="231" text-anchor="middle" fill="#1F5F96">yes → 200, no new row</text>
     <line x1="580" y1="270" x2="856" y2="270" stroke="#3B4256" stroke-width="1.5" marker-end="url(#a)"/>
-    <text x="590" y="262">5 INSERT leads (company_key = phone digits)</text>
+    <text x="590" y="262">5 INSERT leads (company_key = GAF ID)</text>
     <line x1="856" y1="300" x2="584" y2="300" stroke="#3B4256" stroke-width="1.5" marker-end="url(#a)"/>
     <text x="640" y="292">6a commit OK</text>
     <line x1="576" y1="330" x2="94" y2="330" stroke="#3B4256" stroke-width="1.5" marker-end="url(#a)"/>

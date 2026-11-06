@@ -1,4 +1,5 @@
 "use client";
+// Saved leads (/leads): call lists, status cards, filters, sort, and a table or phone cards.
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useCallback, useEffect, useState } from "react";
@@ -45,6 +46,7 @@ function ContactActions({ lead, row }: { lead: LeadSummary; row?: RowState }) {
   );
 }
 
+/** Status control, time since the last change, and the Follow-up due badge. */
 function StatusCell({ lead, onSaved, onMessage }: { lead: LeadSummary; onSaved: () => void; onMessage: (t: string, ok: boolean) => void }) {
   return (
     <div className="space-y-0.5">
@@ -55,6 +57,7 @@ function StatusCell({ lead, onSaved, onMessage }: { lead: LeadSummary; onSaved: 
   );
 }
 
+/** Saved leads view. Filters, sort and page are kept in the URL. */
 function LeadsView() {
   const router = useRouter();
   const pathname = usePathname();
@@ -78,6 +81,7 @@ function LeadsView() {
     [sp, router, pathname],
   );
 
+  // Wait 300 ms after typing, so each keystroke does not start a request.
   useEffect(() => {
     const t = setTimeout(() => {
       if (search !== filters.q) setFilters({ q: search });
@@ -269,8 +273,10 @@ function LeadsView() {
   );
 }
 
+/** Route component for /leads. */
 export default function LeadsPage() {
   return (
+    // useSearchParams needs a Suspense boundary for the static build.
     <Suspense fallback={<SkeletonRows />}>
       <LeadsView />
     </Suspense>

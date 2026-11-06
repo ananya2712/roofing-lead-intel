@@ -12,6 +12,7 @@ _factory: sessionmaker | None = None
 
 
 def init_db(database_url: str) -> None:
+    """Create the engine and session factory, then create missing tables under a lock."""
     global _engine, _factory
     # A small pool: each gunicorn worker keeps at most 5 + 5 connections.
     _engine = create_engine(database_url, pool_size=5, max_overflow=5, pool_pre_ping=True)
@@ -23,12 +24,14 @@ def init_db(database_url: str) -> None:
 
 
 def get_session() -> Session:
+    """Return the database session of this request. Create it on first use."""
     if "db" not in g:
         g.db = _factory()
     return g.db
 
 
 def close_session(_exc=None) -> None:
+    """Close the session at the end of the request."""
     db = g.pop("db", None)
     if db is not None:
         db.close()

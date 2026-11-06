@@ -1,10 +1,12 @@
 "use client";
+// Labeled select, search and checkbox fields.
 import type { ReactNode } from "react";
 
 const control = "h-9 rounded border border-line bg-surface px-2.5 text-sm text-ink focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20";
 
 type Option = { value: string; label: string };
 
+/** Labeled dropdown. */
 export function SelectField({ id, label, value, options, onChange }: {
   id: string; label: string; value: string; options: Option[]; onChange: (v: string) => void;
 }) {
@@ -20,6 +22,7 @@ export function SelectField({ id, label, value, options, onChange }: {
   );
 }
 
+/** Labeled search box. */
 export function SearchField({ id, label, value, placeholder, onChange }: {
   id: string; label: string; value: string; placeholder: string; onChange: (v: string) => void;
 }) {
@@ -31,6 +34,7 @@ export function SearchField({ id, label, value, placeholder, onChange }: {
   );
 }
 
+/** Labeled checkbox. */
 export function CheckboxField({ id, label, checked, onChange }: {
   id: string; label: ReactNode; checked: boolean; onChange: (v: boolean) => void;
 }) {

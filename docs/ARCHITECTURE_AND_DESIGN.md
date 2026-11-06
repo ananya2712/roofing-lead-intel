@@ -153,7 +153,7 @@ sequenceDiagram
   alt prospect already has a lead
     S-->>API: detail, created = false (200)
   else no lead yet
-    S->>DB: INSERT leads (prospect_id, company_key = phone digits, status new)
+    S->>DB: INSERT leads (prospect_id, company_key = GAF ID, status new)
     alt unique index violation on company_key
       DB-->>S: IntegrityError
       S-->>API: 409 company_already_saved + other prospect id
@@ -190,8 +190,8 @@ erDiagram
   prospects {
     int id PK
     string directory "residential | commercial"
-    string gaf_source_id "unique with directory"
-    string phone_digits "links directories"
+    string gaf_source_id "unique with directory; links directories"
+    string phone_digits
     numeric distance_mi
     text_array distinctions
     text_array specialties
@@ -272,7 +272,7 @@ Redline Enterprises LLC, residential, 38.0 mi, phone listed, no website, full ad
 
 ### Lead rules (`services.py`)
 
-- One lead for each prospect, and one for each company by phone digits (D8).
+- One lead for each prospect, and one for each company by GAF ID (D8, D26). GAF uses the same ID for a company in both directories.
 - Any status can change to any other status (D13). Dismissed hides a lead from the working list.
 - Follow-up due (`is_follow_up_due`): status Contacted and `now - status_changed_at >= 14 days` (`FOLLOW_UP_DAYS`). A status POST with the same status does not change `status_changed_at`, so it does not reset the 14 days.
 - Scope: `active` (default) hides Dismissed; `all` shows every lead; `dismissed` shows only Dismissed.

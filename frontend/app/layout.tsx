@@ -1,3 +1,4 @@
+// App shell for every route: IBM Plex Sans, sidebar and page frame.
 import type { Metadata } from "next";
 import { IBM_Plex_Sans } from "next/font/google";
 
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
   description: "Roofing contractor prospects and saved leads for distributor sales representatives.",
 };
 
+/** Root layout: sidebar and main content area. */
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={plex.variable}>

@@ -9,6 +9,7 @@ from .errors import register_error_handlers
 
 
 def create_app(config=None) -> Flask:
+    """Create the Flask app: database, error handlers, /api/v1 routes and CLI commands."""
     cfg = config or load_config()
     app = Flask(__name__)
     app.config["APP_CONFIG"] = cfg

@@ -36,23 +36,27 @@ FIELD_LABELS = {
 
 
 def _f(v) -> float | None:
+    """Change a Decimal to a float for JSON. Keep None."""
     return float(v) if v is not None else None
 
 
 def _link(p: Prospect | None) -> LinkedListing | None:
+    """Return a LinkedListing for the prospect, or None."""
     return LinkedListing(prospect_id=p.id, directory=p.directory) if p else None
 
 
 def _saved_via(p: Prospect, by_key: dict[str, Lead]) -> LinkedListing | None:
-    lead = by_key.get(p.phone_digits or "")
+    """Return the other listing through which this company is already saved, or None."""
+    lead = by_key.get(p.gaf_source_id)
     if lead and lead.prospect_id != p.id:
         return LinkedListing(prospect_id=lead.prospect_id, directory=lead.prospect.directory)
     return None
 
 
 def summarize_prospects(session: Session, prospects: list[Prospect]) -> list[ProspectSummary]:
+    """Build table rows, with the twin listing and the saved-via link of each prospect."""
     twin_map = queries.twins(session, prospects)
-    by_key = queries.saved_leads_by_key(session, {p.phone_digits for p in prospects if p.phone_digits})
+    by_key = queries.saved_leads_by_key(session, {p.gaf_source_id for p in prospects})
     return [
         ProspectSummary(
             id=p.id, directory=p.directory, name=p.name, city=p.city, state=p.state, phone=p.phone,
@@ -66,16 +70,18 @@ def summarize_prospects(session: Session, prospects: list[Prospect]) -> list[Pro
 
 
 def list_prospects(session: Session, q: ProspectQuery) -> ProspectList:
+    """Return one page of prospect rows for GET /prospects."""
     rows, total = queries.prospect_page(session, q)
     return ProspectList(items=summarize_prospects(session, rows), total=total, page=q.page, page_size=q.page_size)
 
 
 def prospect_detail(session: Session, prospect_id: int) -> ProspectDetail:
+    """Build the prospect page data. Raise 404 when the prospect does not exist."""
     p = queries.prospect_with_everything(session, prospect_id)
     if p is None:
         raise ApiError(404, "not_found", "This prospect does not exist.")
     twin = queries.twins(session, [p]).get(p.id)
-    by_key = queries.saved_leads_by_key(session, {p.phone_digits} if p.phone_digits else set())
+    by_key = queries.saved_leads_by_key(session, {p.gaf_source_id})
     unknown = [label for field, label in FIELD_LABELS.items() if getattr(p, field) in (None, "")]
     if not p.distinctions:
         unknown.append("GAF distinctions")
@@ -102,14 +108,15 @@ def save_prospect(session: Session, prospect_id: int) -> tuple[ProspectDetail, b
         raise ApiError(404, "not_found", "This prospect does not exist.")
     if p.lead is not None:
         return prospect_detail(session, prospect_id), False
-    key = p.phone_digits
+    # GAF uses one ID for a company in both directories (D26).
+    key = p.gaf_source_id
     session.add(Lead(prospect_id=p.id, company_key=key, status="new"))
     try:
         session.commit()
     except IntegrityError:
-        # The unique indexes decide races: one lead per prospect and one per company (D8).
+        # The unique indexes decide races: one lead per prospect and one per company (D8, D26).
         session.rollback()
-        existing = queries.saved_leads_by_key(session, {key} if key else set()).get(key or "")
+        existing = queries.saved_leads_by_key(session, {key}).get(key)
         if existing is not None and existing.prospect_id != prospect_id:
             raise ApiError(409, "company_already_saved",
                            "This company is already saved through its other GAF listing.",
@@ -122,6 +129,7 @@ def save_prospect(session: Session, prospect_id: int) -> tuple[ProspectDetail, b
 
 
 def _lead_or_404(session: Session, lead_id: int) -> Lead:
+    """Load a lead or raise 404."""
     lead = session.get(Lead, lead_id)
     if lead is None:
         raise ApiError(404, "not_found", "This lead does not exist.")
@@ -129,6 +137,7 @@ def _lead_or_404(session: Session, lead_id: int) -> Lead:
 
 
 def update_status(session: Session, lead_id: int, status: str) -> ProspectDetail:
+    """Set the status of a lead. The follow-up clock restarts only on a real change."""
     lead = _lead_or_404(session, lead_id)
     if lead.status != status:
         lead.status = status
@@ -143,6 +152,7 @@ def is_follow_up_due(status: str, status_changed_at: datetime, now: datetime) ->
 
 
 def _lead_summary(lead: Lead, now: datetime) -> LeadSummary:
+    """Build one Saved-leads row, with the follow-up flag at the time `now`."""
     p = lead.prospect
     return LeadSummary(
         lead_id=lead.id, prospect_id=p.id, name=p.name, city=p.city, state=p.state, directory=p.directory,
@@ -154,6 +164,7 @@ def _lead_summary(lead: Lead, now: datetime) -> LeadSummary:
 
 
 def _sort_key(s: LeadSummary):
+    """Default lead order: score (high first), name, lead id."""
     return (-s.score, s.name, s.lead_id)
 
 
@@ -166,6 +177,7 @@ LEAD_SORTS = {
 
 
 def list_leads(session: Session, q: LeadQuery) -> LeadList:
+    """Filter, count, sort and page the saved leads for GET /leads."""
     now = datetime.now(timezone.utc)
     # The directory filter runs in SQL. Counts then describe the chosen directory.
     summaries = [_lead_summary(l, now) for l in queries.all_leads(session, q.directory)]
@@ -198,12 +210,14 @@ def list_leads(session: Session, q: LeadQuery) -> LeadList:
 
 
 def prospect_stats(session: Session, directory: str | None = None) -> ProspectStats:
+    """Return counts for the Prospects KPI cards and charts."""
     base = queries.stats(session, directory)
     return ProspectStats(high=base["tiers"]["high"], saved=len(queries.all_leads(session, directory)),
                          high_unsaved=queries.count_high_unsaved(session, directory), **base)
 
 
 def overview(session: Session, directory: str | None = None) -> Overview:
+    """Return counts and call lists for the Sales dashboard."""
     now = datetime.now(timezone.utc)
     summaries = [_lead_summary(l, now) for l in queries.all_leads(session, directory)]
     active = [s for s in summaries if s.status != "dismissed"]

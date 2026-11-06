@@ -30,6 +30,7 @@ GAF_COLUMNS = (
 
 @dataclass
 class ImportResult:
+    """Counts and problems from the import of one snapshot file."""
     file: str
     directory: str
     expected_total: int | None
@@ -41,10 +42,12 @@ class ImportResult:
 
     @property
     def complete(self) -> bool:
+        """True when every listing that GAF showed was valid and imported."""
         return self.expected_total is not None and self.valid == self.expected_total and not self.invalid
 
 
 def phone_digits(phone: str | None) -> str | None:
+    """Return the 10-digit US phone number, or None. A leading country code 1 is dropped."""
     if not phone:
         return None
     digits = re.sub(r"\D", "", phone)
@@ -54,6 +57,7 @@ def phone_digits(phone: str | None) -> str | None:
 
 
 def _clean(text: str | None) -> str | None:
+    """Collapse white space. Return None for empty text."""
     if text is None:
         return None
     text = re.sub(r"\s+", " ", text).strip()
@@ -61,6 +65,7 @@ def _clean(text: str | None) -> str | None:
 
 
 def normalize(rec: SnapshotRecord, directory: str) -> dict:
+    """Change one snapshot record into a prospects row: clean text, full address, phone digits."""
     street = _clean(rec.street)
     city = _clean(rec.city)
     state = _clean(rec.state)
@@ -88,6 +93,7 @@ def normalize(rec: SnapshotRecord, directory: str) -> dict:
 
 
 def import_file(session: Session, path: Path) -> ImportResult:
+    """Validate one snapshot file and upsert its prospects on directory + GAF ID. Leads do not change."""
     snapshot, records, invalid = load_snapshot(path)
     rows = {}
     for rec in records:

@@ -12,6 +12,7 @@ const LINKS: { href: string; label: string; icon: IconName; countKey?: "total" |
   { href: "/leads", label: "Saved leads", icon: "bookmark", countKey: "saved" },
 ];
 
+/** Main navigation with prospect and saved-lead counts. */
 export function Sidebar() {
   const path = usePathname();
   const [counts, setCounts] = useState<{ total: number; saved: number } | null>(null);

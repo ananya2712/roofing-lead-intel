@@ -30,7 +30,7 @@ The numbers show dependency order within one request. Independent dashboard/Side
 2. Next.js forwards the request.
 3. Flask loads the prospect and any existing lead.
 4. If a lead exists for this prospect, Flask returns 200 and inserts nothing.
-5. Otherwise Flask inserts a lead with `company_key` set to the phone digits.
+5. Otherwise Flask inserts a lead with `company_key` set to the GAF ID (D26).
 6. The commit succeeds (201), or a unique index rejects it. On rejection, nothing is saved and Flask returns 409 with the other listing's ID.
 
 ## Symbols

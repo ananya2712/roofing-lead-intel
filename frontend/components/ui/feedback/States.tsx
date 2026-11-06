@@ -1,5 +1,7 @@
+// Error banner, empty state, loading rows and live status message.
 import type { ReactNode } from "react";
 
+/** Error message with an optional Try again button. */
 export function ErrorBanner({ message, onRetry }: { message: string; onRetry?: () => void }) {
   return (
     <div role="alert" className="flex items-center justify-between gap-3 rounded-md border border-danger/30 bg-danger-soft px-4 py-3 text-sm text-danger-ink">
@@ -13,6 +15,7 @@ export function ErrorBanner({ message, onRetry }: { message: string; onRetry?: (
   );
 }
 
+/** Message shown when a list has no rows. */
 export function EmptyState({ title, action }: { title: string; action?: ReactNode }) {
   return (
     <div className="flex flex-col items-center gap-3 px-4 py-10 text-center">
@@ -22,6 +25,7 @@ export function EmptyState({ title, action }: { title: string; action?: ReactNod
   );
 }
 
+/** Gray placeholder rows while data loads. */
 export function SkeletonRows({ rows = 6 }: { rows?: number }) {
   return (
     <div className="space-y-2 p-4" aria-hidden="true">

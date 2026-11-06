@@ -9,6 +9,7 @@ from .db import session_scope
 
 
 def register_cli(app):
+    """Add the import-snapshot and rescore commands to the Flask CLI."""
     @app.cli.command("import-snapshot")
     @click.option("--dir", "directory", default=None, help="Folder with gaf_*.json files.")
     def import_snapshot(directory):

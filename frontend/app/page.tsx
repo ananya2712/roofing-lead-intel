@@ -1,4 +1,5 @@
 "use client";
+// Sales dashboard (/): pipeline counts, call lists and top unsaved prospects.
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useCallback, useEffect, useState } from "react";
@@ -15,6 +16,7 @@ import { PageHeader } from "@/components/ui/layout/PageHeader";
 import { api, unwrap, type LeadSummary, type Overview } from "@/lib/api";
 import { ago, formatDate, telHref } from "@/lib/format";
 
+/** Titled dashboard panel with an icon and an optional action link. */
 function Panel({ title, hint, icon, tone, action, children }: {
   title: string; hint?: string; icon: IconName; tone: string; action?: React.ReactNode; children: React.ReactNode;
 }) {
@@ -33,14 +35,17 @@ function Panel({ title, hint, icon, tone, action, children }: {
   );
 }
 
+/** Route component for / (Sales dashboard). */
 export default function OverviewPage() {
   return (
+    // useSearchParams needs a Suspense boundary for the static build.
     <Suspense fallback={<SkeletonRows rows={4} />}>
       <OverviewView />
     </Suspense>
   );
 }
 
+/** Sales dashboard view for the directory in the URL. */
 function OverviewView() {
   const router = useRouter();
   const pathname = usePathname();

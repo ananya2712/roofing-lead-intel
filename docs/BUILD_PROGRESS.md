@@ -191,3 +191,71 @@ Give sales representatives of a roofing-materials distributor one place to find 
 | Deck build | `RUNTIME_NODE_MODULES=… node build.mjs v7` | 24 slides; package check pass; 0 layout findings; 24 notes | Native PowerPoint not opened |
 | Slide review | Read rendered previews 4–10, 13, 15, 22, 23 | Readable; no clipping or overlap | Other slides unchanged from v6 and not reinspected |
 
+### 2026-11-05 — Dark HTML walkthrough and production extensions
+
+| Change | Result / reason | Verification boundary |
+| --- | --- | --- |
+| `CODE_WALKTHROUGH.html`; `.walkthrough-build/build_technical_tables.py` | Dark theme and headings; dark embedded architecture and database SVGs; current collection, ideal customer profile, 107-test evidence and failure summary; production tables for collection, PostgreSQL and LLM jobs. | Chromium desktop and 390 px screenshots; no page-level horizontal overflow. SVGs parsed and rendered. No application logic or business data changed. |
+| `PRODUCT_EVOLUTION.html` | Entry 008 records this documentation update while retaining earlier entries. | Application suite not rerun for a documentation change. |
+
+### 2026-11-05 — Pastel deck (28 slides)
+
+| File | Change | Reason |
+| --- | --- | --- |
+| `docs/.presentation-build/full/build_pastel.mjs` (local, not in git) | New deck builder: pastel theme, smaller text, more content from the docs | User request |
+| `docs/PROJECT_DEMO.pptx` | 28 slides: non-table overview; functional / non-functional requirements; high-level architecture; save-flow line diagram; tech choices without REST and Docker Compose; Flask vs FastAPI + REST; scraping pipeline and production pipeline diagrams; scoring fields; ideal residential and commercial profiles; three-stage roadmap; scheduled collection options; append-only lead_events proposal; more capabilities; test strategy by type | User request |
+
+| Check | Command or action | Result | Not checked |
+| --- | --- | --- | --- |
+| Deck build | `node build_pastel.mjs p2` | 28 slides; package check pass; 0 layout findings | Native PowerPoint not opened |
+| Speaker notes | Read notes in the PPTX | 28 of 28 slides have notes | — |
+| Slide review | Read rendered previews 1–7, 9, 13–16, 21–23, 25–27 | Readable; no clipping or overlap | Slides 8, 10–12, 17–20, 24, 28 checked by the layout validator only |
+
+### 2026-11-05 — Deck restyle: white boxes, mixed visuals
+
+| File | Change | Reason |
+| --- | --- | --- |
+| `docs/.presentation-build/full/build_clean.mjs` (local, not in git) | New builder: white boxes with thin accents; tables on 13 slides; diagrams, checklists, cards, timeline, matrix and 3 native charts elsewhere | User request |
+| `docs/PROJECT_DEMO.pptx` | 28 slides rebuilt from `build_clean.mjs` | User request |
+
+| Check | Command or action | Result | Not checked |
+| --- | --- | --- | --- |
+| Deck build | `node build_clean.mjs c2` | 28 slides; package check pass; 0 layout findings; charts have embedded data sheets | Native PowerPoint not opened |
+| Speaker notes | Read notes in the PPTX | 28 of 28 | — |
+| Slide review | Read rendered previews 1, 2, 6, 8, 12, 14, 15, 18, 20–22, 24, 26, 27 | Readable; chart labels and colors fixed on 12 and 26 | Other slides checked by the layout validator only |
+
+
+### 2026-11-05 — Code comments and docstrings
+
+| Area | Change |
+| --- | --- |
+| `backend/app/models.py` | A comment for each column: meaning, source and the rule that uses it |
+| `backend/app/scoring.py` | Module docstring explains the additive points model: 8 categories, points, tiers, unknown data, fields not scored |
+| Backend (`app/`, `tests/conftest.py`) | One-line docstring on every function and class |
+| Frontend | One-line header per page or multi-export file; `/** */` comment on every top-level function. Time-zone comment fixed (D14, not D15) |
+
+| Check | Result |
+| --- | --- |
+| Diff review | Only comments and docstrings changed; one `pass` became a docstring |
+| `pytest tests --ignore=tests/e2e` | 97 passed |
+| `npx tsc --noEmit`, `npm run build` | Pass |
+| Browser tests | Not rerun (no behavior change) |
+
+### 2026-11-05 — Company key changed from phone to GAF ID (D26)
+
+| File or system | Change | Reason |
+| --- | --- | --- |
+| `backend/app/services.py` | `save_prospect` sets `company_key` to the GAF ID; saved-via lookups use the GAF ID | User approved D26 |
+| `backend/app/queries.py` | `twins`, Hide saved and "top prospects not saved" match on the GAF ID | Same rule everywhere |
+| `backend/app/models.py` | `company_key` is `String(32)` (the width of `gaf_source_id`); comments updated. `phone_digits` and its index stay, but nothing matches on them now | No migrations in the MVP (D5) |
+| `backend/tests/conftest.py` | Twin test records share `TEST-TWIN`; the fixture maps records by label | Twins now share a GAF ID |
+| Demo database (one-time SQL) | `ALTER TABLE leads ALTER COLUMN company_key TYPE varchar(32)`; `company_key` = GAF ID for the 3 existing leads | Existing rows match the new rule; statuses and status times did not change |
+| Docs | `DECISION_LOG.md` (D26), `ARCHITECTURE_AND_DESIGN.md`, `architecture/README.md`, `architecture/save-flow.svg` | Describe the new rule |
+
+| Check | Result |
+| --- | --- |
+| `pytest tests --browser chromium` after `docker compose up -d --build backend` | 107 passed |
+| SQL: listings with one GAF ID in both directories | 36 (same as the phone rule) |
+| `GET /prospects/418` | `also_listed_in` and `saved_via` = prospect 1 (unchanged) |
+| `GET /prospects/548`, `/559` | No link between them (the phone rule joined them) |
+| Not updated | `PROJECT_DEMO.pptx`, `CODE_WALKTHROUGH.html`, `PRODUCT_EVOLUTION.html` still describe the phone rule |

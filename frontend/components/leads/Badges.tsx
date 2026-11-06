@@ -1,3 +1,4 @@
+// Lead badges: priority, directory, status and distance, with matching chart colors.
 import { Badge, type Tone } from "@/components/ui/data-display/Badge";
 import type { Directory, LeadStatus, Tier } from "@/lib/api";
 import { titleCase } from "@/lib/format";
@@ -11,6 +12,7 @@ export const TIER_COLOR = { high: "#8EDBB0", medium: "#B9A8F5", low: "#CBD0DA" }
 export const STATUS_COLOR = { new: "#94C8F2", contacted: "#F7B98C", qualified: "#8EDBB0", dismissed: "#CBD0DA" };
 export const DIRECTORY_COLOR = { residential: "#94C8F2", commercial: "#F0D46A" };
 
+/** Score and tier label, for example "92 High". */
 export function PriorityBadge({ score, tier }: { score: number; tier: Tier }) {
   return (
     <Badge tone={TIER_TONE[tier]} dot>
@@ -31,10 +33,12 @@ export function ScoreMeter({ score, tier }: { score: number; tier: Tier }) {
   );
 }
 
+/** Residential or Commercial label. */
 export function DirectoryBadge({ directory }: { directory: Directory }) {
   return <Badge tone={DIRECTORY_TONE[directory]}>{titleCase(directory)}</Badge>;
 }
 
+/** Lead status label with a color dot. */
 export function StatusBadge({ status }: { status: LeadStatus }) {
   return <Badge tone={STATUS_TONE[status]} dot>{titleCase(status)}</Badge>;
 }

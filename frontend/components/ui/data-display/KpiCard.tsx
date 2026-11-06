@@ -1,3 +1,4 @@
+// KPI card and the grid that groups KPI cards.
 import Link from "next/link";
 import type { ReactNode } from "react";
 
@@ -36,6 +37,7 @@ export function KpiCard({ label, value, hint, icon, tone, href, active }: Props)
   ) : body;
 }
 
+/** Responsive grid for KPI cards. */
 export function KpiGroup({ children }: { children: ReactNode }) {
   return (
     <div className="grid grid-cols-2 divide-line overflow-hidden rounded-md border border-line bg-surface shadow-card lg:grid-cols-4 lg:divide-x [&>*:nth-child(odd)]:border-r [&>*:nth-child(odd)]:border-line lg:[&>*:nth-child(odd)]:border-r-0">

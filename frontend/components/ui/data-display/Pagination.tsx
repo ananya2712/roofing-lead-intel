@@ -1,5 +1,6 @@
 type Props = { page: number; pageSize: number; total: number; onPage: (p: number) => void };
 
+/** Previous and Next buttons with the shown range of the total. */
 export function Pagination({ page, pageSize, total, onPage }: Props) {
   const pages = Math.max(1, Math.ceil(total / pageSize));
   const from = total === 0 ? 0 : (page - 1) * pageSize + 1;

@@ -2,8 +2,8 @@
 
 | Topic | Current contract |
 | --- | --- |
-| Source and output | `CODE_WALKTHROUGH.html` → `PROJECT_DEMO.pptx`, 24 editable slides with speaker notes. Slides 5–10: scraping pipeline (method, parameters, production, traffic, storage, all prospects kept). Slide 13: ideal customer profile and scoring rationale. Slides 22–23: tests and failures fixed. File-control flow slides removed (user request). |
-| Format | Follow HTML section order. Concise technical tables; native diagrams. No cover or demo sequence. |
+| Source and output | `docs/.presentation-build/full/build_clean.mjs` (local only; the folder is not in git) → `PROJECT_DEMO.pptx`, 28 editable slides with speaker notes. Run with `RUNTIME_NODE_MODULES` set to the presentation runtime node_modules. |
+| Format | White boxes with thin accent bars (no pastel fills); 27 pt titles, 12–15 pt body. Tables on 13 slides; diagrams, checklists, cards, timeline, matrix and 3 native charts (with embedded data sheets) on the others. |
 | Decisions | Include rationale, alternatives, limitations and production path. Label inferred comparisons and proposed work. |
 | Stack | Next.js/TypeScript → same-origin rewrite → Flask/Pydantic → PostgreSQL/SQLAlchemy. Eight endpoints; three tables. |
 | Architecture visual | Slide 4 and embedded HTML diagram: 12 runtime steps, plus six explicit import/scoring steps. Source: `architecture/request-flow.svg` and `.presentation-build/full/architecture_flow.mjs`. |

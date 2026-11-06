@@ -1,7 +1,40 @@
-"""Deterministic lead-priority score, rule version v1 (decision D7).
+"""Lead-priority score, rule version v1 (decision D7).
 
-The score uses GAF data only. The same prospect and the same effective time
-always give the same result. AI output never changes the score.
+Technique: an additive points model. Eight categories each give a fixed number
+of points from one or two GAF fields. The total is 0–100. There is no machine
+learning, no weighting by sales results and no AI. The same prospect and the
+same effective time always give the same score, so a test can check every point.
+
+Categories (maximum points):
+
+  Fit for a roofing-materials distributor (70)
+    distance        35  <= 10 mi: 35, <= 25 mi: 22, <= 50 mi: 10, farther: 0.
+                        Delivery cost and rep travel depend most on distance.
+    certification   20  Top GAF tier (Master Elite, President's Club,
+                        PlatinumElite, Chairman's Circle): 20.
+                        Other certified tier (Certified, GoldElite, CoatingsPro): 12.
+    roof_systems    10  Residential listing: 10. Commercial listing with
+                        roof technologies listed: 10. The products match ours.
+    specialty        5  FORTIFIED, metal, solar or coating work: higher-value topics.
+
+  Readiness: can a rep act today? (30)
+    phone           10  GAF lists a phone number.
+    website         10  GAF links a company website.
+    address          5  Street, city and state are all present.
+    freshness        5  Data read <= 30 days before the effective time.
+
+Tiers: High >= 70, Medium 45–69, Low < 45.
+
+Rules for missing data: a missing field gets 0 points and its item is marked
+``unknown``, so the UI shows "Unknown" instead of a false zero.
+
+Not scored on purpose: star rating and review count (reputation, and they
+favor large firms), GAF search rank (GAF's order, not ours), years in business
+(sources conflict) and the about text (free text that nobody checks).
+
+Each category returns one breakdown item:
+``{key, label, points, max, reason, unknown}``. The breakdown is stored with the
+score, so the UI can explain every point.
 """
 from __future__ import annotations
 
@@ -21,6 +54,8 @@ SPECIALTY_WORDS = ("fortified", "metal", "solar", "coating")
 
 @dataclass(frozen=True)
 class ScoreInput:
+    """The prospect fields that the rules read. Other fields cannot change the score."""
+
     directory: str
     distance_mi: Decimal | float | None
     distinctions: list[str]
@@ -34,6 +69,7 @@ class ScoreInput:
 
 
 def tier_for(score: int) -> str:
+    """Return "high", "medium" or "low" for a total score."""
     if score >= HIGH_MIN:
         return "high"
     if score >= MEDIUM_MIN:
@@ -42,10 +78,12 @@ def tier_for(score: int) -> str:
 
 
 def _item(key: str, label: str, points: int, maximum: int, reason: str, unknown: bool = False) -> dict:
+    """Build one breakdown item. ``unknown`` means the source field is missing."""
     return {"key": key, "label": label, "points": points, "max": maximum, "reason": reason, "unknown": unknown}
 
 
 def _geographic(distance) -> dict:
+    """Distance band: 35 / 22 / 10 / 0 points. The bands are inclusive (10.0 mi gets 35)."""
     if distance is None:
         return _item("distance", "Distance from ZIP 10013", 0, 35, "Distance is unknown.", unknown=True)
     d = float(distance)
@@ -61,6 +99,7 @@ def _geographic(distance) -> dict:
 
 
 def _certification(distinctions: list[str]) -> dict:
+    """Highest GAF tier found in the distinctions: top 20, certified 12, other 0."""
     lowered = [d.lower() for d in distinctions]
     top = [d for d, low in zip(distinctions, lowered) if any(w in low for w in TOP_TIER)]
     if top:
@@ -74,6 +113,9 @@ def _certification(distinctions: list[str]) -> dict:
 
 
 def _roof_systems(directory: str, specialties: list[str]) -> dict:
+    """10 points when the listing shows roof systems that match the product lines."""
+    # Every residential listing is a steep-slope roofer. A commercial listing
+    # shows its systems only through the technologies it lists.
     if directory == "residential":
         return _item("roof_systems", "Roof systems listed", 10, 10, "Listed in the GAF residential (steep-slope) directory.")
     if specialties:
@@ -82,6 +124,7 @@ def _roof_systems(directory: str, specialties: list[str]) -> dict:
 
 
 def _specialty(distinctions: list[str], specialties: list[str]) -> dict:
+    """5 points for the first FORTIFIED, metal, solar or coating term found."""
     for value in [*specialties, *distinctions]:
         if any(w in value.lower() for w in SPECIALTY_WORDS):
             return _item("specialty", "Specialty roofing", 5, 5, f"Specialty: {value}.")
@@ -89,6 +132,7 @@ def _specialty(distinctions: list[str], specialties: list[str]) -> dict:
 
 
 def _readiness(inp: ScoreInput, effective_time: datetime) -> list[dict]:
+    """Phone (10), website (10), full address (5) and freshness (5)."""
     items = [
         _item("phone", "Phone listed", 10, 10, "GAF lists a phone number.")
         if inp.phone else _item("phone", "Phone listed", 0, 10, "Phone number is unknown.", unknown=True),
@@ -100,6 +144,7 @@ def _readiness(inp: ScoreInput, effective_time: datetime) -> list[dict]:
         _item("address", "Full address", 5, 5, "Street, city and state are listed.")
         if full_address else _item("address", "Full address", 0, 5, "Full address is unknown.", unknown=True)
     )
+    # The effective time is a parameter, not "now", so a rescore is repeatable.
     age = effective_time - inp.retrieved_at
     fresh = age <= timedelta(days=FRESHNESS_DAYS)
     items.append(

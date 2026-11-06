@@ -19,6 +19,7 @@ const PATHS = {
 
 export type IconName = keyof typeof PATHS;
 
+/** Inline SVG icon. Decorative, so screen readers skip it. */
 export function Icon({ name, className = "h-4 w-4" }: { name: IconName; className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
