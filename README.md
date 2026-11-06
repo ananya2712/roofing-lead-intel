@@ -46,6 +46,37 @@ Not in this version: notes, AI insights (draft code in `additional/insights/`) a
 
 To check the API, open http://localhost:5001/api/v1/health. It returns `{"status": "ok"}`.
 
+## Deploy to Render
+
+`render.yaml` is a Render Blueprint (decision D27). It makes three parts on the free plan in region `virginia`:
+
+| Part | Render name | Public URL |
+| --- | --- | --- |
+| PostgreSQL 16 | `roofing-lead-intel-db` | None |
+| Flask API | `roofing-lead-intel-api` | https://roofing-lead-intel-api.onrender.com |
+| Next.js frontend | `roofing-lead-intel` | https://roofing-lead-intel.onrender.com |
+
+1. In the Render Dashboard, select **New > Blueprint**.
+2. Connect the GitHub repository `ananya2712/roofing-lead-intel`, branch `main`.
+3. Select **Deploy Blueprint**. Wait until the two web services show **Live**.
+4. Open the database page. Copy the **External Database URL**.
+5. Import the snapshot files from your computer one time. Use the local backend image, which has the data folder:
+
+   ```bash
+   docker compose build backend
+   docker compose run --rm --no-deps -e DATABASE_URL='<External Database URL>' backend flask import-snapshot
+   ```
+
+6. Open the frontend URL.
+
+The deployed link is public and has no login. Anyone with the link can save leads and change their status.
+
+Limits of the free plan:
+
+- A web service that gets no requests for 15 minutes stops. The next request starts it again in about one minute. About two minutes before a demo, open https://roofing-lead-intel-api.onrender.com/api/v1/health and the frontend URL.
+- The free database expires 30 days after Render makes it. Then make a new database and do step 5 again.
+- If a URL is already in use, Render adds a suffix to the service URL. Then set `BACKEND_URL` on the frontend service to the real API URL. Next.js reads `BACKEND_URL` at build time, so deploy the frontend again after the change.
+
 ## Useful commands
 
 | Task | Command |

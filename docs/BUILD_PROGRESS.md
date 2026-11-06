@@ -259,3 +259,23 @@ Give sales representatives of a roofing-materials distributor one place to find 
 | `GET /prospects/418` | `also_listed_in` and `saved_via` = prospect 1 (unchanged) |
 | `GET /prospects/548`, `/559` | No link between them (the phone rule joined them) |
 | Not updated | `PROJECT_DEMO.pptx`, `CODE_WALKTHROUGH.html`, `PRODUCT_EVOLUTION.html` still describe the phone rule |
+
+### 2026-11-06 — Render deployment files (D27)
+
+| File or system | Change | Reason |
+| --- | --- | --- |
+| `render.yaml` | New Render Blueprint: free PostgreSQL 16 database, API web service, frontend web service, region `virginia`. `PORT` is 5000 for the API and 3000 for the frontend. `BACKEND_URL` is the public API URL | User chose Render (D27) |
+| `backend/app/config.py` | `sqlalchemy_url` changes `postgres://` and `postgresql://` to `postgresql+psycopg://`. The local Compose URL does not change | Render gives a plain PostgreSQL URL. SQLAlchemy would then look for psycopg2, which is not installed |
+| `README.md` | New section "Deploy to Render": steps, one-time import with the external database URL, free-plan limits | Deploy instructions |
+| `docs/DECISION_LOG.md` | D27 | Durable decision |
+
+| Check | Result |
+| --- | --- |
+| `render.yaml` parsed with PyYAML | Pass: 1 database, 2 services |
+| `sqlalchemy_url` with `postgres://`, `postgresql://`, `postgresql+psycopg://` | All give `postgresql+psycopg://` (manual check) |
+| `docker compose up -d --build backend`, then `GET /api/v1/health` | `{"status":"ok"}` |
+| `create_app()` in the backend image with a plain `postgresql://` URL to the local database | Connected; 409 prospects (manual check) |
+| `flask --help` in the backend image | `import-snapshot` and `rescore` are present |
+| Automated tests | Not rerun: the local database URL is unchanged |
+| Render deploy | Not done yet: it needs the user's Render account |
+| Not updated | `PRODUCT_EVOLUTION.html`, `CODE_WALKTHROUGH.html`, `PROJECT_DEMO.pptx` (another session maintains them) |

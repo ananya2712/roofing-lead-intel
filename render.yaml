@@ -1,0 +1,45 @@
+# Render Blueprint (decision D27). It makes the database, the API and the frontend on the free plan.
+# Steps and free-plan limits: README.md, "Deploy to Render".
+databases:
+  - name: roofing-lead-intel-db
+    plan: free
+    region: virginia
+    databaseName: leads
+    user: leads
+    postgresMajorVersion: "16"
+
+services:
+  # Flask API. Tables are made at startup (D5). Import the snapshot one time from your computer.
+  - type: web
+    name: roofing-lead-intel-api
+    runtime: docker
+    plan: free
+    region: virginia
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: roofing-lead-intel-db
+          property: connectionString
+      # gunicorn listens on port 5000 (backend/Dockerfile).
+      - key: PORT
+        value: "5000"
+
+  # Next.js frontend. It forwards /api/v1 to BACKEND_URL (D15).
+  - type: web
+    name: roofing-lead-intel
+    runtime: docker
+    plan: free
+    region: virginia
+    dockerfilePath: ./frontend/Dockerfile
+    dockerContext: ./frontend
+    envVars:
+      # Public API URL: free services cannot receive private network traffic.
+      # Next.js reads this value at build time. If you change it, deploy the frontend again.
+      - key: BACKEND_URL
+        value: https://roofing-lead-intel-api.onrender.com
+      # next start listens on port 3000 (package.json).
+      - key: PORT
+        value: "3000"
